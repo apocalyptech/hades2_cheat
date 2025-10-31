@@ -667,9 +667,15 @@ def main():
             ###
 
             # Default: 3
-            #'fishing_max_fakes': ActionHardcode(0),
-            # Default: 0.34
-            #'fishing_perfect_interval': ActionHardcode(0.64),
+            'fishing_max_fakes': ActionHardcode(0),
+            # Default: 6 (minimum is 2; there's often some dialogue at the start so I
+            # don't want to end up cutting that off)
+            'fishing_gift_max_fakes': ActionHardcode(2),
+            # Default: 0.68
+            'fishing_success_interval': ActionHardcode(1),
+            # Default: 1
+            'fishing_late_interval': ActionHardcode(2),
+            # "Give up" interval is 3; leave that.
 
             ###
             ### God Mode

@@ -40,6 +40,10 @@ change much:
   - Digging up seeds (with the shovel)
   - Mining ores/rocks (with the pickaxe)
   - Compelling/Exorcisng shades for Psyche
+- Makes fishing slightly easier: out in the world there will be zero fake
+  dunks, and while gifting lures at the Crossroads, there will be exactly
+  two fake dunks.  The catch window has been extended slightly too, though
+  it was already much easier in Hades II than it was in the original.
 
 ... and that's it!  As I say, I haven't yet wanted to actually change much.
 
@@ -120,26 +124,30 @@ it will make, listing out the macro tag and then the action that gets
 applied.  Here's the default set:
 
     $ ./hades2_cheat.py -l
-          fishing_chance: Resource-gathering chance of 0.6 (room distance: 1, limit per biome: 3)
-        fishing_distance: Resource-gathering chance of 0.6 (room distance: 1, limit per biome: 3)
-      fishing_other_lock: Resource-gathering chance of 0.6 (room distance: 1, limit per biome: 3)
-     fishing_biome_limit: Resource-gathering chance of 0.6 (room distance: 1, limit per biome: 3)
-           shovel_chance: Resource-gathering chance of 0.6 (room distance: 1, limit per biome: 3)
-         shovel_distance: Resource-gathering chance of 0.6 (room distance: 1, limit per biome: 3)
-       shovel_other_lock: Resource-gathering chance of 0.6 (room distance: 1, limit per biome: 3)
-      shovel_biome_limit: Resource-gathering chance of 0.6 (room distance: 1, limit per biome: 3)
-          pickaxe_chance: Resource-gathering chance of 0.6 (room distance: 1, limit per biome: 3)
-        pickaxe_distance: Resource-gathering chance of 0.6 (room distance: 1, limit per biome: 3)
-      pickaxe_other_lock: Resource-gathering chance of 0.6 (room distance: 1, limit per biome: 3)
-     pickaxe_biome_limit: Resource-gathering chance of 0.6 (room distance: 1, limit per biome: 3)
-          harvest_chance: Resource-gathering chance of 0.6 (room distance: 1, limit per biome: 3)
-        harvest_distance: Resource-gathering chance of 0.6 (room distance: 1, limit per biome: 3)
-      harvest_other_lock: Resource-gathering chance of 0.6 (room distance: 1, limit per biome: 3)
-     harvest_biome_limit: Resource-gathering chance of 0.6 (room distance: 1, limit per biome: 3)
-         exorcism_chance: Resource-gathering chance of 0.5 (room distance: 3, limit per biome: 2)
-       exorcism_distance: Resource-gathering chance of 0.5 (room distance: 3, limit per biome: 2)
-     exorcism_other_lock: Resource-gathering chance of 0.5 (room distance: 3, limit per biome: 2)
-    exorcism_biome_limit: Resource-gathering chance of 0.5 (room distance: 3, limit per biome: 2)
+              fishing_chance: Resource-gathering chance of 0.6 (room distance: 1, limit per biome: 3)
+            fishing_distance: Resource-gathering chance of 0.6 (room distance: 1, limit per biome: 3)
+          fishing_other_lock: Resource-gathering chance of 0.6 (room distance: 1, limit per biome: 3)
+         fishing_biome_limit: Resource-gathering chance of 0.6 (room distance: 1, limit per biome: 3)
+               shovel_chance: Resource-gathering chance of 0.6 (room distance: 1, limit per biome: 3)
+             shovel_distance: Resource-gathering chance of 0.6 (room distance: 1, limit per biome: 3)
+           shovel_other_lock: Resource-gathering chance of 0.6 (room distance: 1, limit per biome: 3)
+          shovel_biome_limit: Resource-gathering chance of 0.6 (room distance: 1, limit per biome: 3)
+              pickaxe_chance: Resource-gathering chance of 0.6 (room distance: 1, limit per biome: 3)
+            pickaxe_distance: Resource-gathering chance of 0.6 (room distance: 1, limit per biome: 3)
+          pickaxe_other_lock: Resource-gathering chance of 0.6 (room distance: 1, limit per biome: 3)
+         pickaxe_biome_limit: Resource-gathering chance of 0.6 (room distance: 1, limit per biome: 3)
+              harvest_chance: Resource-gathering chance of 0.6 (room distance: 1, limit per biome: 3)
+            harvest_distance: Resource-gathering chance of 0.6 (room distance: 1, limit per biome: 3)
+          harvest_other_lock: Resource-gathering chance of 0.6 (room distance: 1, limit per biome: 3)
+         harvest_biome_limit: Resource-gathering chance of 0.6 (room distance: 1, limit per biome: 3)
+             exorcism_chance: Resource-gathering chance of 0.5 (room distance: 3, limit per biome: 2)
+           exorcism_distance: Resource-gathering chance of 0.5 (room distance: 3, limit per biome: 2)
+         exorcism_other_lock: Resource-gathering chance of 0.5 (room distance: 3, limit per biome: 2)
+        exorcism_biome_limit: Resource-gathering chance of 0.5 (room distance: 3, limit per biome: 2)
+           fishing_max_fakes: Hardcoded to: 0
+      fishing_gift_max_fakes: Hardcoded to: 2
+    fishing_success_interval: Hardcoded to: 1
+       fishing_late_interval: Hardcoded to: 2
 
 The `--defaults` option can be used to revert the scripts back to their
 original, default configuration, in case you'd like a quick way to disable
@@ -162,31 +170,76 @@ Templates / Macros
 ------------------
 
 The macro syntax used in the templates is an entirely custom format, but it's
-easy enough.  For instance, around line 2747 in `Scripts/RoomDataF.lua`,
-there are some resource-gathering defined for a specific room, which looks
-like this:
+easy enough.  For instance, around line 851 in `Scripts/HarvestData.lua`,
+there's some definitions for how fishing works:
 
-    ShovelPointChance = @shovel_chance|0.4@,
-    PickaxePointChance = @pickaxe_chance|0.4@,
-    ExorcismPointChance = @exorcism_chance|0.3@,
-    FishingPointChance = @fishing_chance|0.3@,
+    Difficulty =
+    {
+        Default =
+        {
+            NumFakeDunks = { Min = 0, Max = @fishing_max_fakes|3@ },
+            FakeDunkInterval = { Min = 1, Max = 3 },
+            WarnInterval = { Min = 1, Max = 2 },
+            SuccessInterval = @fishing_success_interval|0.68@,
+            WayLateInterval = @fishing_late_interval|1@,
+            GiveUpInterval = 3,
+        },
 
-As you can see, it's enclosed by `@` symbols, with a pipe (`|`) inbetween the
-macro name and the original (default) value.  Inside the `changes` dict in
-the script itself, you'll see some lines which look like this:
+        Gifting =
+        {
+            NumFakeDunks = { Min = 2, Max = @fishing_gift_max_fakes|6@ },
+            FakeDunkInterval = { Min = 1, Max = 5 },
+            WarnInterval = { Min = 1, Max = 3 },
+            SuccessInterval = @fishing_success_interval|0.68@,
+            WayLateInterval = @fishing_late_interval|1@,
+            GiveUpInterval = 3,
+        },
+    },
 
-    'fishing_chance': fishing,
-    'shovel_chance': shovel,
-    'pickaxe_chance': pickaxe,
-    'exorcism_chance': exorcism,
+As you can see, the macros are enclosed by `@` symbols, with a pipe (`|`)
+inbetween the macro name and the original (default) value.  Inside the
+`changes` dict in the script itself, you'll see some lines which look like
+this:
 
-These specific tweaks are actually a bit more complex than some more basic
-edits that could be made, so I won't go into it here, but basically the
-`fishing`, `shovel`, `pickaxe`, and `exorcism` objects define how to alter
-the default values.
+    'fishing_max_fakes': ActionHardcode(0),
+    'fishing_gift_max_fakes': ActionHardcode(2),
+    'fishing_success_interval': ActionHardcode(1),
+    'fishing_late_interval': ActionHardcode(2),
 
-For some more straightforward examples, see my original Hades Cheat Injector,
-which alters quite a bit more in the game data than this currently does.
+These are the simplest form of replacement that the injector can handle.
+`ActionHardcode` merely hardcodes the specified value in place of the
+default one.  So once the injector has been run, it's this stanza which
+ends up in the game data:
+
+    Difficulty =
+    {
+        Default =
+        {
+            NumFakeDunks = { Min = 0, Max = 0 },
+            FakeDunkInterval = { Min = 1, Max = 3 },
+            WarnInterval = { Min = 1, Max = 2 },
+            SuccessInterval = 1,
+            WayLateInterval = 2,
+            GiveUpInterval = 3,
+        },
+
+        Gifting =
+        {
+            NumFakeDunks = { Min = 2, Max = 2 },
+            FakeDunkInterval = { Min = 1, Max = 5 },
+            WarnInterval = { Min = 1, Max = 3 },
+            SuccessInterval = 1,
+            WayLateInterval = 2,
+            GiveUpInterval = 3,
+        },
+    },
+
+There are other actions which can scale the default values rather
+than hardcoding, or enforce a minimum/maximum on the value, or some
+more complex actions to handle things like the resource-gathering
+conditions.  As always, see the source for more details.  My original
+Hades Cheat Injector has some more working examples as well; the
+mechanism is identical.
 
 LICENSE
 -------
@@ -205,6 +258,9 @@ redistribution -- perhaps it's covered by Fair Use?
 
 Changelog
 ---------
+
+**2025-10-28**:
+ - Added tweaks to fishing
 
 **2025-10-27**:
  - Forked from my [Hades Cheat Injector](https://github.com/apocalyptech/hades_cheat)

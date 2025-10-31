@@ -852,21 +852,21 @@ FishingData =
 	{
 		Default =
 		{
-			NumFakeDunks = { Min = 0, Max = 3 },
+			NumFakeDunks = { Min = 0, Max = @fishing_max_fakes|3@ },
 			FakeDunkInterval = { Min = 1, Max = 3 },
 			WarnInterval = { Min = 1, Max = 2 },
-			SuccessInterval = 0.68,
-			WayLateInterval = 1,
+			SuccessInterval = @fishing_success_interval|0.68@,
+			WayLateInterval = @fishing_late_interval|1@,
 			GiveUpInterval = 3,
 		},
 
 		Gifting =
 		{
-			NumFakeDunks = { Min = 2, Max = 6 },
+			NumFakeDunks = { Min = 2, Max = @fishing_gift_max_fakes|6@ },
 			FakeDunkInterval = { Min = 1, Max = 5 },
 			WarnInterval = { Min = 1, Max = 3 },
-			SuccessInterval = 0.68,
-			WayLateInterval = 1,
+			SuccessInterval = @fishing_success_interval|0.68@,
+			WayLateInterval = @fishing_late_interval|1@,
 			GiveUpInterval = 3,
 		},
 	},
