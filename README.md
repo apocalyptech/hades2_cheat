@@ -261,7 +261,7 @@ Changelog
 ---------
 
 **2025-10-31**:
- - Updated to Hades II v1.132940 data ([Post-Launch Patch 1](https://store.steampowered.com/news/app/1145350/view/499462068471074277)
+ - Updated to Hades II v1.132940 data ([Post-Launch Patch 1](https://store.steampowered.com/news/app/1145350/view/499462068471074277))
 
 **2025-10-28**:
  - Added tweaks to fishing
