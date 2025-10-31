@@ -50,11 +50,12 @@ change much:
 Game Compatibility
 ------------------
 
-The files in the `templates` dir were originally copied from game version
-v1.131641, which was the current version around October 24, 2025.  If the
-game's been updated since then, it's entirely possible that some of those files
-may have been updated.  In that case, the changes would need to be merged back
-in to the templates for the script to remain compatible.
+The files in the `templates` dir are up to date as of game version
+v1.132940, which is [Post-Launch Patch 1](https://store.steampowered.com/news/app/1145350/view/499462068471074277),
+released on October 31, 2025.  If the game's been updated since then, it's
+entirely possible that some of those files may have been updated.  In that
+case, the changes would need to be merged back in to the templates for the
+script to remain compatible.
 
 Likewise, if you have any ["real" Hades II mods](https://thunderstore.io/c/hades-ii/)
 installed, those mods may have overwritten some of the files that we edit, so
@@ -258,6 +259,9 @@ redistribution -- perhaps it's covered by Fair Use?
 
 Changelog
 ---------
+
+**2025-10-31**:
+ - Updated to Hades II v1.132940 data ([Post-Launch Patch 1](https://store.steampowered.com/news/app/1145350/view/499462068471074277)
 
 **2025-10-28**:
  - Added tweaks to fishing
