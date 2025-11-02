@@ -29,8 +29,8 @@ in any new tweaks as well: add in whatever macro tags you feel are
 appropriate, and then add them to the `changes` dictionary near the bottom
 of the script.
 
-Currently the script is extremely limited, since I've not yet wanted to
-change much:
+Currently the script mostly just speeds up resource acquisition for a variety
+of things in the game, and doesn't otherwise touch game balance:
 
 - The odds of spawning resource-gathering POIs during runs has been buffed
   up, and more are allowed to spawn (should the RNG be smiling on you) than
@@ -44,8 +44,8 @@ change much:
   dunks, and while gifting lures at the Crossroads, there will be exactly
   two fake dunks.  The catch window has been extended slightly too, though
   it was already much easier in Hades II than it was in the original.
-
-... and that's it!  As I say, I haven't yet wanted to actually change much.
+- Doubles the amount of boss/guardian drops (cinder, tears, etc), including
+  the gem drops from Grave Thirst.
 
 Game Compatibility
 ------------------
@@ -259,6 +259,9 @@ redistribution -- perhaps it's covered by Fair Use?
 
 Changelog
 ---------
+
+**2025-11-01**:
+ - Buffed up boss drop quantities (cinder, tears, etc)
 
 **2025-10-31**:
  - Updated to Hades II v1.132940 data ([Post-Launch Patch 1](https://store.steampowered.com/news/app/1145350/view/499462068471074277))

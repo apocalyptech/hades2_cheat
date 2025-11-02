@@ -597,8 +597,16 @@ def main():
             #'super_shop_cost_scale': ActionScaleInt(0.25),
 
             ###
-            ### Quantity overrides (tends to affect both shops + drops)
+            ### Drop Quantity overrides
             ###
+
+            # Boss/Guardian Drop Quantity (cinder, tears, etc) - default: 1
+            # `Mixer*Boss` are the usual level guardian drops (the letter matches the map)
+            # `Mixer5Common` is Star Dust from Chaos Trials
+            'boss_drop_quantity': ActionHardcode(2),
+
+            # Gem pickup scaling - defaults to 10, plus 10 for each biome cleared
+            'gem_drop_scale': ActionScaleInt(2),
 
             # Health - default: 10
             #'health_qty': ActionHardcode(40),
