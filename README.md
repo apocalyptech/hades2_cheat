@@ -29,8 +29,8 @@ in any new tweaks as well: add in whatever macro tags you feel are
 appropriate, and then add them to the `changes` dictionary near the bottom
 of the script.
 
-Currently the script mostly just speeds up resource acquisition for a variety
-of things in the game, and doesn't otherwise touch game balance:
+Some changes which speed up resource acquisition for a variety of things in
+the game:
 
 - The odds of spawning resource-gathering POIs during runs has been buffed
   up, and more are allowed to spawn (should the RNG be smiling on you) than
@@ -50,6 +50,11 @@ of things in the game, and doesn't otherwise touch game balance:
   - Keepsake advancement
   - Growing plants in the garden
   - Brewing alchemy in the cauldron
+
+And then some stuff that's very much just outright cheating:
+
+- Buffed God Mode.  Starts at 30% damage reduction and goes to 10%,
+  over the course of 20 deaths instead of 30.
 
 Game Compatibility
 ------------------
@@ -155,9 +160,13 @@ applied.  Here's the default set:
       fishing_gift_max_fakes: Hardcoded to: 2
     fishing_success_interval: Hardcoded to: 1
        fishing_late_interval: Hardcoded to: 2
+           godmode_start_pct: God Mode from 70% -> 10%, with 20 steps
+           godmode_per_death: God Mode from 70% -> 10%, with 20 steps
+           godmode_death_cap: God Mode from 70% -> 10%, with 20 steps
        keepsake_evolve_scale: Scale by 0.5
            garden_grow_scale: Scale by 0.5
          cauldron_cook_scale: Scale by 0.5
+
 
 The `--defaults` option can be used to revert the scripts back to their
 original, default configuration, in case you'd like a quick way to disable
@@ -274,6 +283,7 @@ Changelog
    - Keepsake advancement
    - Growing plants in the garden
    - Brewing alchemy in the cauldron
+ - Added God Mode buffs
 
 **2025-11-01**:
  - Buffed up boss drop quantities (cinder, tears, etc)

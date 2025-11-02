@@ -311,17 +311,23 @@ class ActionGodMode(Action):
     """
     Action to handle our God Mode config.  Create one instance of
     this and bind it to multiple macro names.  Handles the following:
-        godmode_base_scale
+        godmode_start_pct
         godmode_per_death
         godmode_death_cap
+
+    Note that the game config (and this class) thinks of this the
+    opposite of how it's displayed ingame.  The game itself displays
+    a "damage reduction" percentage, whereas the game data thinks in
+    terms of "percent damage taken."  Basically the inverse.
     """
 
     def __init__(self, start_pct, end_pct, steps=30, use_default=False):
         """
-        `start_pct` is the base damage scaling, and `end_pct` is the
-        final damage scaling after dying `steps` times.  The effective
-        defaults are 0.8 for `start_pct` and 0.2 for `end_pct`, though
-        `end_pct` doesn't actually show up in the game's scripts at all.
+        `start_pct` is the base percentage of damage you take when first
+        enabling God Mode, and `end_pct` is the final percentage of
+        damage taken after dying `steps` times.  The effective defaults
+        are 0.8 for `start_pct` and 0.2 for `end_pct`, though `end_pct`
+        doesn't actually show up in the game's scripts at all.
         """
         super().__init__(use_default)
         self.start_pct = start_pct
@@ -338,7 +344,7 @@ class ActionGodMode(Action):
 
     def _process(self, name, default):
         match name:
-            case 'godmode_base_scale':
+            case 'godmode_start_pct':
                 return self.start_pct
             case 'godmode_per_death':
                 return round(self.step, 6)
@@ -375,10 +381,8 @@ class TextProcessor:
         4. End-of-file newlines.  Mostly they're not present, but
            sometimes they are, and reading the files in text mode
            seems to obfuscate it.  Whatever, we're just not putting
-           any in.  Currently this results in just one 'messy' diff.
-           (This was, at least, true in Hades 1.  I have not actually
-           checked to see if this is the case in Hades II, but
-           whatever.)
+           any in.  Currently this results in just one 'messy' diff
+           (specifically HeroData.lua).
 
     So whatever, we're being stupid about all this.  Use `chardet` to
     detect the encoding, and then only support a hardcoded few, handling
@@ -554,9 +558,9 @@ def main():
     ### in case I feel like making similar changes in Hades II.
     ###
 
-    # Defaults: 0.8, 0.6
-    # (not doing anything with this yet, but it's identical to Hades I)
-    #godmode = ActionGodMode(0.05, 0)
+    # Defaults are effectively: 0.8, 0.2 (though the "0.2" isn't
+    # actually stored that way in the actual game data)
+    godmode = ActionGodMode(0.7, 0.1, steps=20)
 
     # The defaults vary wildly
     fishing = ActionGathering(0.6)
@@ -603,6 +607,7 @@ def main():
             # Boss/Guardian Drop Quantity (cinder, tears, etc) - default: 1
             # `Mixer*Boss` are the usual level guardian drops (the letter matches the map)
             # `Mixer5Common` is Star Dust from Chaos Trials
+            # `Mixer6Common` is Flux, though we don't actually change that here
             'boss_drop_quantity': ActionHardcode(2),
 
             # Gem pickup scaling - defaults to 10, plus 10 for each biome cleared
@@ -687,13 +692,12 @@ def main():
 
             ###
             ### God Mode
-            ### (not doing anything with this yet, but it's identical to Hades I)
             ###
 
             # Defaults noted above
-            #'godmode_base_scale': godmode,
-            #'godmode_per_death': godmode,
-            #'godmode_death_cap': godmode,
+            'godmode_start_pct': godmode,
+            'godmode_per_death': godmode,
+            'godmode_death_cap': godmode,
 
             ###
             ### Keepsakes
