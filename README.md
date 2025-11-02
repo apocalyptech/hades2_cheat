@@ -46,6 +46,10 @@ of things in the game, and doesn't otherwise touch game balance:
   it was already much easier in Hades II than it was in the original.
 - Doubles the amount of boss/guardian drops (cinder, tears, etc), including
   the gem drops from Grave Thirst.
+- Halves the processing time for a few things in the game:
+  - Keepsake advancement
+  - Growing plants in the garden
+  - Brewing alchemy in the cauldron
 
 Game Compatibility
 ------------------
@@ -125,6 +129,8 @@ it will make, listing out the macro tag and then the action that gets
 applied.  Here's the default set:
 
     $ ./hades2_cheat.py -l
+          boss_drop_quantity: Hardcoded to: 2
+              gem_drop_scale: Scale by 2
               fishing_chance: Resource-gathering chance of 0.6 (room distance: 1, limit per biome: 3)
             fishing_distance: Resource-gathering chance of 0.6 (room distance: 1, limit per biome: 3)
           fishing_other_lock: Resource-gathering chance of 0.6 (room distance: 1, limit per biome: 3)
@@ -149,6 +155,9 @@ applied.  Here's the default set:
       fishing_gift_max_fakes: Hardcoded to: 2
     fishing_success_interval: Hardcoded to: 1
        fishing_late_interval: Hardcoded to: 2
+       keepsake_evolve_scale: Scale by 0.5
+           garden_grow_scale: Scale by 0.5
+         cauldron_cook_scale: Scale by 0.5
 
 The `--defaults` option can be used to revert the scripts back to their
 original, default configuration, in case you'd like a quick way to disable
@@ -259,6 +268,12 @@ redistribution -- perhaps it's covered by Fair Use?
 
 Changelog
 ---------
+
+**2025-11-02**:
+ - Added speedups to the following:
+   - Keepsake advancement
+   - Growing plants in the garden
+   - Brewing alchemy in the cauldron
 
 **2025-11-01**:
  - Buffed up boss drop quantities (cinder, tears, etc)

@@ -697,11 +697,24 @@ def main():
 
             ###
             ### Keepsakes
-            ### (a bit hokey; our regex doesn't support more than one value per line)
             ###
 
-            # Default: '25, 50'
-            #'keepsake_activations': ActionHardcode('2, 2'),
+            # Defaults are 25 + 50
+            'keepsake_evolve_scale': ActionScaleInt(0.5),
+
+            ###
+            ### Gardens
+            ###
+
+            # Defaults vary
+            'garden_grow_scale': ActionScaleInt(0.5),
+
+            ###
+            ### Cauldron Alchemy (nectar, moon dust, etc)
+            ###
+
+            # Defualts vary
+            'cauldron_cook_scale': ActionScaleInt(0.5),
 
             ###
             ### Charon shoplift opportunity chance
