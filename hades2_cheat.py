@@ -507,7 +507,7 @@ class App:
         Process all files in our template dir
         """
         for dirpath, _, filenames in os.walk(self.template_dir):
-            for filename in filenames:
+            for filename in sorted(filenames):
                 self.process_file(os.path.join(dirpath, filename)[len(self.template_dir)+1:], use_defaults)
 
     def process_file(self, filename, use_defaults=False):

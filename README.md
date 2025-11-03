@@ -121,16 +121,24 @@ repo; you'll almost certainly have to specify the game's `Content` directory
 location yourself, though.  Running it on my system yields the following:
 
     $ ./hades2_cheat.py
-    Processing: Scripts/RoomDataQ.lua
+    Processing: Game/Projectiles/PlayerProjectiles.sjson
+    Processing: Scripts/BountyData.lua
+    Processing: Scripts/ConsumableData.lua
+    Processing: Scripts/GardenData.lua
     Processing: Scripts/HarvestData.lua
-    Processing: Scripts/RoomDataI.lua
+    Processing: Scripts/HeroData.lua
+    Processing: Scripts/MailboxData.lua
+    Processing: Scripts/RoomDataChaos.lua
     Processing: Scripts/RoomDataF.lua
+    Processing: Scripts/RoomDataG.lua
+    Processing: Scripts/RoomDataH.lua
+    Processing: Scripts/RoomDataI.lua
+    Processing: Scripts/RoomDataN.lua
     Processing: Scripts/RoomDataO.lua
     Processing: Scripts/RoomDataP.lua
-    Processing: Scripts/RoomDataH.lua
-    Processing: Scripts/RoomDataG.lua
-    Processing: Scripts/RoomDataN.lua
-    Processing: Scripts/RoomDataChaos.lua
+    Processing: Scripts/RoomDataQ.lua
+    Processing: Scripts/TraitData_Keepsake.lua
+    Processing: Scripts/WorldUpgradeData.lua
 
 Using `-l` or `--list-changes` will have the script output the changes that
 it will make, listing out the macro tag and then the action that gets
@@ -285,6 +293,7 @@ Changelog
 
 **2025-11-03**:
  - Doubled Nightmare drops from guardians
+ - Process templates in alphabetical order
 
 **2025-11-02**:
  - Added speedups to the following:
