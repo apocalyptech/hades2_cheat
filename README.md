@@ -50,6 +50,7 @@ the game:
   - Keepsake advancement
   - Growing plants in the garden
   - Brewing alchemy in the cauldron
+- Improves the delivery time for items from Charon's Stash *(still untested!)*
 
 And then some stuff that's very much just outright cheating:
 
@@ -135,40 +136,40 @@ it will make, listing out the macro tag and then the action that gets
 applied.  Here's the default set:
 
     $ ./hades2_cheat.py -l
-         weapon_damage_scale: Scale by 1.5
-          boss_drop_quantity: Hardcoded to: 2
-              gem_drop_scale: Scale by 2
-              fishing_chance: Resource-gathering chance of 0.6 (room distance: 1, limit per biome: 3)
-            fishing_distance: Resource-gathering chance of 0.6 (room distance: 1, limit per biome: 3)
-          fishing_other_lock: Resource-gathering chance of 0.6 (room distance: 1, limit per biome: 3)
-         fishing_biome_limit: Resource-gathering chance of 0.6 (room distance: 1, limit per biome: 3)
-               shovel_chance: Resource-gathering chance of 0.6 (room distance: 1, limit per biome: 3)
-             shovel_distance: Resource-gathering chance of 0.6 (room distance: 1, limit per biome: 3)
-           shovel_other_lock: Resource-gathering chance of 0.6 (room distance: 1, limit per biome: 3)
-          shovel_biome_limit: Resource-gathering chance of 0.6 (room distance: 1, limit per biome: 3)
-              pickaxe_chance: Resource-gathering chance of 0.6 (room distance: 1, limit per biome: 3)
-            pickaxe_distance: Resource-gathering chance of 0.6 (room distance: 1, limit per biome: 3)
-          pickaxe_other_lock: Resource-gathering chance of 0.6 (room distance: 1, limit per biome: 3)
-         pickaxe_biome_limit: Resource-gathering chance of 0.6 (room distance: 1, limit per biome: 3)
-              harvest_chance: Resource-gathering chance of 0.6 (room distance: 1, limit per biome: 3)
-            harvest_distance: Resource-gathering chance of 0.6 (room distance: 1, limit per biome: 3)
-          harvest_other_lock: Resource-gathering chance of 0.6 (room distance: 1, limit per biome: 3)
-         harvest_biome_limit: Resource-gathering chance of 0.6 (room distance: 1, limit per biome: 3)
-             exorcism_chance: Resource-gathering chance of 0.5 (room distance: 3, limit per biome: 2)
-           exorcism_distance: Resource-gathering chance of 0.5 (room distance: 3, limit per biome: 2)
-         exorcism_other_lock: Resource-gathering chance of 0.5 (room distance: 3, limit per biome: 2)
-        exorcism_biome_limit: Resource-gathering chance of 0.5 (room distance: 3, limit per biome: 2)
-           fishing_max_fakes: Hardcoded to: 0
-      fishing_gift_max_fakes: Hardcoded to: 2
-    fishing_success_interval: Hardcoded to: 1
-       fishing_late_interval: Hardcoded to: 2
-           godmode_start_pct: God Mode from 70% -> 10%, with 20 steps
-           godmode_per_death: God Mode from 70% -> 10%, with 20 steps
-           godmode_death_cap: God Mode from 70% -> 10%, with 20 steps
-       keepsake_evolve_scale: Scale by 0.5
-           garden_grow_scale: Scale by 0.5
-         cauldron_cook_scale: Scale by 0.5
-
+            weapon_damage_scale: Scale by 1.5
+    charon_stash_delivery_scale: Scale by 0.4
+             boss_drop_quantity: Hardcoded to: 2
+                 gem_drop_scale: Scale by 2
+                 fishing_chance: Resource-gathering chance of 0.6 (room distance: 1, limit per biome: 3)
+               fishing_distance: Resource-gathering chance of 0.6 (room distance: 1, limit per biome: 3)
+             fishing_other_lock: Resource-gathering chance of 0.6 (room distance: 1, limit per biome: 3)
+            fishing_biome_limit: Resource-gathering chance of 0.6 (room distance: 1, limit per biome: 3)
+                  shovel_chance: Resource-gathering chance of 0.6 (room distance: 1, limit per biome: 3)
+                shovel_distance: Resource-gathering chance of 0.6 (room distance: 1, limit per biome: 3)
+              shovel_other_lock: Resource-gathering chance of 0.6 (room distance: 1, limit per biome: 3)
+             shovel_biome_limit: Resource-gathering chance of 0.6 (room distance: 1, limit per biome: 3)
+                 pickaxe_chance: Resource-gathering chance of 0.6 (room distance: 1, limit per biome: 3)
+               pickaxe_distance: Resource-gathering chance of 0.6 (room distance: 1, limit per biome: 3)
+             pickaxe_other_lock: Resource-gathering chance of 0.6 (room distance: 1, limit per biome: 3)
+            pickaxe_biome_limit: Resource-gathering chance of 0.6 (room distance: 1, limit per biome: 3)
+                 harvest_chance: Resource-gathering chance of 0.6 (room distance: 1, limit per biome: 3)
+               harvest_distance: Resource-gathering chance of 0.6 (room distance: 1, limit per biome: 3)
+             harvest_other_lock: Resource-gathering chance of 0.6 (room distance: 1, limit per biome: 3)
+            harvest_biome_limit: Resource-gathering chance of 0.6 (room distance: 1, limit per biome: 3)
+                exorcism_chance: Resource-gathering chance of 0.5 (room distance: 3, limit per biome: 2)
+              exorcism_distance: Resource-gathering chance of 0.5 (room distance: 3, limit per biome: 2)
+            exorcism_other_lock: Resource-gathering chance of 0.5 (room distance: 3, limit per biome: 2)
+           exorcism_biome_limit: Resource-gathering chance of 0.5 (room distance: 3, limit per biome: 2)
+              fishing_max_fakes: Hardcoded to: 0
+         fishing_gift_max_fakes: Hardcoded to: 2
+       fishing_success_interval: Hardcoded to: 1
+          fishing_late_interval: Hardcoded to: 2
+              godmode_start_pct: God Mode from 70% -> 10%, with 20 steps
+              godmode_per_death: God Mode from 70% -> 10%, with 20 steps
+              godmode_death_cap: God Mode from 70% -> 10%, with 20 steps
+          keepsake_evolve_scale: Scale by 0.5
+              garden_grow_scale: Scale by 0.5
+            cauldron_cook_scale: Scale by 0.5
 
 The `--defaults` option can be used to revert the scripts back to their
 original, default configuration, in case you'd like a quick way to disable
@@ -285,6 +286,7 @@ Changelog
    - Keepsake advancement
    - Growing plants in the garden
    - Brewing alchemy in the cauldron
+   - Deliveries from Charon's Stash
  - Added God Mode buffs
  - Added weapon damage buffs
 

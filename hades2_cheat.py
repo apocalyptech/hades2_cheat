@@ -593,6 +593,9 @@ def main():
             ### Commerce scaling!
             ###
 
+            # Improved delivery times for Charon's Stash
+            'charon_stash_delivery_scale': ActionScaleInt(0.4),
+
             # Darkness/Gem cost at Well of Charon; prices are per-item and quantity is randomized
             #'well_darkness_scale': ActionScaleInt(4, use_default=True),
             #'well_darkness_cost_scale': ActionScaleFloat(4, inverse=True, use_default=True),
