@@ -580,6 +580,9 @@ def main():
             ###
 
             # Scale up various weapon damage
+            'weapon_damage_scale': ActionScaleInt(1.5),
+
+            # Scale up various weapon damage
             #'damage_scale': ActionScaleInt(20),
             #'damage_scale_float': ActionScaleFloat(20),
 

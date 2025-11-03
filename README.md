@@ -55,6 +55,7 @@ And then some stuff that's very much just outright cheating:
 
 - Buffed God Mode.  Starts at 30% damage reduction and goes to 10%,
   over the course of 20 deaths instead of 30.
+- Increased weapon damage by 50%
 
 Game Compatibility
 ------------------
@@ -134,6 +135,7 @@ it will make, listing out the macro tag and then the action that gets
 applied.  Here's the default set:
 
     $ ./hades2_cheat.py -l
+         weapon_damage_scale: Scale by 1.5
           boss_drop_quantity: Hardcoded to: 2
               gem_drop_scale: Scale by 2
               fishing_chance: Resource-gathering chance of 0.6 (room distance: 1, limit per biome: 3)
@@ -284,6 +286,7 @@ Changelog
    - Growing plants in the garden
    - Brewing alchemy in the cauldron
  - Added God Mode buffs
+ - Added weapon damage buffs
 
 **2025-11-01**:
  - Buffed up boss drop quantities (cinder, tears, etc)

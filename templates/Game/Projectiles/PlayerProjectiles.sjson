@@ -1,0 +1,8767 @@
+{ Projectiles = [
+
+	{
+		Name = "1_BaseDamagingProjectile"
+		CanBeProjectileDefenseDestroyed = false
+		UseArmor = false
+		UseVulnerability = false
+		IgnoreDodge = true
+		SimpleImpactSound = "/SFX/Player Sounds/ZagreusShieldRicochet"
+		Effects =
+		[
+			{
+				Name = "OnHitStun"
+				IgnoreName = "_PlayerUnit"
+				Duration = 0
+				DisableMove = true
+				DisableRotate = true
+				DisableAttack = true
+				Active = true
+				CanAffectInvulnerable = false
+				FrontFx = "null"
+			}
+		]
+	}
+	{
+		Name = "ProjectileBlink"
+		DetonateSound = "null"
+		Type = "STRAIGHT"
+		Fuse = 0.0
+		Range = 250
+		Damage = 0
+		DamageRadius = 220.0
+		DamageRadiusScaleY = 0.6
+		DamageRadiusScaleX = 1.1
+		UseRadialImpact = true
+		AutoAdjustForTarget = false
+		UseVulnerability = false
+		NumPenetrations = 999
+		SilentImpactOnInvulnerable = true
+		ClearOnAttackEffects = false
+		Thing =
+		{
+			Graphic = "null"
+			OffsetZ = 70
+			AttachedAnim = "null"
+			RotateGeometry = true
+			Grip = 999999
+			Points =
+			[
+				{
+					X = 48
+					Y = 48
+				}
+				{
+					X = 48
+					Y = -48
+				}
+				{
+					X = -48
+					Y = -48
+				}
+				{
+					X = -48
+					Y = 48
+				}
+			]
+		}
+	}
+	{
+		Name = "ProjectileCastBlink"
+		DetonateSound = "null"
+		Type = "STRAIGHT"
+		Fuse = 0.0
+		Range = 250
+		Damage = 0
+		DamageRadius = 220.0
+		DamageRadiusScaleY = 0.6
+		DamageRadiusScaleX = 1.1
+		UseRadialImpact = true
+		AutoAdjustForTarget = false
+		UseVulnerability = false
+		NumPenetrations = 999
+		SilentImpactOnInvulnerable = true
+		ClearOnAttackEffects = false
+		Thing =
+		{
+			Graphic = "null"
+			OffsetZ = 70
+			AttachedAnim = "null"
+			RotateGeometry = true
+			Grip = 999999
+			Points =
+			[
+				{
+					X = 48
+					Y = 48
+				}
+				{
+					X = 48
+					Y = -48
+				}
+				{
+					X = -48
+					Y = -48
+				}
+				{
+					X = -48
+					Y = 48
+				}
+			]
+		}
+	}
+
+
+	{
+		Name = "ProjectileCast"
+		InheritFrom = "1_BaseDamagingProjectile"
+		Type = "INSTANT"
+		Range = 0.0
+		FuseStart = 3.0
+		Fuse = 3
+		Damage = 0
+		ArmedExpirationDamage = 150
+		ArmedGraphic = "CastCircleArmed"
+		DamageRadius = 430
+		DamageRadiusScaleY = 0.5
+		BlastSpeed = 2000
+		AnimIgnoreBlastRadius = true
+		HideGraphicOnDetonate = true
+		ExpandBlastDuringDetonation = true	
+		CheckUnitImpact = false
+		CheckObstacleImpact = false
+		ImpactVelocity = 0
+		RequireHitCenter = false
+		ImpactFx = "CastCircleUnitFxFront"
+		ArmedImpactFx = "GraspingHandsAttack"
+		DeathFx = "null"
+		UseVulnerability = false
+		DetonateFx = "CastCircleOut"
+		SpeedMultiplierOfEnemyProjectilesInside = 1.0
+		GroupName = "FX_Terrain"
+		UseStartLocation = true
+		SpawnType = "PROJECTILE"
+		SilentImpactOnInvulnerable = true
+		UseAttachedToTimeMultiplier = false
+		IgnoreCoverageAngles = true
+		Thing =
+		{
+			Graphic = "CastCircleIn"
+			OffsetZ = 0
+			Tallness = 50
+			AttachedAnim = "null"
+			Grip = 999999
+			RotateGeometry = true
+			Points =
+			[
+				{
+					X = 32
+					Y = 16
+				}
+				{
+					X = 32
+					Y = -16
+				}
+				{
+					X = -32
+					Y = -16
+				}
+				{
+					X = -32
+					Y = 16
+				}
+			]
+		}
+	}
+	{
+		Name = "ApolloNarrowCast"
+		InheritFrom = "1_BaseDamagingProjectile"
+		Type = "INSTANT"
+		Range = 0.0
+		Damage = 20
+		DamageRadius = 180
+		DamageRadiusScaleY = 0.5
+		CheckUnitImpact = false
+		CheckObstacleImpact = false
+		ImpactVelocity = 0
+		ImpactFx = "CastCircleUnitFxFront"
+		DeathFx = "null"
+		UseVulnerability = false
+		MultiDetonate = true
+		FuseStart = 0
+		TotalFuse = 100
+		Fuse = 0.1334
+		ExpandBlastDuringDetonation = true
+		GroupName = "FX_Terrain"
+		UseStartLocation = true
+		SpawnType = "PROJECTILE"
+		SilentImpactOnInvulnerable = true
+		IgnoreCoverageAngles = true
+		Thing =
+		{
+			Graphic = "LamiaSkyCast"
+			RotateGeometry = true
+			Points =
+			[
+				{ X = 0 Y = 0 }
+			]
+		}
+	}
+	{
+		Name = "ProjectileCastLob"
+		InheritFrom = "1_BaseDamagingProjectile"
+		Type = "LOB"
+		DamageRadius = 400
+		MaxAdjustRate = 60
+		AutoAdjustForTarget = true
+		SpinRate = -360
+		Speed = 1200
+		Gravity = 2000
+		MinRange = 0.0
+		Range = 600
+		LaunchAngle = 30
+		UseStartLocation = false
+		DetonateAtTarget = true
+		DetonateFx = "RadialNovaDionysus"
+		CheckUnitImpact = false
+		CheckObstacleImpact = true
+		ImpactFx = "RadialNovaDionysus"
+		Damage = 50
+		DamageRadiusScaleY = 0.5
+		BlastSpeed = 3000
+		ImpactVelocity = 0
+		DeathFx = "null"
+		UseVulnerability = false
+		GroupName = "Standing"
+		SilentImpactOnInvulnerable = true
+		IgnoreCoverageAngles = true
+		UseRadialImpact = false
+		Thing =
+		{
+			Graphic = "DionysusLobProjectile"
+			OffsetZ = 112
+			Tallness = 50
+			AttachedAnim = "GrenadierShadow"
+			Grip = 999999
+			RotateGeometry = true
+			Points =
+			[
+				{
+					X = 100
+					Y = 50
+				}
+				{
+					X = 100
+					Y = -50
+				}
+				{
+					X = -32
+					Y = 0
+				}
+			]
+		}
+		Effects =
+		[
+			{
+				Name = "OnHitStun"
+				Duration = 0.7
+				DisableMove = true
+				DisableRotate = true
+				DisableAttack = true
+				Active = true
+				CanAffectInvulnerable = false
+			}
+		]
+	}
+	{
+		Name = "ProjectileCastFireball"
+		InheritFrom = "1_BaseDamagingProjectile"
+		Type = "STRAIGHT"
+		DamageRadius = 430
+		MaxAdjustRate = 60
+		Range = 1100
+		Speed = 1200
+		FuseStart = 0
+		Fuse = -1
+		UseStartLocation = false
+		DetonateAtTarget = true
+		DetonateFx = "FireballExplosion"
+		HideGraphicOnDetonate = true
+		CheckUnitImpact = true
+		CheckObstacleImpact = true
+		ImpactFx = "FireballExplosion"
+		Damage = 50
+		DamageRadiusScaleY = 0.5
+		BlastSpeed = 2500
+		ImpactVelocity = 0
+		DeathFx = "null"
+		UseVulnerability = false
+		GroupName = "Standing"
+		SilentImpactOnInvulnerable = true
+		IgnoreCoverageAngles = true
+		DetonateAtVictimLocation = true
+		ObstacleCollisionCheck = "PolygonContainsPoint"
+		Thing =
+		{
+			Graphic = "FireballProjectile"
+			OffsetZ = 112
+			Tallness = 50
+			AttachedAnim = "FireballProjectileShadow"
+			Grip = 999999
+			RotateGeometry = true
+			Points =
+			[
+				{
+					X = 100
+					Y = 50
+				}
+				{
+					X = 100
+					Y = -50
+				}
+				{
+					X = -32
+					Y = 0
+				}
+			]
+		}
+		Effects =
+		[
+			{
+				Name = "OnHitStun"
+				Duration = 0.7
+				DisableMove = true
+				DisableRotate = true
+				DisableAttack = true
+				Active = true
+				CanAffectInvulnerable = false
+			}
+		]
+	}
+	{
+		Name = "ProjectileSprintBall"
+		InheritFrom = "1_BaseDamagingProjectile"
+		Type = "HOMING"
+		Range = 0
+		CheckUnitImpact = false
+		CheckObstacleImpact = false
+		NumPenetrations = 9999
+		BlastSpeed = 2000
+		TotalFuse = 3
+		DamageRadius = 250
+		MaxAdjustRate = 20
+		AdjustRateAcceleration = 0
+		Speed = 1200
+		UseStartLocation = false
+		DetonateFx = "PoseidonCastBoonFx"
+		DetonateSound = "/SFX/Enemy Sounds/Charon/CharonRadialBlast"
+		HideGraphicOnDetonate = true
+		Damage = 300
+		DamageRadiusScaleY = 0.5
+		ImpactVelocity = 0
+		DeathFx = "null"
+		UseVulnerability = false
+		GroupName = "Standing"
+		SilentImpactOnInvulnerable = true
+		DissipateFx = "null"
+		IgnoreCoverageAngles = true
+		Thing =
+		{
+			Graphic = "PoseidonSprintBallIn"
+			AttachedAnim = "MedusaShadow"
+			Grip = 999999
+			RotateGeometry = true
+			Points =
+			[
+				{
+					X = 96
+					Y = 96
+				}
+				{
+					X = 96
+					Y = -96
+				}
+				{
+					X = -96
+					Y = -96
+				}
+				{
+					X = -96
+					Y = 96
+				}
+			]
+		}
+		Effects =
+		[
+			{
+				Name = "OnHitStun"
+				Duration = 0.7
+				DisableMove = true
+				DisableRotate = true
+				DisableAttack = true
+				Active = true
+				CanAffectInvulnerable = false
+			}
+		]
+	}
+	{
+		Name = "ProjectilePotionBall"
+		InheritFrom = "ProjectileSprintBall"
+		CheckUnitImpact = true
+		CheckObstacleImpact = true
+		
+		Thing =
+		{
+			Graphic = "PoseidonPotionBallIn"
+			AttachedAnim = "MedusaShadow"
+			Grip = 999999
+			RotateGeometry = true
+			Points =
+			[
+				{
+					X = 96
+					Y = 96
+				}
+				{
+					X = 96
+					Y = -96
+				}
+				{
+					X = -96
+					Y = -96
+				}
+				{
+					X = -96
+					Y = 96
+				}
+			]
+		}
+	}
+	{
+		Name = "PoseidonOmegaWave"
+		InheritFrom = "1_BaseEnemyProjectile"
+		DetonateFx = "PoseidonOceanSwellDissipateFx"
+		ImpactFx = "PoseidonOmegaWaveImpactFx"
+		Type = "STRAIGHT"
+		DetonateSound = "/SFX/Enemy Sounds/EnemyProjectileDetonateExplode"
+		AttachToOwner = false
+		Fuse = 0.6
+		Speed = 1400
+		Acceleration = -200
+		Range = 800
+		AffectsEnemies = true
+		AffectsFriends = false
+		AffectsSelf = false
+		CheckUnitImpact = true
+		UnlimitedUnitPenetration = true
+		CheckObstacleImpact = false
+		ImpactVelocity = 1200
+		Damage = 40
+		UseRadialImpact = false
+		GroupName = "FX_Terrain"
+		Thing =
+		{
+			Graphic = "PoseidonOceanSwellFxIn"
+			RotateGeometry = true
+			AttachedAnim = "null"
+			GeometryScaleY = 0.5
+			Grip = 999999
+			Scale = 1.0
+			Points =
+			[
+				{
+					X = 40
+					Y = 280
+				}
+				{
+					X = 40
+					Y = -280
+				}
+				{
+					X = -100
+					Y = -360
+				}
+				{
+					X = -100
+					Y = 360
+				}
+			]
+		}
+		Effects =
+		[
+			{
+				Name = "KnockbackGrip"
+				Type = "GRIP"
+				Duration = 0.1
+				Modifier = 0.01
+				HaltOnEnd = true
+				Active = true
+				CanAffectInvulnerable = true
+			}
+		]
+	}
+	{
+		Name = "ProjectileCastHades"
+		InheritFrom = "1_BaseDamagingProjectile"
+		DetonateFx = "null"
+		DetonateSound = "/SFX/Enemy Sounds/Hades/HadesSkullExplode"
+		Type = "HOMING"
+		StartDelay = 0.1
+		MaxAdjustRate = 70
+		AffectsEnemies = true
+		AffectsFriends = false
+		AffectsSelf = false
+		CheckUnitImpact = true
+		CheckObstacleImpact = true
+		NumPenetrations = 0
+		Range = 2000.0
+		Speed = 1250.0
+		DamageRadius = 0
+		Damage = 50
+		UseArmor = true
+		UseVulnerability = false
+		DissipateFx = "BloodstoneHitFxHades"
+		StartFx = "ProjectileFireRing-Bloodstone"
+		ObstacleCollisionCheck = "PolygonContainsPoint"
+		Thing = 
+		{
+			Graphic = "BloodstoneProjectileHades"
+			OffsetZ = 112
+			Tallness = 50
+			AttachedAnim = "null"
+			Grip = 999999
+			RotateGeometry = true
+			Points =
+			[
+				{
+					X = 100
+					Y = 50
+				}
+				{
+					X = 100
+					Y = -50
+				}
+				{
+					X = -32
+					Y = 0
+				}
+			]
+		}
+	}
+	{
+		Name = "SpearWeaponSpin"
+		InheritFrom = "1_BaseDamagingProjectile"
+		DetonateFx = "SpearSwipe360"
+		Type = "STRAIGHT"
+		DetonateSound = "/SFX/Player Sounds/ZagreusSpearSwipe"
+		Fuse = 0.0
+		AffectsEnemies = true
+		AffectsFriends = false
+		Range = 1.0
+		DamageRadius = 480
+		DamageRadiusScaleY = 0.62
+		RequireHitCenter = false
+		BlastSpeed = 2000
+		AttachToOwner = true
+		NumPenetrations = 9999
+		AffectsSelf = false
+		CheckUnitImpact = false
+		CheckObstacleImpact = true
+		UnlimitedUnitPenetration = true
+		Damage = 40
+		ImpactVelocity = 0
+		IgnoreCancelAttachedProjectiles = true
+		UseArmor = false
+		UseVulnerability = false
+		UseDetonationForProjectileDefense = true
+		SilentImpactOnInvulnerable = true
+		DeflectProjectiles = false
+		Thing =
+		{
+			Graphic = "null"
+			OffsetZ = 70
+			Grip = 999999
+		}
+	}
+	{
+		Name = "ApolloCast"
+		InheritFrom = "1_BaseDamagingProjectile"
+		Type = "INSTANT"
+		Range = 0.0
+		Damage = 10
+		DamageRadius = 500
+		DamageRadiusScaleY = 0.5
+		CheckUnitImpact = false
+		CheckObstacleImpact = false
+		ImpactVelocity = 0
+		ImpactFx = "CastCircleUnitFxFront"
+		DeathFx = "null"
+		UseVulnerability = false
+		DetonateFx = "ApolloAoEStrike"
+		MultiDetonate = true
+		FuseStart = 0
+		TotalFuse = 2.0
+		Fuse = 0.1334
+		AnimIgnoreBlastRadius = true
+		ExpandBlastDuringDetonation = true
+		BlastSpeed = 3000
+		GroupName = "FX_Terrain"
+		UseStartLocation = true
+		SpawnType = "PROJECTILE"
+		SilentImpactOnInvulnerable = true
+		IgnoreCoverageAngles = true
+		DissipateFx = "ApolloAoEGroundBurnLong"
+		Thing =
+		{
+			Graphic = "ApolloAoECircle"
+			OffsetZ = 0
+			Tallness = 50
+			AttachedAnim = "null"
+			Grip = 999999
+			RotateGeometry = true
+			Points =
+			[
+				{
+					X = 32
+					Y = 16
+				}
+				{
+					X = 32
+					Y = -16
+				}
+				{
+					X = -32
+					Y = -16
+				}
+				{
+					X = -32
+					Y = 16
+				}
+			]
+		}
+	}
+	{
+		Name = "ApolloCastRapid"
+		InheritFrom = "ApolloCast"
+		DetonateFx = "ApolloAoEStrikeRapid"
+		ImpactFx = null
+		DissipateFx = null
+		Thing = 
+		{
+			Graphic = "InvisibleApolloSoundEmitter"
+		}
+
+	}
+	{
+		Name = "ApolloSingleCastStrike"
+		InheritFrom = "1_BaseDamagingProjectile"
+		Type = "INSTANT"
+		Range = 0.0
+		Damage = 80
+		DamageRadius = 500
+		DamageRadiusScaleY = 0.5
+		CheckUnitImpact = false
+		CheckObstacleImpact = false
+		ImpactVelocity = 0
+		ImpactFx = "CastCircleUnitFxFront"
+		DeathFx = "null"
+		UseVulnerability = false
+		DetonateFx = "ApolloAoEStrike"
+		AnimIgnoreBlastRadius = true
+		ExpandBlastDuringDetonation = true
+		BlastSpeed = 3000
+		GroupName = "FX_Terrain"
+		UseStartLocation = true
+		SpawnType = "PROJECTILE"
+		SilentImpactOnInvulnerable = true
+		IgnoreCoverageAngles = true
+		//DissipateFx = "ApolloAoEGroundBurnLong"
+		Thing =
+		{
+			Graphic = "ApolloAoECircle"
+			OffsetZ = 0
+			Tallness = 50
+			AttachedAnim = "null"
+			Grip = 999999
+			RotateGeometry = true
+			Points =
+			[
+				{
+					X = 32
+					Y = 16
+				}
+				{
+					X = 32
+					Y = -16
+				}
+				{
+					X = -32
+					Y = -16
+				}
+				{
+					X = -32
+					Y = 16
+				}
+			]
+		}
+	}
+	{
+		Name = "ProjectileTorchRepeatStrike"
+		InheritFrom = "1_BaseDamagingProjectile"
+		Type = "INSTANT"
+		Range = 0.0
+		Damage = 75
+		DamageRadius = 450
+		DamageRadiusScaleY = 0.5
+		CheckUnitImpact = false
+		CheckObstacleImpact = false
+		ImpactVelocity = 0
+		ImpactFx = "CastCircleUnitFxFront"
+		DeathFx = "null"
+		UseVulnerability = true
+		DetonateFx = "RadialNovaPentagramCharged"
+		DetonateSound = "/SFX/Player Sounds/MelTorchFireOmega"
+		MultiDetonate = true
+		FuseStart = 0
+		Fuse = 0.35
+		MaxDetonations = 1
+		ExpandBlastDuringDetonation = true
+		BlastSpeed = 3000
+		GroupName = "FX_Terrain"
+		UseStartLocation = true
+		SpawnType = "PROJECTILE"
+		SilentImpactOnInvulnerable = true
+		Thing =
+		{
+			OffsetZ = 0
+			Tallness = 50
+			AttachedAnim = "null"
+			Grip = 999999
+			RotateGeometry = true
+			Points =
+			[
+				{
+					X = 32
+					Y = 16
+				}
+				{
+					X = 32
+					Y = -16
+				}
+				{
+					X = -32
+					Y = -16
+				}
+				{
+					X = -32
+					Y = 16
+				}
+			]
+		}
+	}
+	{
+		Name = "PoseidonCast"
+		InheritFrom = "1_BaseProjectile"
+		DetonateFx = "PoseidonCastBoonFx"
+		Type = "INSTANT"
+		Fuse = 0.02
+		Range = 0
+		Damage = 0
+		DamageRadius = 500.0
+		DamageRadiusScaleY = 0.6
+		DamageRadiusScaleX = 1.1
+		BlastSpeed = 3000
+		AutoAdjustForTarget = false
+		UseVulnerability = false
+		NumPenetrations = 999
+		IgnoreDodge = true
+		SpawnRadius = 0
+		Speed = -100
+		UseStartLocation = true
+		DetonateLineOfSight = true
+		CanHitWithoutDamage = true
+		ImpactVelocity = 1100
+		UseRadialImpact = true
+		SilentImpactOnInvulnerable = true
+		Thing =
+		{
+			Graphic = "null"
+			OffsetZ = 70
+			AttachedAnim = "null"
+			RotateGeometry = true
+			Grip = 999999
+			Points =
+			[
+				{
+					X = 48
+					Y = 48
+				}
+				{
+					X = 48
+					Y = -48
+				}
+				{
+					X = -48
+					Y = -48
+				}
+				{
+					X = -48
+					Y = 48
+				}
+			]
+		}
+	}
+	{
+		Name = "PoseidonCastImpulse"
+		InheritFrom = "PoseidonCast"
+		DetonateFx = "null"
+	}
+	{
+		Name = "PoseidonCollisionBlast"
+		InheritFrom = "1_BaseProjectile"
+		DetonateFx = "PoseidonCollisionBlastFx"
+		Type = "INSTANT"
+		AffectsEnemies = true
+		AffectsFriends = false
+		AffectsSelf = false
+		CheckUnitImpact = false
+		AutoAdjustForTarget = false
+		CheckObstacleImpact = false
+		Fuse = 0.1
+		UseStartLocation = true
+		Range = 1050
+		Damage = 50
+		DamageRadius = 430
+		DamageRadiusScaleY = 0.6
+		BlastSpeed = 3000
+		ImpactFx = "PoseidonWaveCurlImpact"
+		UseRadialImpact = true
+		Thing =
+		{
+			Graphic = "null"
+			OffsetZ = 70
+			Grip = 999999
+		}
+	}
+	{
+		Name = "AresProjectile"
+		InheritFrom = "1_BaseProjectile"
+		Type = "HOMING"
+		HomingAllegiance = "ENEMIES"
+		AffectsEnemies = true
+		AffectsFriends = false
+		AffectsSelf = false
+		MaxAdjustRate = 0
+		AdjustRateAcceleration = 0
+		UnlimitedUnitPenetration = true
+		MultipleObstacleCollisions = true
+		Range = 3000
+		Speed = 0
+		ExpandBlastDuringDetonation = true
+		BlastSpeed = 3000
+		AnimIgnoreBlastRadius = true
+		DamageRadius = 300
+		DamageRadiusScaleY = 0.7
+		DamageRadiusScaleX = 1.3
+		Damage = 6
+		ImpactVelocity = 0
+		MultiDetonate = true
+		TotalFuse = 3
+		Fuse = 0.2
+		ImpactFx = "HitSparkSwordOrb"
+		UseVulnerability = false
+		IgnoreCoverageAngles = true
+		SilentImpactOnInvulnerable = true
+		NumJumps = 999
+		JumpType = "OBSTACLE_ONLY"
+		Thing =
+		{
+			Graphic = "AresBladeSpinIn"
+			OffsetZ = 0
+			Grip = 999999
+			UseBoundsForSortDrawArea = true
+			SortBoundsScale = 4
+			Tallness = 20
+			AttachedAnim = "AresBladeSpinShadow"
+			Points =
+			[
+				{
+					X = 90
+					Y = 0
+				}
+				{
+					X = 0
+					Y = -45
+				}
+				{
+					X = -90
+					Y = 0
+				}
+				{
+					X = 0
+					Y = 45
+				}
+			]
+		}
+	}
+	{
+		Name = "ProjectileAresSwordWake"
+		InheritFrom = "ProjectileBlink"
+		Type = "INSTANT"
+		Damage = 30
+		DamageRadius = 230
+		DamageRadiusScaleY = 0.5
+		CheckUnitImpact = false
+		CheckObstacleImpact = false
+		ImpactVelocity = 0
+		DeathFx = "null"
+		UseVulnerability = false
+		DetonateFx = "AresSwordWakeNova"
+		PreDetonateFx = "AresSwordHoverSilentDrop"
+		PreDetonateFxDuration = 0.15
+		MultiDetonate = false
+		FuseStart = 0.7
+		Fuse = 0.7
+		AnimIgnoreBlastRadius = true
+		ExpandBlastDuringDetonation = true
+		BlastSpeed = 3000
+		HideGraphicOnDetonate = true
+		GroupName = "FX_Standing"
+		UseStartLocation = true
+		SpawnType = "PROJECTILE"
+		SilentImpactOnInvulnerable = true
+		IgnoreCoverageAngles = true
+		ImmunityDuration = 0.5
+		Thing =
+		{
+			Graphic = "AresSwordHoverSilentIn"
+			OffsetZ = 0
+			Tallness = 50
+			AttachedAnim = "null"
+			Grip = 999999
+			RotateGeometry = true
+			Points =
+			[
+				{
+					X = 32
+					Y = 16
+				}
+				{
+					X = 32
+					Y = -16
+				}
+				{
+					X = -32
+					Y = -16
+				}
+				{
+					X = -32
+					Y = 16
+				}
+			]
+		}
+	}
+	{
+		Name = "ProjectileAresSwordCast"
+		InheritFrom = "1_BaseDamagingProjectile"
+		Type = "INSTANT"
+		Damage = 100
+		DamageRadius = 230
+		DamageRadiusScaleY = 0.5
+		CheckUnitImpact = false
+		CheckObstacleImpact = false
+		ImpactVelocity = 0
+		DeathFx = "null"
+		UseVulnerability = false
+		DetonateFx = "AresSwordWakeNova"
+		PreDetonateFx = "AresSwordHoverDrop"
+		PreDetonateFxDuration = 0.15
+		MultiDetonate = false
+		FuseStart = 1.1
+		Fuse = 1.1
+		AnimIgnoreBlastRadius = true
+		ExpandBlastDuringDetonation = true
+		BlastSpeed = 3000
+		GroupName = "FX_Terrain"
+		UseStartLocation = true
+		SpawnType = "PROJECTILE"
+		SilentImpactOnInvulnerable = true
+		HideGraphicOnDetonate = true
+		IgnoreCoverageAngles = true
+		ImmunityDuration = 0.1
+		Thing =
+		{
+			Graphic = "AresSwordHoverIn"
+			OffsetZ = 0
+			Tallness = 50
+			AttachedAnim = "null"
+			Grip = 999999
+			RotateGeometry = true
+			Points =
+			[
+				{
+					X = 32
+					Y = 16
+				}
+				{
+					X = 32
+					Y = -16
+				}
+				{
+					X = -32
+					Y = -16
+				}
+				{
+					X = -32
+					Y = 16
+				}
+			]
+		}
+	}
+	{
+		Name = "ProjectileAresSwordEx"
+		InheritFrom = "ProjectileAresSwordCast"
+		Damage = 90
+	}
+	
+	{
+		Name = "1_BaseNonPhysicalProjectile"
+		InheritFrom = "1_BaseDamagingProjectile"
+		DetonateFx = "null"
+		DamageRadius = 0
+		NumPenetrations = 0
+		AffectsEnemies = true
+		AffectsFriends = false
+		AffectsSelf = false
+		CheckUnitImpact = true
+		CheckObstacleImpact = true
+		
+		UseArmor = true
+		UseVulnerability = true
+	}
+	
+	/* Staff */
+	{
+		Name = "ProjectileStaffSwing1"
+		InheritFrom = "1_BaseDamagingProjectile"
+		DetonateFx = "null"
+		Type = "STRAIGHT"
+		AffectsEnemies = true
+		AffectsFriends = false
+		AffectsSelf = false
+		CheckUnitImpact = true
+		CheckObstacleImpact = true
+		UnlimitedUnitPenetration = true
+		UnlimitedObstaclePenetration = true
+		Range = 430
+		Speed = 4000
+		NumPenetrations = 9999		
+		UseArmor = true
+		UseVulnerability = true
+		AttachToMarker = "null"
+		InvulnerableImpactOwnerVelocity = 0
+		StartFx = "null"
+		DissipateFx = "StaffComboAttack1Dissipate"
+		UseRadialImpact = false
+		ImpactLineOfSightFromOwner = false
+		Damage = @weapon_damage_scale|20@
+		GroupName = "Standing"
+		ProjectileDefenseRadius = 150
+		ProjectileDefenseAngle = 110
+		Thing =
+		{
+			Graphic = "StaffComboAttack1"
+			RotateGeometry = true
+			UseBoundsForSortDrawArea = true
+			SortBoundsScale = 0.15
+			OffsetZ = 70
+			Points =
+			[
+				{
+					X = 0
+					Y = 0
+				}
+				{
+					X = 130
+					Y = 140
+				}
+				{
+					X = 130
+					Y = -140
+				}
+			]
+		}
+		Effects =
+		[
+			{
+				Name = "OnHitStun"
+				Duration = 0.5
+				DisableMove = true
+				DisableRotate = true
+				DisableAttack = true
+				Active = true
+				CanAffectInvulnerable = false
+				FrontFx = "null"
+			}
+		]
+	}
+	{
+		Name = "ProjectileStaffSwing2"
+		InheritFrom = "ProjectileStaffSwing1"
+		AffectsEnemies = true
+		AffectsFriends = false
+		AffectsSelf = false
+		CheckUnitImpact = true
+		CheckObstacleImpact = true
+		UnlimitedUnitPenetration = true
+		Damage = @weapon_damage_scale|25@
+		ImpactVelocity = 0		
+		UseArmor = true
+		UseVulnerability = true
+		StartDelay = 0.04
+		NumPenetrations = 9999
+		AttachToMarker = "null"
+		UseRadialImpact = false
+		ImpactLineOfSightFromOwner = false
+		DeathFx = "StaffComboAttack2Dissipate"
+		DissipateFx = "StaffComboAttack2Dissipate"
+		GroupName = "FX_Standing_Add"
+		Thing =
+		{
+			RotateGeometry = true
+			Graphic = "StaffComboAttack2"
+			OffsetZ = 50
+			Points =
+			[
+				{
+					X = 0
+					Y = 0
+				}
+				{
+					X = 130
+					Y = 140
+				}
+				{
+					X = 130
+					Y = -140
+				}
+			]
+		}
+		Effects =
+		[
+			{
+				Name = "OnHitStun"
+				Duration = 0.5
+				DisableMove = true
+				DisableRotate = true
+				DisableAttack = true
+				Active = true
+				CanAffectInvulnerable = false
+				FrontFx = "null"
+			}
+		]
+	}
+	{
+		Name = "ProjectileStaffSwing3"
+		InheritFrom = "ProjectileStaffSwing1"
+		Damage = @weapon_damage_scale|60@
+		StartDelay = 0.03
+		/*
+		StartDelay = 0.04
+		DamageRadius = 240
+		DamageRadiusScaleX = 1.0
+		DamageRadiusScaleY = 0.5
+		Speed = 0
+		Range = 100
+		Fuse = 0.1
+		TotalFuse = 0.3
+		MultiDetonate = true
+		DetonateFx = "RadialNovaDionysus"
+		*/
+		DissipateFx = "StaffComboAttack3Dissipate"
+		DeathFx = "StaffComboAttack3Dissipate"
+		GroupName = "Standing"
+		Thing =
+		{
+			Graphic = "StaffComboAttack3"
+			RotateGeometry = true
+			OffsetZ = 70
+			Points =
+			[
+				{
+					X = 0
+					Y = 0
+				}
+				{
+					X = 130
+					Y = 200
+				}
+				{
+					X = 130
+					Y = -200
+				}
+			]
+		}
+		Effects =
+		[
+			{
+				Name = "OnHitStunHeavy"
+				Duration = 1.1
+				DisableMove = true
+				DisableRotate = true
+				DisableAttack = true
+				Active = true
+				CanAffectInvulnerable = false
+				FrontFx = "null"
+			}
+		]
+	}
+	{
+		Name = "ProjectileStaffSwing5"
+		InheritFrom = "ProjectileStaffSwing2"
+		Type = "STRAIGHT"
+		Damage = @weapon_damage_scale|100@
+		Range = 330
+		Speed = 4000
+		StartDelay = 0.11
+		Thing =
+		{
+			Graphic = "null"
+			OffsetZ = 70
+			RotateGeometry = true
+			Grip = 999999
+			SortBoundsScale = 0.5
+			Tallness = 10
+			Points =
+			[
+				{
+					X = -260
+					Y = 0
+				}
+				{
+					X = 0
+					Y = 100
+				}
+				{
+					X = 0
+					Y = -100
+				}
+			]
+		}
+		Effects =
+		[
+			{
+				Name = "OnHitStun"
+				Duration = 0.7
+				DisableMove = true
+				DisableRotate = true
+				DisableAttack = true
+				Active = true
+				CanAffectInvulnerable = false
+				FrontFx = "null"
+			}
+		]
+	}
+	{
+		Name = "ProjectileSwing5"
+		InheritFrom = "1_BaseDamagingProjectile"
+		Type = "STRAIGHT"
+		Speed = 4000
+		Range = 1080.0
+		Damage = @weapon_damage_scale|160@
+		TimeModifierFraction = 0
+		CheckUnitImpact = true
+		CheckObstacleImpact = true
+		UnlimitedUnitPenetration = true
+		UnlimitedObstaclePenetration = true
+		NumPenetrations = 9999
+		ImpactVelocity = 0
+		ImpactFx = "HeraUnitFx"
+		UseVulnerability = true
+		//DetonateFx = "StaffChargedAttackFx"
+		SilentImpactOnInvulnerable = true
+		UseStartLocation = true
+		DrawDuringPause = true
+		RequireHitCenter = false
+		GroupName = "FX_Standing_Add"
+		ImmunityDuration = 0.1
+		Effect =
+		{
+			Name = "OnHitStun"
+			Duration = 0.7
+			DisableMove = true
+			DisableRotate = true
+			DisableAttack = true
+			Active = true
+			CanAffectInvulnerable = false
+			FrontFx = "null"
+		}
+		Thing =
+		{
+			Graphic = "StaffChargedAttackFxEmitter"
+			RotateGeometry = true
+			GeometryScaleY = 0.7
+			Grip = 999999
+			SortBoundsScale = 0.5
+			Tallness = 10
+			Points =
+			[
+				{
+					X = -130
+					Y = 130
+				}
+				{
+					X = -50
+					Y = 65
+				}
+				{
+					X = -50
+					Y = -65
+				}
+				{
+					X = -130
+					Y = -130
+				}
+			]
+		}
+	} 
+	{
+		Name = "ProjectileStaffDash"
+		InheritFrom = "ProjectileStaffSwing1"
+		Damage = @weapon_damage_scale|30@
+		Range = 640
+		Speed = 4800
+		Thing =
+		{
+			Graphic = "StaffComboAttack1Dash"
+		}
+		Effects =
+		[
+			{
+				Name = "OnHitStun"
+				Duration = 0.5
+				DisableMove = true
+				DisableRotate = true
+				DisableAttack = true
+				Active = true
+				CanAffectInvulnerable = false
+				FrontFx = "null"
+			}
+		]
+	}
+	{
+		Name = "ProjectileStaffSingle"
+		InheritFrom = "1_BaseDamagingProjectile"
+		Type = "STRAIGHT"
+		DetonateSound = "/SFX/Player Sounds/StaffAnubisGroundStart"
+		SoundManagerCap = 54
+		AffectsEnemies = true
+		AffectsFriends = false
+		Range = 1.0
+		DamageRadius = 530
+		DamageRadiusScaleY = 0.6
+		AttachToOwner = false
+		NumPenetrations = 9999
+		BlastSpeed = 350
+		BlastDuration = 5
+		BlastTimeBlockVfxThreshold = 0.6
+		AffectsSelf = false
+		CheckUnitImpact = false
+		CheckObstacleImpact = false
+		Fuse = 0.0
+		MultipleUnitCollisions = true
+		MultipleObstacleCollisions = true
+		UnlimitedUnitPenetration = true
+		SilentImpactOnInvulnerable = true
+		ImmunityDuration = 0.5
+		UseOwnerAngle = true
+		Damage = @weapon_damage_scale|20@
+		UseArmor = false
+		UseVulnerability = true
+		UseDetonationForProjectileDefense = true
+		RequireHitCenter = false
+		GroupName = "FX_Terrain_Add"
+		Thing =
+		{
+			Graphic = "AnubisRingFx_Base"
+			Grip = 999999
+		}
+		Effects =
+		[
+			{
+				Name = "OnHitSlow"
+				Type = "Speed"
+				Modifier = 0.6
+				Duration = 0.25
+				CanAffectInvulnerable = true
+				FrontFx = "null"
+				Active = false
+			}
+		]
+	}
+	{
+		Name = "ProjectileStaffWall"
+		InheritFrom = "1_BaseDamagingProjectile"
+		Range = 1500.0
+		Fuse = 5
+		Damage = @weapon_damage_scale|25@
+
+		TimeModifierFraction = 0
+		CheckUnitImpact = true
+		CheckObstacleImpact = true
+		UnlimitedUnitPenetration = true
+		UnlimitedObstaclePenetration = true
+		MultipleUnitCollisions = true
+		ImpactVelocity = 0
+		ImpactFx = "AnubisWallImpactFx_Base"
+		UseVulnerability = true
+		SilentImpactOnInvulnerable = true
+		UseStartLocation = true
+		DrawDuringPause = true
+		UnitCollisionCheck = "Polygon"
+		GroupName = "FX_Terrain_Add"
+		ImmunityDuration = 0.4
+		Effects =
+		[
+			{
+				Name = "OnHitSlow"
+				Type = "Speed"
+				Modifier = 0.6
+				Duration = 0.35
+				CanAffectInvulnerable = true
+				FrontFx = "null"
+				Active = false
+			}
+		{
+			Name = "StaffGrip"
+			IgnoreName = "_PlayerUnit"
+			Type = "GRIP"
+			Duration = 0.35
+			Modifier = 10
+			CanAffectInvulnerable = false
+			HaltOnStart = true
+			Active = true
+		}]
+		Thing =
+		{
+			Graphic = "StaffWallIn_Base"
+			GeometryScaleY = 0.7
+			RotateGeometry = true
+			Grip = 999999
+			Points =
+			[
+				{
+					X = 125
+					Y = 420
+				}
+				{
+					X = 125
+					Y = -420
+				}
+				{
+					X = -125
+					Y = -420
+				}
+				{
+					X = -125
+					Y = 420
+				}
+			]
+		}
+	} 
+	{
+		Name = "ProjectileStaffDashHuge"
+		InheritFrom = "ProjectileStaffDash"
+		Thing =
+		{
+			RotateGeometry = true
+			Points =
+			[
+				{
+					X = 0
+					Y = 0
+				}
+				{
+					X = 430
+					Y = 110
+				}
+				{
+					X = 430
+					Y = -110
+				}
+			]
+		}
+		Effects =
+		[
+			{
+				Name = "OnHitStun"
+				Duration = 0.7
+				DisableMove = true
+				DisableRotate = true
+				DisableAttack = true
+				Active = true
+				CanAffectInvulnerable = false
+				FrontFx = "null"
+			}
+		]
+	}
+	{
+		Name = "ProjectileStaffBolt"
+		InheritFrom = "1_BaseDamagingProjectile"
+		Type = "HOMING"
+		HomingAllegiance = "ENEMIES"
+		AdjustRateAcceleration = 900
+		MaxAdjustRate = 60
+		SpinRate = 0
+		Speed = 0
+		Acceleration = 3000
+		Range = 880.0
+		Damage = @weapon_damage_scale|20@
+		DetonateFx = "QuickFlashEnemy"
+		CheckObstacleImpact = true
+		CheckUnitImpact = true
+		UnlimitedUnitPenetration = false
+		DetonateAtVictimLocation = true
+		Thing =
+		{
+			Graphic = "StaffProjectileSmall"
+			AttachedAnim = "StaffProjectileShadow"
+			OffsetZ = 112
+			Grip = 999999
+			RotateGeometry = true
+			Tallness = 20
+			Points =
+			[
+				{
+					X = 76
+					Y = 20
+				}
+				{
+					X = 76
+					Y = -20
+				}
+				{
+					X = -32
+					Y = -20
+				}
+				{
+					X = -32
+					Y = 20
+				}
+			]
+		}
+	}
+	{
+		Name = "ProjectileStaffBoltCharged"
+		InheritFrom = "ProjectileStaffBolt"
+		DamageRadius = 100
+		DamageRadiusScaleY = 0.6
+		Damage = @weapon_damage_scale|30@
+		MaxAdjustRate = 40
+		AdjustRateAcceleration = 0
+		Acceleration = 0
+		SpinRate = 0
+		Range = 880.0
+		Speed = 6080.0
+		StartDelay = 0.05
+		StartFx = "ProjectileFireRing"
+		DetonateFx = "RadialNovaBoltCharged"
+		DetonateSound = "/SFX/Player Sounds/StaffRangedDetonateLarge"
+		Thing =
+		{
+			Graphic = "StaffProjectile"
+			OffsetZ = 112
+			AttachedAnim = "StaffProjectileShadow"
+			Grip = 999999
+			RotateGeometry = true
+			Tallness = 20
+			Points =
+			[
+				{
+					X = 76
+					Y = 20
+				}
+				{
+					X = 76
+					Y = -20
+				}
+				{
+					X = -32
+					Y = -20
+				}
+				{
+					X = -32
+					Y = 20
+				}
+			]
+		}
+		Effects =
+		[
+			{
+				Name = "OnHitStun"
+				Duration = 0.7
+				DisableMove = true
+				DisableRotate = true
+				DisableAttack = true
+				Active = false
+				CanAffectInvulnerable = false
+				FrontFx = "null"
+			}
+		]
+	}
+	{
+		Name = "ProjectileStaffBall"
+		InheritFrom = "1_BaseDamagingProjectile"
+		Type = "HOMING"
+		HomingAllegiance = "ENEMIES"
+		AdjustRateAcceleration = 0
+		MaxAdjustRate = 20
+		CheckObstacleImpact = true
+		ObstacleCollisionCheck = "PolygonContainsPoint"
+		CheckUnitImpact = true
+		UnlimitedUnitPenetration = true
+		DetonateAtVictimLocation = true
+		DamageRadius = 0
+		DamageRadiusScaleY = 0.6
+		Damage = @weapon_damage_scale|40@
+		Acceleration = 0
+		SpinRate = 0
+		Range = 880.0
+		Speed = 5000.0
+		StartDelay = 0.08
+		StartFx = "StaffProjectileFireFx2"
+		DetonateFx = "RadialNovaPentagramCharged"
+		DetonateSound = "/SFX/Player Sounds/StaffRangedDetonate"
+		GroupName = "Standing"
+		UseVulnerability = true
+		Thing =
+		{
+			Graphic = "StaffBallProjectileIn"
+			OffsetZ = 75
+			AttachedAnim = "StaffProjectileShadow"
+			Grip = 999999
+			RotateGeometry = true
+			Tallness = 20
+			Points =
+			[
+				{
+					X = 25
+					Y = 45
+				}
+				{
+					X = 25
+					Y = -45
+				}
+				{
+					X = -50
+					Y = 0
+				}
+			]
+		}
+		Effects =
+		[
+			{
+				Name = "OnHitStun"
+				Duration = 0.5
+				DisableMove = true
+				DisableRotate = true
+				DisableAttack = true
+				Active = true
+				CanAffectInvulnerable = false
+				FrontFx = "null"
+			}
+
+			{
+				Name = "KnockbackGrip"
+				Type = "GRIP"
+				Duration = 0.10
+				Modifier = 1.0
+				HaltOnEnd = true
+				Active = true
+				CanAffectInvulnerable = true
+			}
+
+			 {
+					Name = "StaffAspectStun"
+					IgnoreName = "_PlayerUnit"
+					Duration = 0.3
+					DisableMove = true
+					DisableRotate = true
+					Active = false
+					CanAffectInvulnerable = true
+					FrontFx = "DionysusStunnedFx"
+					TimeModifierFraction = 0
+				}
+		]
+	}
+	
+	{
+		Name = "ProjectileStaffBallCharged"
+		InheritFrom = "1_BaseDamagingProjectile"
+		Type = "HOMING"
+		HomingAllegiance = "ENEMIES"
+		AdjustRateAcceleration = 0
+		MaxAdjustRate = 20
+		CheckObstacleImpact = true
+		ObstacleCollisionCheck = "PolygonContainsPoint"
+		CheckUnitImpact = true
+		UnlimitedUnitPenetration = false
+		DetonateAtVictimLocation = false
+		DamageRadius = 330
+		DamageRadiusScaleY = 0.6
+		BlastSpeed = 3000
+		Damage = @weapon_damage_scale|80@
+		Acceleration = 0
+		SpinRate = 0
+		Range = 880.0
+		Speed = 780.0
+		StartDelay = 0.05
+		ImpactVelocity = 0
+		StartFx = "StaffProjectileFireFx3"
+		DetonateFx = "RadialNovaPentagramCharged"
+		DetonateSound = "/SFX/Player Sounds/StaffRangedDetonateLarge"
+		UseVulnerability = true
+		Thing =
+		{
+			Graphic = "StaffBallProjectileChargedIn"
+			OffsetZ = 60
+			AttachedAnim = "SlingShotShadow"
+			Grip = 999999
+			RotateGeometry = true
+			UseBoundsForSortDrawArea = true
+			SortBoundsScale = 0.5
+			Tallness = 20
+			Points =
+			[
+				{
+					X = 50
+					Y = 75
+				}
+				{
+					X = 50
+					Y = -75
+				}
+				{
+					X = -50
+					Y = 0
+				}
+			]
+		}
+		Effects =
+		[
+			{
+				Name = "OnHitStun"
+				Duration = 0.7
+				DisableMove = true
+				DisableRotate = true
+				DisableAttack = true
+				Active = true
+				CanAffectInvulnerable = false
+				FrontFx = "null"
+			}
+		]
+	}
+
+	/* Suit */
+	{
+		Name = "ProjectileSuit"
+		InheritFrom = "1_BaseDamagingProjectile"
+		DetonateFx = "null"
+		Type = "STRAIGHT"
+		UnlimitedObstaclePenetration = true
+		NumPenetrations = 99999
+		UseArmor = true
+		InvulnerableImpactOwnerVelocity = 0
+		UseRadialImpact = false
+		ImpactLineOfSightFromOwner = false
+		ProjectileDefenseRadius = 150
+		ProjectileDefenseAngle = 110
+		AffectsEnemies = true
+		AffectsFriends = false
+		AffectsSelf = false
+		CheckUnitImpact = true
+		CheckObstacleImpact = true
+		UnlimitedUnitPenetration = true
+		AttachToOwner = true
+		Damage = @weapon_damage_scale|40@
+		ImpactVelocity = 700
+		Fuse = 0.1
+		UseVulnerability = true
+		StartDelay = 0.03
+		StartFx = "SuitPunchBase"
+		//DeathFx = "StaffComboAttack2Dissipate"
+		//DissipateFx = "StaffComboAttack2Dissipate"
+		GroupName = "FX_Standing_Add"
+		Thing =
+		{
+			RotateGeometry = true
+			//Graphic = "StaffComboAttack2"
+			OffsetZ = 50
+			Points =
+			[
+				{
+					X = -10
+					Y = -110
+				}
+				{
+					X = -10
+					Y = 110
+				}
+				{
+					X = 200
+					Y = 130
+				}
+				{
+					X = 200
+					Y = -130
+				}
+			]
+		}
+		Effects =
+		[
+			{
+				Name = "OnHitStun"
+				Duration = 0.5
+				DisableMove = true
+				DisableRotate = true
+				DisableAttack = true
+				Active = true
+				CanAffectInvulnerable = false
+				FrontFx = "null"
+			}
+		]
+	}
+	{
+		Name = "ProjectileSuit2"
+		InheritFrom = "1_BaseDamagingProjectile"
+		DetonateFx = "null"
+		Type = "STRAIGHT"
+		UnlimitedObstaclePenetration = true
+		NumPenetrations = 99999
+		UseArmor = true
+		InvulnerableImpactOwnerVelocity = 0
+		UseRadialImpact = false
+		ImpactLineOfSightFromOwner = false
+		ProjectileDefenseRadius = 150
+		ProjectileDefenseAngle = 110
+		AffectsEnemies = true
+		AffectsFriends = false
+		AffectsSelf = false
+		CheckUnitImpact = true
+		CheckObstacleImpact = true
+		UnlimitedUnitPenetration = true
+		AttachToOwner = true
+		Fuse = 0.1
+		UseVulnerability = true
+		Damage = @weapon_damage_scale|40@
+		StartDelay = 0.05
+		StartFx = "SuitPunchBase"
+		//DissipateFx = "StaffComboAttack3Dissipate"
+		//DeathFx = "StaffComboAttack3Dissipate"
+		GroupName = "Standing"
+		Thing =
+		{
+			//Graphic = "StaffComboAttack3"
+			RotateGeometry = true
+			OffsetZ = 70
+			Points =
+			[
+				{
+					X = -10
+					Y = -120
+				}
+				{
+					X = -10
+					Y = 120
+				}
+				{
+					X = 220
+					Y = 140
+				}
+				{
+					X = 220
+					Y = -140
+				}
+			]
+		}
+		Effects =
+		[
+			{
+				Name = "OnHitStun"
+				Duration = 0.5
+				DisableMove = true
+				DisableRotate = true
+				DisableAttack = true
+				Active = true
+				CanAffectInvulnerable = false
+				FrontFx = "null"
+			}
+		]
+	}
+	{
+		Name = "ProjectileSuit3"	
+		InheritFrom = "1_BaseDamagingProjectile"
+		DetonateFx = "null"
+		Type = "STRAIGHT"
+		UnlimitedObstaclePenetration = true
+		NumPenetrations = 99999
+		UseArmor = true
+		InvulnerableImpactOwnerVelocity = 0
+		UseRadialImpact = false
+		ImpactLineOfSightFromOwner = false
+		ProjectileDefenseRadius = 150
+		ProjectileDefenseAngle = 110
+		AffectsEnemies = true
+		AffectsFriends = false
+		AffectsSelf = false
+		CheckUnitImpact = true
+		CheckObstacleImpact = true
+		UnlimitedUnitPenetration = true
+		AttachToOwner = true
+		Damage = @weapon_damage_scale|80@
+		ImpactVelocity = 900
+		Fuse = 0.1
+		UseVulnerability = true
+		StartDelay = 0.04
+		StartFx = "SuitPunchBase"
+		//DeathFx = "StaffComboAttack2Dissipate"
+		//DissipateFx = "StaffComboAttack2Dissipate"
+		GroupName = "FX_Standing_Add"
+		Thing =
+		{
+			RotateGeometry = true
+			//Graphic = "StaffComboAttack2"
+			OffsetZ = 50
+			Points =
+			[
+				{
+					X = -10
+					Y = -160
+				}
+				{
+					X = -10
+					Y = 160
+				}
+				{
+					X = 320
+					Y = 190
+				}
+				{
+					X = 320
+					Y = -190
+				}
+			]
+		}
+		Effects =
+		[
+			{
+				Name = "OnHitStun"
+				Duration = 0.5
+				DisableMove = true
+				DisableRotate = true
+				DisableAttack = true
+				Active = true
+				CanAffectInvulnerable = false
+				FrontFx = "null"
+			}
+		]
+	}
+
+	{
+		Name = "ProjectileSuitDouble"
+		InheritFrom = "1_BaseDamagingProjectile"
+		DetonateFx = "null"
+		Type = "STRAIGHT"
+		UnlimitedObstaclePenetration = true
+		NumPenetrations = 99999
+		UseArmor = true
+		InvulnerableImpactOwnerVelocity = 0
+		UseRadialImpact = false
+		ImpactLineOfSightFromOwner = false
+		ProjectileDefenseRadius = 150
+		ProjectileDefenseAngle = 110
+		AffectsEnemies = true
+		AffectsFriends = false
+		AffectsSelf = false
+		CheckUnitImpact = true
+		CheckObstacleImpact = true
+		UnlimitedUnitPenetration = true
+		AttachToOwner = false
+		Damage = @weapon_damage_scale|70@
+		ImpactVelocity = 700
+		Fuse = 0.1
+		UseVulnerability = true
+		StartDelay = 0.03
+		StartFx = "SuitPunchBase"
+		RepeatStartFx = true
+		//DeathFx = "StaffComboAttack2Dissipate"
+		//DissipateFx = "StaffComboAttack2Dissipate"
+		GroupName = "FX_Standing_Add"
+		Thing =
+		{
+			RotateGeometry = true
+			//Graphic = "StaffComboAttack2"
+			OffsetZ = 50
+			Points =
+			[
+				{
+					X = -10
+					Y = -110
+				}
+				{
+					X = -10
+					Y = 110
+				}
+				{
+					X = 200
+					Y = 130
+				}
+				{
+					X = 200
+					Y = -130
+				}
+			]
+		}
+		Effects =
+		[
+			{
+				Name = "OnHitStunHeavy"
+				Duration = 0.7
+				DisableMove = true
+				DisableRotate = true
+				DisableAttack = true
+				Active = true
+				CanAffectInvulnerable = false
+				FrontFx = "null"
+			}
+		]
+	}
+
+	{
+		Name = "ProjectileSuitDash"	
+		InheritFrom = "1_BaseDamagingProjectile"
+		Type = "STRAIGHT"
+		UnlimitedObstaclePenetration = true
+		NumPenetrations = 99999
+		UseArmor = true
+		InvulnerableImpactOwnerVelocity = 0
+		UseRadialImpact = false
+		ImpactLineOfSightFromOwner = false
+		AffectsEnemies = true
+		AffectsFriends = false
+		AffectsSelf = false
+		CheckUnitImpact = false
+		CheckObstacleImpact = false
+		UnlimitedUnitPenetration = true
+		AttachToOwner = true
+		Damage = @weapon_damage_scale|15@
+		BlastSpeed = 3000
+		BlastStartRadius = 330
+		DamageRadius = 340
+		DamageRadiusScaleY = 0.5
+		//MultiDetonate = true
+		BlastDuration = 0.07
+		//TotalFuse = 0.45
+		Fuse = 0.07
+		UseVulnerability = true
+		//DeathFx = "StaffComboAttack2Dissipate"
+		//DissipateFx = "StaffComboAttack2Dissipate"
+		StartFx = "SuitNovaBurn"
+		GroupName = "FX_Standing_Add"
+		Thing =
+		{
+			RotateGeometry = true
+			Graphic = null
+			OffsetZ = 50
+		}
+		Effects =
+		[
+			{
+				Name = "OnHitStun"
+				Duration = 0.5
+				DisableMove = true
+				DisableRotate = true
+				DisableAttack = true
+				Active = true
+				CanAffectInvulnerable = false
+				FrontFx = "null"
+			}
+		]
+	}
+	{
+		Name = "ProjectileSuitCharged"	
+		InheritFrom = "1_BaseDamagingProjectile"
+		DetonateFx = "null"
+		Type = "STRAIGHT"
+		UnlimitedObstaclePenetration = true
+		NumPenetrations = 99999
+		UseArmor = true
+		InvulnerableImpactOwnerVelocity = 0
+		UseRadialImpact = true
+		ImpactLineOfSightFromOwner = false
+		ProjectileDefenseRadius = 150
+		ProjectileDefenseAngle = 110
+		AffectsEnemies = true
+		AffectsFriends = false
+		AffectsSelf = false
+		AttachToOwner = false
+		Speed = 1500
+		IgnoreCancelAttachedProjectiles = true
+		CheckUnitImpact = true
+		CheckObstacleImpact = true
+		UnlimitedUnitPenetration = true
+		Damage = @weapon_damage_scale|30@
+		ImpactVelocity = 700
+		Fuse = 0.15
+		UseVulnerability = true
+		StartDelay = 0.3
+		StartFx = "SuitPunchLarge_Base"
+		RepeatStartFx = true
+		GroupName = "FX_Standing_Add"
+		Thing =
+		{
+			RotateGeometry = true
+			OffsetZ = 50
+			//Graphic = "SuitPunchLarge_Base"
+			GeometryScaleY = 0.6
+			Points =
+			[
+				{
+					X = -10
+					Y = -160
+				}
+				{
+					X = -10
+					Y = 160
+				}
+				{
+					X = 200
+					Y = 300
+				}
+				{
+					X = 200
+					Y = -300
+				}
+			]
+		}
+		Effects =
+		[
+			{
+				Name = "OnHitStun"
+				Duration = 0.5
+				DisableMove = true
+				DisableRotate = true
+				DisableAttack = true
+				Active = true
+				CanAffectInvulnerable = false
+				FrontFx = "null"
+			}
+		]
+	}
+	{
+		Name = "ProjectileSuitCharged_Stage2"	
+		InheritFrom = "ProjectileSuitCharged"
+		Speed = 1000
+	}
+	{
+		Name = "ProjectileSuitSplit"
+		InheritFrom = "ProjectileSuit"
+		ExcludeLastHitThing = true
+		AttachToOwner = false
+	}
+	{
+		Name = "ProjectileSuitSplit2"
+		InheritFrom = "ProjectileSuit2"
+		ExcludeLastHitThing = true
+		AttachToOwner = false
+	}
+	{
+		Name = "ProjectileSuitSplit3"
+		InheritFrom = "ProjectileSuit3"
+		ExcludeLastHitThing = true
+		AttachToOwner = false
+	}
+	{
+		Name = "ProjectileSuitChargedSplit"
+		InheritFrom = "ProjectileSuitCharged"
+		ExcludeLastHitThing = true
+		AttachToOwner = false
+	}
+	{
+		Name = "ProjectileSuitRangedUnguided"
+		InheritFrom = "1_BaseDamagingProjectile"
+		Type = "Lob"
+		AutoAdjustForTarget = false
+		LaunchAngle = 80
+		Speed = 800
+		Gravity = 1400
+		Fuse = 0.4
+		AffectsEnemies = true
+		AffectsFriends = false
+		AffectsSelf = false
+		CheckUnitImpact = false
+		CheckObstacleImpact = true
+		UnlimitedUnitPenetration = false
+		DetonateOnImpact = true
+		DetonateFx = null
+		NumPenetrations = 0
+		AttachToOwner = false
+		Damage = @weapon_damage_scale|30@
+		Range = 130
+		UseRadialImpact = false
+		StartFx = "SuitRocketFireFx"
+		UseArmor = true
+		UseVulnerability = true
+		ProjectileDefenseRadius = 45
+		Thing =
+		{
+			Graphic = "SuitRocketUnguided"
+			Scale = 1
+			OffsetZ = 10
+			AttachedAnim = "SuitRocketShadow"
+			TouchdownSound = "/SFX/Player Sounds/MelSkullsHopBounce"
+			SortBoundsScale = 0.3
+			UseBoundsForSortDrawArea = true
+			RotateGeometry = true
+			Tallness = -10
+			Points =
+			[
+				{
+					X = 0
+					Y = 24
+				}
+				{
+					X = 0
+					Y = -24
+				}
+				{
+					X = -64
+					Y = -24
+				}
+				{
+					X = -64
+					Y = 24
+				}
+			]
+		}
+		Effect =
+		{
+			Name = "OnHitStun"
+			Duration = 0.7
+			IgnoreName = "_PlayerUnit"
+			DisableMove = true
+			DisableRotate = true
+			DisableAttack = true
+			Active = true
+			CanAffectInvulnerable = false
+			FrontFx = "null"
+		}
+	}
+	{
+		Name = "ProjectileSuitRangedGuided"
+		InheritFrom = "ProjectileSuitRangedUnguided"
+		Type = "HOMING"	
+		DamageRadius = 160.0
+		DamageRadiusScaleY = 0.6
+		BlastSpeed = 2000
+		DetonateFx = "SuitRocketExplosion"
+		DetonateSound = "/SFX/Player Sounds/MelSkullsAttackExplode"
+		CheckUnitImpact = true
+		AdjustRateAcceleration = 900
+		MaxAdjustRate = 3600
+		StartFx = "null"
+		Speed = 800
+		HideGraphicOnDetonate = true
+		Fuse = 2.0
+		Damage = @weapon_damage_scale|30@
+		MaxSpeed = 1200
+		ManuallySetTarget = true
+		Acceleration = 300
+		Range = 635
+		RequireHitCenter = false
+		IgnoreObstacleImpactDuration = 0.15
+		MaxVictimZ = 9999
+		ObstacleCollisionCheck = "PolygonContainsPoint"
+		Thing =
+		{
+			Graphic = "SuitRocketTravelUnguided"
+			AttachedAnim = "SuitRocketShadow"
+		}
+	}
+	{
+		Name = "ProjectileSuitRangedChargedUnguided"
+		InheritFrom = "1_BaseDamagingProjectile"
+		Type = "STRAIGHT"
+		AutoAdjustForTarget = false
+		Speed = 600
+		Acceleration = -200
+		SpeedVariance = 100
+		SpeedZ = 600
+		AccelerationZ = -500
+		SpinRateVariance = 620
+		Fuse = 0.3
+		AffectsEnemies = true
+		AffectsFriends = false
+		AffectsSelf = false
+		CheckUnitImpact = false
+		CheckObstacleImpact = false
+		UnlimitedUnitPenetration = false
+		DetonateOnImpact = true
+		NumPenetrations = 0
+		AttachToOwner = false
+		ManuallySetTarget = true
+		Damage = @weapon_damage_scale|40@
+		Range = 200
+		UseRadialImpact = false
+		StartFx = "SuitRocketFireFx"
+		UseArmor = true
+		UseVulnerability = true
+		ProjectileDefenseRadius = 45
+		UseDirectionAngle = true
+		Thing =
+		{
+			Graphic = "SuitRocket"
+			Scale = 1
+			OffsetZ = 70
+			AttachedAnim = "SuitRocketShadow"
+			TouchdownSound = "/SFX/Player Sounds/MelSkullsHopBounce"
+			RotateGeometry = true
+			Points =
+			[
+				{
+					X = 0
+					Y = 24
+				}
+				{
+					X = 0
+					Y = -24
+				}
+				{
+					X = -64
+					Y = -24
+				}
+				{
+					X = -64
+					Y = 24
+				}
+			]
+		}
+		Effect =
+		{
+			Name = "OnHitStun"
+			Duration = 0.7
+			IgnoreName = "_PlayerUnit"
+			DisableMove = true
+			DisableRotate = true
+			DisableAttack = true
+			Active = true
+			CanAffectInvulnerable = false
+			FrontFx = "null"
+		}
+	}
+	{
+		Name = "ProjectileSuitRangedCharged"
+		InheritFrom = "ProjectileSuitRangedChargedUnguided"
+		Type = "HOMING"	
+		DamageRadius = 160.0
+		SpeedZ = 0
+		SpinRateVariance = 0
+		AccelerationZ = 0
+		DetonateFx = "SuitRocketExplosion"
+		DetonateSound = "/SFX/Player Sounds/MelSkullsAttackExplode"
+		DamageRadiusScaleY = 0.6
+		BlastSpeed = 2000
+		CheckUnitImpact = true
+		AdjustRateAcceleration = 900
+		MaxAdjustRate = 3600
+		StartFx = "null"
+		Speed = 1000
+		HideGraphicOnDetonate = true
+		Fuse = 5
+		Damage = @weapon_damage_scale|40@
+		MaxSpeed = 1200
+		Acceleration = 300
+		Range = 2600
+		RequireHitCenter = false
+		IgnoreObstacleImpactDuration = 0.15
+		MaxVictimZ = 9999
+		Thing = {
+			Graphic = "SuitRocket"
+			AttachedAnim = "SuitRocketShadow"
+		}
+	}
+	{
+		Name = "ProjectileSuitRangedChargedSplit"
+		InheritFrom = "ProjectileSuitRangedCharged"
+		ExcludeLastHitThing = true
+		ResetCollisionOutsideImpact = true
+		ManuallySetTarget = false
+	}
+	{
+		Name = "ProjectileSuitRangedGuidedSplit"
+		InheritFrom = "ProjectileSuitRangedGuided"
+		ExcludeLastHitThing = true
+		ResetCollisionOutsideImpact = true
+		ManuallySetTarget = true
+	}
+	{
+		Name = "ProjectileSuitGrenade"
+		InheritFrom = "1_BaseDamagingProjectile"
+		DetonateFx = "GrenadeExplosionBase"
+		DetonateSound = "/SFX/ShivaSpecialBlast"
+		BounceFx = "GrenadeBounceSparkSilent"
+		Type = "LOB"
+		Damage = @weapon_damage_scale|60@
+		DamageRadius = 360.0
+		DamageRadiusScaleY = 0.6
+		AutoAdjustForTarget = false
+		SpinRate = -360
+		Gravity = 1000
+		LaunchAngle = 45
+		MinRange = 0.0
+		Speed = 600
+		Range = 0
+		JumpSpeedMultiplier = 0.8
+		BlastSpeed = 3000
+		ImpactVelocity = 0.0
+		UseDirectionAngle = true
+		AffectsFriends = false
+		AffectsSelf = false
+		CheckUnitImpact = true
+		CheckObstacleImpact = true
+		UseVulnerability = true
+		SelfImpactVelocityMultiplier = 0
+		ReflectFx = "GrenadeBounceSpark"
+		StartFx = "StaffProjectileFireFx2Close"
+		NumJumps = 2
+		RestartAnimOnBounce = true
+		JumpType = "OBSTACLE_ONLY"
+		StartAtMarker = "WeaponSuitB_Rig:backpackJetTop_00_R_JNT"
+		Effects =
+		[
+			{
+				Name = "OnHitStun"
+				Duration = 0.7
+				DisableMove = true
+				DisableRotate = true
+				DisableAttack = true
+				Active = true
+				CanAffectInvulnerable = false
+				FrontFx = "null"
+			}
+		]
+		Thing =
+		{
+			Scale = 1
+			Graphic = "ShivaGrenade"
+			OffsetZ = 70
+			AttachedAnim = "ShivaGrenadeShadow"
+			TouchdownSound = "/SFX/Player Sounds/MelShivaBounce"
+			RotateGeometry = true
+			Points =
+			[
+				{
+					X = 32
+					Y = 48
+				}
+				{
+					X = 32
+					Y = -48
+				}
+				{
+					X = -32
+					Y = 0
+				}
+			]
+		}
+	}
+	{
+		Name = "ProjectileSuitBomb"
+		InheritFrom = "1_BaseDamagingProjectile"
+		Type = "LOB"
+		DamageRadius = 510
+		MaxAdjustRate = 60
+		AutoAdjustForTarget = true
+		SpinRate = -360
+		Gravity = 2610
+		HangTime = 0.8
+		LaunchAngle = 0
+		MinRange = 50.0
+		Range = 600
+		UseStartLocation = false
+		DetonateAtTarget = true
+		DetonateFx = "GrenadeExplosionBase"
+		DetonateSound = "/SFX/ShivaOmegaSpecialAdd"
+		ReticleGraphic = "ShivaReticle"
+		CheckUnitImpact = false
+		CheckObstacleImpact = false
+		Damage = @weapon_damage_scale|70@
+		DamageRadiusScaleY = 0.5
+		BlastSpeed = 3000
+		ImpactVelocity = 0
+		DeathFx = "null"
+		UseVulnerability = true
+		GroupName = "Standing"
+		SilentImpactOnInvulnerable = true
+		IgnoreCoverageAngles = true
+		HideGraphicOnDetonate = true
+		UseRadialImpact = false
+		StartAtMarker = "WeaponSuitB_Rig:backpackJetTop_00_L_JNT"
+		Thing =
+		{
+			Graphic = "ShivaGrenadeBig"
+			OffsetZ = 101
+			AttachedAnim = "ShivaGrenadeShadow"
+			RotateGeometry = true
+			Points =
+			[
+				{
+					X = 50
+					Y = 60
+				}
+				{
+					X = 50
+					Y = -60
+				}
+				{
+					X = -50
+					Y = 0
+				}
+			]
+		}
+		Effects =
+		[
+			{
+				Name = "OnHitStun"
+				Duration = 0.7
+				DisableMove = true
+				DisableRotate = true
+				DisableAttack = true
+				Active = true
+				CanAffectInvulnerable = false
+			}
+		]
+	}
+	{
+		Name = "ProjectileSuitGrenadeStraight"
+		InheritFrom = "ProjectileSuitGrenade"
+		Type = "STRAIGHT",
+		SpinRate = 0
+		NumJumps = 0
+		Speed = 600
+		Range = 1000
+		IgnoreObstacleImpactDuration = 0.15
+		Thing = 
+		{
+			Graphic = "ShivaGrenade"
+		}
+	}
+	{
+		Name = "ProjectileSuitBombStraight"
+		InheritFrom = "ProjectileSuitBomb"
+		Type = "STRAIGHT",
+		SpinRate = 0
+		NumJumps = 0
+		Speed = 1200
+		Range = 1200
+		DetonateAtTarget = false
+		AutoAdjustForTarget = false
+		CheckUnitImpact = true
+		CheckObstacleImpact = true
+		IgnoreObstacleImpactDuration = 0.15
+		Thing = 
+		{
+			Graphic = "ShivaGrenadeBig"
+		}
+	}
+	/* Dagger */
+	{
+		Name = "ProjectileDagger"
+		InheritFrom = "1_BaseDamagingProjectile"
+		DetonateFx = "DaggerJab"
+		Type = "STRAIGHT"
+		AffectsEnemies = true
+		AffectsFriends = false
+		AffectsSelf = false
+		CheckUnitImpact = true
+		CheckObstacleImpact = true
+		UnlimitedUnitPenetration = true
+		Damage = @weapon_damage_scale|15@
+		Speed = 0
+		Range = 0
+		Fuse = 0.10
+		StartDelay = 0.02
+		NumPenetrations = 99999			
+		UseArmor = true
+		UseVulnerability = true
+		AttachToOwner = true
+		AttachToMarker = "null"
+		InvulnerableImpactOwnerVelocity = 300
+		StartFx = null
+		SetAnimRadialOffset = true
+		UseRadialImpact = false
+		ImpactLineOfSightFromOwner = false
+		ProjectileDefenseAngle = 40
+		ProjectileDefenseRadius = 235
+		GroupName = "FX_Standing_Add"
+		Thing =
+		{
+			Graphic = "null"
+			OffsetZ = 70
+			RotateGeometry = true
+			Grip = 999999
+			SortBoundsScale = 0.15
+			UseBoundsForSortDrawArea = true
+			Tallness = 2
+			Points =
+			[
+				{
+					X = 0
+					Y = -30
+				}
+				{
+					X = 260
+					Y = -100
+				}
+				{
+					X = 260
+					Y = 100
+				}
+				{
+					X = 0
+					Y = 30
+				}
+			]
+		}
+		Effects =
+		[
+			{
+				Name = "OnHitStun"
+				Duration = 0.5
+				DisableMove = true
+				DisableRotate = true
+				DisableAttack = true
+				Active = true
+				CanAffectInvulnerable = false
+				FrontFx = "null"
+			}
+		]
+	}
+	{
+		Name = "ProjectileDaggerSliceRight"
+		InheritFrom = "1_BaseDamagingProjectile"
+		DetonateFx = "null"
+		Type = "ARC"
+		AffectsEnemies = true
+		AffectsFriends = false
+		AffectsSelf = false
+		CheckUnitImpact = true
+		CheckObstacleImpact = true
+		UnlimitedUnitPenetration = true
+		UnlimitedObstaclePenetration = true
+		Range = 0
+		AttachToOwner = true
+		NumPenetrations = 99999
+		IgnoreCoverageAngleAdjustment = true
+		UseArmor = true
+		UseVulnerability = true
+		AttachToMarker = "null"
+		InvulnerableImpactOwnerVelocity = 300
+		StartFx = "null"
+		UseRadialImpact = false
+		ImpactLineOfSightFromOwner = false
+		Damage = @weapon_damage_scale|20@
+		ArcStart = 70
+		ArcEnd = -60
+		Speed = 1600
+		ProjectileDefenseAngle = 90
+		ProjectileDefenseRadius = 185
+		Thing =
+		{
+			OffsetZ = 70
+			RotateGeometry = true
+			SortMode = "FromParent"
+			GeometryScaleY = 0.7
+			Points =
+			[
+				{
+					X = 0
+					Y = 0
+				}
+				{
+					X = 280
+					Y = 80
+				}
+				{
+					X = 280
+					Y = -80
+				}
+			]
+		}
+		Effects =
+		[
+			{
+				Name = "OnHitStun"
+				Duration = 0.5
+				DisableMove = true
+				DisableRotate = true
+				DisableAttack = true
+				Active = true
+				CanAffectInvulnerable = false
+				FrontFx = "null"
+			}
+		]
+	}
+	{
+		Name = "ProjectileDaggerSliceLeft"
+		InheritFrom = "1_BaseDamagingProjectile"
+		DetonateFx = "null"
+		Type = "ARC"
+		AffectsEnemies = true
+		AffectsFriends = false
+		AffectsSelf = false
+		CheckUnitImpact = true
+		CheckObstacleImpact = true
+		UnlimitedUnitPenetration = true
+		UnlimitedObstaclePenetration = true
+		Range = 0
+		AttachToOwner = true
+		NumPenetrations = 99999
+		IgnoreCoverageAngleAdjustment = true		
+		UseArmor = true
+		UseVulnerability = true
+		AttachToMarker = "null"
+		InvulnerableImpactOwnerVelocity = 300
+		StartFx = "null"
+		UseRadialImpact = false
+		ImpactLineOfSightFromOwner = false
+		Damage = @weapon_damage_scale|20@
+		ArcStart = -70
+		ArcEnd = 60
+		Speed = 1600
+		ProjectileDefenseAngle = 90
+		ProjectileDefenseRadius = 185
+		Thing =
+		{
+			OffsetZ = 70
+			RotateGeometry = true
+			SortMode = "FromParent"
+			GeometryScaleY = 0.7
+			Points =
+			[
+				{
+					X = 0
+					Y = 0
+				}
+				{
+					X = 280
+					Y = 80
+				}
+				{
+					X = 280
+					Y = -80
+				}
+			]
+		}
+		Effects =
+		[
+			{
+				Name = "OnHitStun"
+				Duration = 0.5
+				DisableMove = true
+				DisableRotate = true
+				DisableAttack = true
+				Active = true
+				CanAffectInvulnerable = false
+				FrontFx = "null"
+			}
+		]
+	}		
+	{
+		Name = "ProjectileDaggerSliceDouble"
+		InheritFrom = "1_BaseDamagingProjectile"
+		DetonateFx = "DaggerSwipeDouble"
+		Type = "STRAIGHT"
+		StartDelay = 0.06
+		Fuse = 0.05
+		AffectsEnemies = true
+		AffectsFriends = false
+		Range = 1.0
+		DamageRadius = 280
+		DamageRadiusScaleY = 0.62
+		BlastStartRadius = 250
+		BlastSpeed = 3000
+		BlastDuration = 0.1
+		AttachToOwner = true
+		NumPenetrations = 9999
+		AffectsSelf = false
+		CheckUnitImpact = false
+		CheckObstacleImpact = true
+		UnlimitedUnitPenetration = true
+		UseDetonationForProjectileDefense = true
+		Damage = @weapon_damage_scale|90@
+		ImpactVelocity = 0
+		
+		UseArmor = false
+		UseVulnerability = true
+		Thing =
+		{
+			Graphic = "null"
+			OffsetZ = 30
+			Grip = 999999
+		}
+		Effects =
+		[
+			{
+				Name = "OnHitStunHeavy"
+				Duration = 1.1
+				DisableMove = true
+				DisableRotate = true
+				DisableAttack = true
+				Active = true
+				CanAffectInvulnerable = false
+				FrontFx = "null"
+			}
+		]
+	}
+
+	{
+		Name = "ProjectileDaggerExecuteMorrigan"
+		InheritFrom = "1_BaseDamagingProjectile"
+		DetonateFx = "DaggerSwipeDouble_Morrigan_Base"
+		Type = "STRAIGHT"
+		DetonateSound = "/SFX/Player Sounds/MelDaggerMagicAttack"
+		StartDelay = 0.2
+		Fuse = 0.05
+		AffectsEnemies = true
+		AffectsFriends = false
+		Range = 1.0
+		DamageRadius = 280
+		DamageRadiusScaleY = 0.62
+		BlastStartRadius = 250
+		BlastSpeed = 3000
+		BlastDuration = 0.1
+		AttachToOwner = true
+		NumPenetrations = 9999
+		AffectsSelf = false
+		CheckUnitImpact = false
+		CheckObstacleImpact = true
+		UnlimitedUnitPenetration = true
+		UseDetonationForProjectileDefense = true
+		Damage = @weapon_damage_scale|120@
+		ImpactVelocity = 0
+		RequireHitCenter = false
+		UseArmor = false
+		UseVulnerability = true
+		Thing =
+		{
+			Graphic = "null"
+			OffsetZ = 30
+			Grip = 999999
+		}
+		Effects =
+		[
+			{
+				Name = "OnHitStunHeavy"
+				Duration = 1.1
+				DisableMove = true
+				DisableRotate = true
+				DisableAttack = true
+				Active = true
+				CanAffectInvulnerable = false
+				FrontFx = "null"
+			}
+		]
+	}
+
+	{
+		Name = "ProjectileDaggerSpinMorrigan"
+		InheritFrom = "1_BaseDamagingProjectile"
+		DetonateFx = "DaggerMorriganSpin_Base"
+		Type = "STRAIGHT"
+		StartDelay = 0.06
+		Fuse = 0.05
+		AffectsEnemies = true
+		AffectsFriends = false
+		Range = 1.0
+		DamageRadius = 310
+		DamageRadiusScaleY = 0.62
+		BlastStartRadius = 250
+		BlastSpeed = 3000
+		BlastDuration = 0.1
+		AttachToOwner = true
+		NumPenetrations = 9999
+		AffectsSelf = false
+		CheckUnitImpact = false
+		CheckObstacleImpact = true
+		UnlimitedUnitPenetration = true
+		UseDetonationForProjectileDefense = true
+		Damage = @weapon_damage_scale|40@
+		ImpactVelocity = 0
+		
+		UseArmor = false
+		UseVulnerability = true
+		Thing =
+		{
+			Graphic = "null"
+			OffsetZ = 30
+			Grip = 999999
+		}
+		Effects =
+		[
+			{
+				Name = "OnHitStunHeavy"
+				Duration = 1.1
+				DisableMove = true
+				DisableRotate = true
+				DisableAttack = true
+				Active = true
+				CanAffectInvulnerable = false
+				FrontFx = "null"
+			}
+		]
+	}
+
+	{
+		Name = "ProjectileDaggerDoubleMorrigan"
+		InheritFrom = "1_BaseDamagingProjectile"
+		DetonateFx = "DaggerSwipeDouble_Morrigan_Combo"
+		Type = "STRAIGHT"
+		StartDelay = 0.06
+		Fuse = 0.05
+		AffectsEnemies = true
+		AffectsFriends = false
+		Range = 1.0
+		DamageRadius = 310
+		DamageRadiusScaleY = 0.62
+		BlastStartRadius = 250
+		BlastSpeed = 3000
+		BlastDuration = 0.1
+		AttachToOwner = true
+		NumPenetrations = 9999
+		AffectsSelf = false
+		CheckUnitImpact = false
+		CheckObstacleImpact = true
+		UnlimitedUnitPenetration = true
+		UseDetonationForProjectileDefense = true
+		Damage = @weapon_damage_scale|40@
+		ImpactVelocity = 0
+		
+		UseArmor = false
+		UseVulnerability = true
+		Thing =
+		{
+			Graphic = "null"
+			OffsetZ = 30
+			Grip = 999999
+		}
+		Effects =
+		[
+			{
+				Name = "OnHitStunHeavy"
+				Duration = 1.1
+				DisableMove = true
+				DisableRotate = true
+				DisableAttack = true
+				Active = true
+				CanAffectInvulnerable = false
+				FrontFx = "null"
+			}
+		]
+	}
+
+	{
+		Name = "ProjectileDaggerDash"
+		InheritFrom = "1_BaseDamagingProjectile"
+		DetonateFx = "null"
+		Type = "ARC"
+		AffectsEnemies = true
+		AffectsFriends = false
+		AffectsSelf = false
+		CheckUnitImpact = true
+		CheckObstacleImpact = true
+		UnlimitedUnitPenetration = true
+		UnlimitedObstaclePenetration = true
+		Range = 0
+		AttachToOwner = true
+		NumPenetrations = 99999
+		IgnoreCoverageAngleAdjustment = true		
+		UseArmor = true
+		UseVulnerability = true
+		AttachToMarker = "null"
+		InvulnerableImpactOwnerVelocity = 300
+		StartFx = "null"
+		UseRadialImpact = false
+		ImpactLineOfSightFromOwner = false
+		Damage = @weapon_damage_scale|45@
+		ArcStart = 130
+		ArcEnd = -110
+		Speed = 1800
+		ProjectileDefenseAngle = 0
+		ProjectileDefenseRadius = 0
+		Thing =
+		{
+			OffsetZ = 70
+			RotateGeometry = true
+			GeometryScaleY = 0.7
+			Points =
+			[
+				{
+					X = 0
+					Y = 0
+				}
+				{
+					X = 290
+					Y = 100
+				}
+				{
+					X = 290
+					Y = -100
+				}
+			]
+		}
+		Effects =
+		[
+			{
+				Name = "OnHitStun"
+				Duration = 0.7
+				DisableMove = true
+				DisableRotate = true
+				DisableAttack = true
+				Active = true
+				CanAffectInvulnerable = false
+				FrontFx = "null"
+			}
+		]
+	}
+	{
+		Name = "ProjectileDaggerBackstab"
+		InheritFrom = "ProjectileDagger"
+		Damage = @weapon_damage_scale|100@
+		StartDelay = 0.21
+		StartFx = "DaggerSwipe"
+		RotateWithOwner = true
+		Thing =
+		{
+			Graphic = null
+			OffsetZ = 70
+			RotateGeometry = true
+			Grip = 999999
+			SortBoundsScale = 0.15
+			UseBoundsForSortDrawArea = true
+			Tallness = 2
+			Points =
+			[
+				{
+					X = 0
+					Y = -25
+				}
+				{
+					X = 200
+					Y = -100
+				}
+				{
+					X = 200
+					Y = 100
+				}
+				{
+					X = 0
+					Y = 25
+				}
+			]
+		}
+		Effects =
+		[
+			{
+				Name = "OnHitStun"
+				Duration = 0.7
+				DisableMove = true
+				DisableRotate = true
+				DisableAttack = true
+				Active = true
+				CanAffectInvulnerable = false
+				FrontFx = "null"
+			}
+		]
+	}
+	{
+		Name = "ProjectileDaggerBlink"
+		InheritFrom = "1_BaseDamagingProjectile"
+		Fuse = 0.01
+		Damage = 0
+		ImpactVelocity = 0
+		UseVulnerability = true
+		Range = 1000
+		AutoAdjustForTarget = true
+		AffectsEnemies = true
+		AffectsFriends = false
+		AffectsSelf = false
+		CheckObstacleImpact = true
+		UnlimitedUnitPenetration = true
+		Thing =
+		{
+			Graphic = "null"
+			OffsetZ = 70
+			RotateGeometry = true
+			Grip = 999999
+			SortBoundsScale = 0.15
+			UseBoundsForSortDrawArea = true
+			Tallness = 2
+			Points =
+			[
+				{
+					X = 0
+					Y = -25
+				}
+				{
+					X = 200
+					Y = -100
+				}
+				{
+					X = 200
+					Y = 100
+				}
+				{
+					X = 0
+					Y = 25
+				}
+			]
+		}
+		Effects =
+		[
+			{
+				Name = "OnHitStun"
+				Duration = 0.5
+				DisableMove = true
+				DisableRotate = true
+				DisableAttack = true
+				Active = true
+				CanAffectInvulnerable = false
+				FrontFx = "null"
+			}
+		]
+	}
+	{
+		Name = "ProjectileDaggerThrow"
+		InheritFrom = "1_BaseDamagingProjectile"
+		DetonateFx = "null"
+		Type = "HOMING"
+		AffectsEnemies = true
+		AffectsFriends = false
+		AffectsSelf = false
+		CheckUnitImpact = true
+		CheckObstacleImpact = true
+		UnlimitedUnitPenetration = true
+		NumPenetrations = 9999
+		AttachToOwner = false
+		Fuse = 1
+		RepeatHitOnReturn = true
+		StartDelay = 0.04
+		Damage = @weapon_damage_scale|25@
+		Speed = 3000
+		ReturnToOwnerAfterInactiveSeconds = 0.276
+		Range = 830
+		UseRadialImpact = false
+		UseArmor = true
+		UseVulnerability = true
+		DissipateFx = "null"
+		GroupName = "Standing"
+		ClearOnAttackEffects = true
+		ImpactFx = "DaggerProjectileImpactFx"
+		DeathFx = "DaggerProjectileFxFade"
+		ProjectileDefenseRadius = 45
+		Thing =
+		{
+			Graphic = "DaggerProjectileCurved"
+			OffsetZ = 70
+			RotateGeometry = true
+			UseBoundsForSortDrawArea = true
+			SortBoundsScale = 0.25
+			Grip = 999999
+			Points =
+			[
+				{
+					X = 35
+					Y = 25
+				}
+				{
+					X = 35
+					Y = -25
+				}
+				{
+					X = -5
+					Y = -25
+				}
+				{
+					X = -5
+					Y = 25
+				}
+			]
+		}
+		Effects =
+		[
+			 {
+				Name = "OnHitStunHeavy"
+				Duration = 1.1
+				DisableMove = true
+				DisableRotate = true
+				DisableAttack = true
+				Active = true
+				CanAffectInvulnerable = false
+				FrontFx = "null"
+			}
+		]
+	}
+	{
+		Name = "ProjectileDaggerThrowCharged"
+		InheritFrom = "1_BaseDamagingProjectile"
+		DetonateFx = "null"
+		Type = "HOMING"
+		AffectsEnemies = true
+		AffectsFriends = false
+		AffectsSelf = false
+		CheckUnitImpact = true
+		CheckObstacleImpact = true
+		UnlimitedUnitPenetration = true
+		NumPenetrations = 999999
+		AttachToOwner = false
+		StartDelay = 0.04
+		Damage = @weapon_damage_scale|30@
+		Speed = 6000
+		Range = 830
+		UseRadialImpact = false
+		
+		UseArmor = true
+		UseVulnerability = true
+		DissipateFx = "null"
+		GroupName = "Standing"
+		ClearOnAttackEffects = true
+		ImpactFx = "DaggerProjectileImpactFx"
+		DeathFx = "DaggerProjectileFxFade"
+		ProjectileDefenseRadius = 45
+		Thing =
+		{
+			Graphic = "DaggerProjectileFx"
+			OffsetZ = 70
+			RotateGeometry = true
+			Grip = 999999
+			SortBoundsScale = 0.25
+			UseBoundsForSortDrawArea = true
+			Tallness = 25
+			Points =
+			[
+				{
+					X = 35
+					Y = 25
+				}
+				{
+					X = 35
+					Y = -25
+				}
+				{
+					X = -5
+					Y = -25
+				}
+				{
+					X = -5
+					Y = 25
+				}
+			]
+		}
+		Effects =
+		[
+			 {
+				Name = "OnHitStunHeavy"
+				Duration = 1.1
+				DisableMove = true
+				DisableRotate = true
+				DisableAttack = true
+				Active = true
+				CanAffectInvulnerable = false
+				FrontFx = "null"
+			}
+		]
+	}
+	{
+		Name = "ProjectileDaggerThrowMorrigan"
+		InheritFrom = "1_BaseDamagingProjectile"
+		DetonateFx = "null"
+		Type = "HOMING"
+		MaxAdjustRate = 900		
+		AdjustRateAcceleration = 900
+		AffectsEnemies = true
+		AffectsFriends = false
+		AffectsSelf = false
+		CheckUnitImpact = true
+		CheckObstacleImpact = true
+		UnlimitedUnitPenetration = false
+		NumPenetrations = 0
+		AttachToOwner = false
+		StartDelay = 0.04
+		Damage = @weapon_damage_scale|60@
+		Speed = 3000
+		Range = 830
+		UseRadialImpact = false
+		ImpactVelocity = 700
+		UseArmor = true
+		UseVulnerability = true
+		DissipateFx = "null"
+		GroupName = "Standing"
+		ClearOnAttackEffects = true
+		ImpactFx = "DaggerProjectileImpactFx"
+		DeathFx = "DaggerProjectileFxFade"
+		ProjectileDefenseRadius = 45
+		Thing =
+		{
+			Graphic = "DaggerProjectileFx"
+			OffsetZ = 70
+			RotateGeometry = true
+			Grip = 999999
+			Scale = 1
+			Points =
+			[
+				{
+					X = 35
+					Y = 25
+				}
+				{
+					X = 35
+					Y = -25
+				}
+				{
+					X = -5
+					Y = -25
+				}
+				{
+					X = -5
+					Y = 25
+				}
+			]
+		}
+		Effect =
+		{
+			Name = "OnHitStun"
+			Duration = 0.7
+			IgnoreName = "_PlayerUnit"
+			DisableMove = true
+			DisableRotate = true
+			DisableAttack = true
+			Active = true
+			CanAffectInvulnerable = false
+			FrontFx = "null"
+		}
+	}
+
+	/* Axe */
+	{
+		Name = "ProjectileAxe"
+		InheritFrom = "1_BaseDamagingProjectile"
+		AffectsEnemies = true
+		AffectsFriends = false
+		AffectsSelf = false
+		CheckUnitImpact = true
+		CheckObstacleImpact = true
+		UnlimitedUnitPenetration = true
+		UnlimitedObstaclePenetration = true
+		DamageRadius = 0
+		DamageRadiusScaleY = 0.6
+		Speed = 0
+		Range = 0
+		UseRadialImpact = false		
+		UseArmor = true
+		UseVulnerability = true
+		StartDelay = 0.02
+		NumPenetrations = 99999
+		AttachToOwner = true
+		AttachToMarker = "null"
+		InvulnerableImpactOwnerVelocity = 350
+		ImpactLineOfSightFromOwner = false
+		Damage = @weapon_damage_scale|50@
+		ProjectileDefenseAngle = 0
+		ProjectileDefenseRadius = 0
+		ImpactVelocity = 0
+		Fuse = 0.26
+		Thing =
+		{
+			RotateGeometry = true
+			Points =
+			[
+				{
+					X = 450
+					Y = 70
+				}
+				{
+					X = 450
+					Y = -120
+				}
+				{
+					X = 0
+					Y = -120
+				}
+				{
+					X = 0
+					Y = 70
+				}
+			]
+		}
+		Effects =
+		[
+			{
+				Name = "OnHitStun"
+				Duration = 0.7
+				DisableMove = true
+				DisableRotate = true
+				DisableAttack = true
+				Active = true
+				CanAffectInvulnerable = false
+				FrontFx = "null"
+			}
+		]
+	}
+	{
+		Name = "ProjectileAxeDash"
+		InheritFrom = "ProjectileAxe"
+		Damage = @weapon_damage_scale|40@
+		Thing =
+		{
+			Graphic = "null"
+			OffsetZ = 70
+			RotateGeometry = true
+			Grip = 999999
+			SortBoundsScale = 0.5
+			Tallness = 10
+			Points =
+			[
+				{
+					X = 0
+					Y = -50
+				}
+				{
+					X = 0
+					Y = 50
+				}
+				{
+					X = 310
+					Y = 130
+				}
+				{
+					X = 310
+					Y = -130
+				}
+			]
+		}
+	}
+	{
+		Name = "ProjectileAxeSpecial"
+		InheritFrom = "ProjectileAxe"
+		StartDelay = 0.12
+		Damage = @weapon_damage_scale|20@
+		Fuse = 0.15
+		ImmunityDuration = 0.06
+		MultipleUnitCollisions = true
+		Thing =
+		{
+			Graphic = "null"
+			OffsetZ = 70
+			RotateGeometry = true
+			Grip = 999999
+			SortBoundsScale = 0.5
+			Tallness = 10
+			Points =
+			[
+				{
+					X = 0
+					Y = -50
+				}
+				{
+					X = 0
+					Y = 50
+				}
+				{
+					X = 310
+					Y = 130
+				}
+				{
+					X = 310
+					Y = -130
+				}
+			]
+		}
+	}
+	{
+		Name = "ProjectileAxe2"
+		InheritFrom = "1_BaseDamagingProjectile"
+		DetonateFx = "null"
+		Type = "ARC"
+		AffectsEnemies = true
+		AffectsFriends = false
+		AffectsSelf = false
+		CheckUnitImpact = true
+		CheckObstacleImpact = true
+		UnlimitedUnitPenetration = true
+		UnlimitedObstaclePenetration = true
+		Range = 0
+		NumPenetrations = 99999
+		IgnoreCoverageAngleAdjustment = true		
+		UseArmor = true
+		UseVulnerability = true
+		AttachToMarker = "null"
+		InvulnerableImpactOwnerVelocity = 300
+		StartFx = "null"
+		UseRadialImpact = false
+		ImpactLineOfSightFromOwner = false
+		AttachToOwner = true
+		Damage = @weapon_damage_scale|90@
+		ArcStart = -90
+		ArcEnd = 130
+		Speed = 2000
+		ImpactVelocity = 0
+		StartDelay = 0.03
+		ProjectileDefenseAngle = 45
+		ProjectileDefenseRadius = 430
+		Thing =
+		{
+			RotateGeometry = true
+			GeometryScaleY = 0.6
+			Points =
+			[
+				{
+					X = 0
+					Y = 0
+				}
+				{
+					X = 480
+					Y = 190
+				}
+				{
+					X = 480
+					Y = -190
+				}
+			]
+		}
+		Effects =
+		[
+			{
+				Name = "OnHitStunHeavy"
+				Duration = 1.1
+				DisableMove = true
+				DisableRotate = true
+				DisableAttack = true
+				Active = true
+				CanAffectInvulnerable = false
+				FrontFx = "null"
+			}
+		]
+	}
+	{
+		Name = "ProjectileAxe3"
+		InheritFrom = "1_BaseDamagingProjectile"
+		DetonateFx = "null"
+		Type = "ARC"
+		AffectsEnemies = true
+		AffectsFriends = false
+		AffectsSelf = false
+		CheckUnitImpact = true
+		CheckObstacleImpact = true
+		UnlimitedUnitPenetration = true
+		UnlimitedObstaclePenetration = true
+		Range = 0
+		AttachToOwner = true
+		NumPenetrations = 99999
+		IgnoreCoverageAngleAdjustment = true		
+		UseArmor = true
+		UseVulnerability = true
+		AttachToMarker = "null"
+		InvulnerableImpactOwnerVelocity = 300
+		StartFx = "null"
+		UseRadialImpact = false
+		ImpactLineOfSightFromOwner = false
+		Damage = @weapon_damage_scale|70@
+		ArcStart = 110
+		ArcEnd = -130
+		Speed = 2400
+		StartDelay = 0.02
+		ProjectileDefenseAngle = 45
+		ProjectileDefenseRadius = 430
+		Thing =
+		{
+			SortMode = "FromParent"
+			RotateGeometry = true
+			GeometryScaleY = 0.6
+			Points =
+			[
+				{
+					X = 0
+					Y = 0
+				}
+				{
+					X = 480
+					Y = 110
+				}
+				{
+					X = 480
+					Y = -110
+				}
+			]
+		}
+		Effects =
+		[
+			{
+				Name = "OnHitStunHeavy"
+				Duration = 1.1
+				DisableMove = true
+				DisableRotate = true
+				DisableAttack = true
+				Active = true
+				CanAffectInvulnerable = false
+				FrontFx = "null"
+			}
+		]
+	}
+	{
+		Name = "ProjectileAxeOverhead"
+		InheritFrom = "1_BaseDamagingProjectile"
+		DetonateFx = "AxeNova"
+		Type = "STRAIGHT"
+		DetonateSound = "/SFX/Player Sounds/MelinoeAxeSwingFinisher"
+		Fuse = 0.16
+		AffectsEnemies = true
+		AffectsFriends = false
+		Range = 1.0
+		DamageRadius = 430
+		DamageRadiusScaleY = 0.51
+		AttachToOwner = true
+		NumPenetrations = 9999
+		BlastSpeed = 1500
+		BlastDuration = 0.45
+		AffectsSelf = false
+		CheckUnitImpact = false
+		CheckObstacleImpact = true
+		UnlimitedUnitPenetration = true
+		UseOwnerAngle = true
+		Damage = @weapon_damage_scale|180@
+		ImpactVelocity = 0
+		
+		UseArmor = false
+		UseVulnerability = false
+		UseDetonationForProjectileDefense = true
+		Thing =
+		{
+			Graphic = "null"
+			OffsetZ = 70
+			Grip = 999999
+		}
+		Effects =
+		[
+			{
+				Name = "OnHitStunHeavy"
+				Duration = 1.1
+				DisableMove = true
+				DisableRotate = true
+				DisableAttack = true
+				Active = true
+				CanAffectInvulnerable = false
+				FrontFx = "null"
+			}
+		]
+	}
+	{
+		Name = "ProjectileAxeOverheadLight"
+		InheritFrom = "ProjectileAxeOverhead"
+		DamageRadius = 370
+		Damage = @weapon_damage_scale|100@
+	}
+
+	{
+		Name = "ProjectileAxeNergalSlow"
+		InheritFrom = "1_BaseDamagingProjectile"
+		DetonateFx = "AxeNovaNergal"
+		Type = "STRAIGHT"
+		DetonateSound = "/SFX/Player Sounds/MelinoeAxeSwingFinisherNergal"
+		Fuse = 0.2
+		AffectsEnemies = true
+		AffectsFriends = false
+		Range = 1.0
+		DamageRadius = 430
+		DamageRadiusScaleY = 0.51
+		NumPenetrations = 9999
+		BlastSpeed = 3000
+		BlastDuration = 0.45
+		AffectsSelf = false
+		CheckUnitImpact = false
+		CheckObstacleImpact = true
+		UnlimitedUnitPenetration = true
+		UseOwnerAngle = true
+		Damage = @weapon_damage_scale|160@
+		ImpactVelocity = 0
+		UseArmor = false
+		UseVulnerability = true
+		UseDetonationForProjectileDefense = true
+		Thing =
+		{
+			Graphic = "null"
+			OffsetZ = 70
+			Grip = 999999
+		}
+		Effects =
+		[
+			{
+				Name = "OnHitStunHeavy"
+				Duration = 1.1
+				DisableMove = true
+				DisableRotate = true
+				DisableAttack = true
+				Active = true
+				CanAffectInvulnerable = false
+				FrontFx = "null"
+			}
+		]
+	}
+
+	{
+		Name = "ProjectileAxeNergalFast"
+		InheritFrom = "ProjectileAxeNergalSlow"
+		Fuse = 0.11
+		Damage = @weapon_damage_scale|90@
+	}
+
+	{
+		Name = "ProjectileAxeNergalFastDash"
+		InheritFrom = "ProjectileAxeNergalSlow"
+		Fuse = 0.11
+		Damage = @weapon_damage_scale|80@
+	}
+	{
+		Name = "ProjectileAxeSpin"
+		InheritFrom = "1_BaseDamagingProjectile"
+		DetonateFx = "AxeSwipe2Spin"
+		GroupName = "FX_Standing_Add"
+		Type = "STRAIGHT"
+		DetonateSound = "/SFX/Player Sounds/MelinoeAxeSpin2"
+		Fuse = 0
+		AffectsEnemies = true
+		AffectsFriends = false
+		Range = 1.0
+		ActiveBlinkSpeedMultiplier = 1.4
+		ActiveBlinkRangeMultiplier = 1.8
+		DamageRadius = 410
+		DamageRadiusScaleY = 0.62
+		RequireHitCenter = false
+		AttachToOwner = true
+		NumPenetrations = 9999
+		AffectsSelf = false
+		CheckUnitImpact = false
+		BlastSpeed = 2500
+		CheckObstacleImpact = true
+		UnlimitedUnitPenetration = true
+		Damage = @weapon_damage_scale|50@
+		ImpactVelocity = 0
+		
+		UseArmor = false
+		UseVulnerability = true
+		UseDetonationForProjectileDefense = true
+		Thing =
+		{
+			Graphic = "null"
+			OffsetZ = 70
+			Grip = 999999
+		}
+		Effects =
+		[
+			{
+				Name = "OnHitStunAxeBlock"
+				Duration = 0.5
+				DisableMove = true
+				DisableRotate = true
+				DisableAttack = true
+				Active = true
+				CanAffectInvulnerable = false
+				FrontFx = "null"
+			}
+		]
+	}
+		{
+		Name = "ProjectileAxeRift"
+		InheritFrom = "1_BaseDamagingProjectile"
+		DetonateFx = "AxeSwipe2Spin"
+		GroupName = "FX_Standing_Add"
+		Type = "STRAIGHT"
+		DetonateSound = "/SFX/Player Sounds/MelinoeAxeSpin2"
+		AffectsEnemies = true
+		AffectsFriends = false
+		AffectsSelf = false
+		AdjustRateAcceleration = -260
+		UnlimitedUnitPenetration = true
+		MultipleObstacleCollisions = true
+		Range = 3000
+		Speed = 190
+		DamageRadius = 150
+		DamageRadiusScaleY = 0.7
+		DamageRadiusScaleX = 1.3
+		Damage = @weapon_damage_scale|10@
+		ImpactVelocity = 0
+		MultiDetonate = true
+		TotalFuse = 4
+		Fuse = 0.2
+		ImpactFx = "HitSparkSwordOrb"
+		UseVulnerability = false
+		IgnoreCoverageAngles = true
+		SilentImpactOnInvulnerable = true
+		NumJumps = 999
+		JumpType = "OBSTACLE_ONLY"
+		Thing =
+		{
+			Graphic = "null"
+			OffsetZ = 20
+			Grip = 999999
+		}
+		}
+		{
+		Name = "ProjectileAxeRiftLong"
+		InheritFrom = "ProjectileAxeRift"
+		DamageRadius = 220
+		TotalFuse = 12
+		}
+	{
+		Name = "ProjectileAxeBlock2"
+		InheritFrom = "1_BaseDamagingProjectile"
+		DetonateFx = "AxeNovaEX"
+		Type = "INSTANT"
+		DetonateSound = "/SFX/Player Sounds/MelinoeAxeSwingFinisherLong"
+		StartDelay = 0.06
+		Fuse = 0.01
+		AffectsEnemies = true
+		AffectsFriends = false
+		Range = 1.0
+		DamageRadius = 430
+		DamageRadiusScaleY = 0.51
+		AttachToOwner = false
+		NumPenetrations = 9999
+		BlastSpeed = 3000
+		BlastDuration = 0.45
+		AffectsSelf = false
+		CheckUnitImpact = false
+		CheckObstacleImpact = true
+		TimeModifierFraction = 0
+		UnlimitedUnitPenetration = true
+		Damage = @weapon_damage_scale|140@
+		ImpactVelocity = 0			
+		UseArmor = false
+		UseVulnerability = true
+		UseStartLocation = true
+		UseDetonationForProjectileDefense = true
+		Thing =
+		{
+			Graphic = "null"
+			OffsetZ = 70
+			Grip = 999999
+		}
+		Effects =
+		[
+			{
+				Name = "OnHitStunHeavy"
+				Duration = 1.1
+				DisableMove = true
+				DisableRotate = true
+				DisableAttack = true
+				Active = true
+				CanAffectInvulnerable = false
+				FrontFx = "null"
+			}
+		]
+	}
+
+	// ----------------------
+	// Torch
+	// ----------------------
+
+	// Attack
+	{
+		Name = "ProjectileTorchBall"
+		InheritFrom = "1_BaseDamagingProjectile"
+		Type = "HOMING"
+		Damage = @weapon_damage_scale|30@
+		MaxAdjustRate = 0
+		Range = 2000
+		Speed = 1250
+		SpeedVariance = 0
+		Acceleration = -450
+		AutoAdjustForTarget = false
+		TotalFuse = 0.74
+		ActiveBlinkSpeedMultiplier = 1.0
+		ActiveBlinkRangeMultiplier = 1.0
+		InheritOwnerVelocityMultiplier = 0
+		SpinFromOwnerVelocityMultiplier = 0
+		ProjectileImpactSound = "/SFX/MelTorchBounce"
+		SimpleImpactSound = "/SFX/MelTorchBounce"
+		ImpactVelocity = 0
+		AffectsFriends = false
+		AffectsSelf = false
+		CheckUnitImpact = true
+		CheckObstacleImpact = true
+		CheckProjectileImpact = false
+		ArcScaleY = 0.5
+		DetonateOnImpact = false
+		CollisionLayer = "Lyre"
+		UseVulnerability = true
+		UnlimitedUnitPenetration = false
+		NumJumps = 0
+		JumpType = "OBSTACLE_ONLY"
+		JumpSpeedMultiplier = 0.8
+		AllowRepeatedJumpHit = false
+		ExcludeLastHitThing = true
+		NoJumpTargetRandomSpread = 30
+		MultipleUnitCollisions = false
+		MultipleObstacleCollisions = true
+		StartFx = "null"
+		DissipateFx = "TorchBallDissipate"
+		ImpactFx = "TorchImpactFxBase"
+		IgnoreObstacleImpactDuration = 0.05
+		Thing =
+		{
+			Graphic = "TorchBallIn"
+			OffsetZ = 112
+			AttachedAnim = "TorchBallGroundGlow"
+			AmbientSound = "/SFX/Player Sounds/MelTorchBallAmbience"
+			Grip = 999999
+			RotateGeometry = true
+			UseBoundsForSortDrawArea = true
+			SortBoundsScale = 0.25
+			Tallness = 20
+			Points =
+			[
+				{
+					X = 25
+					Y = 50
+				}
+				{
+					X = 25
+					Y = -50
+				}
+				{
+					X = -75
+					Y = 0
+				}
+			]
+		}
+		Effects =
+		[
+			{
+				Name = "OnHitStun"
+				Duration = 0.3
+				DisableMove = true
+				DisableRotate = true
+				DisableAttack = true
+				Active = true
+				CanAffectInvulnerable = false
+				FrontFx = "null"
+				IgnoreName = "_PlayerUnit"
+			}
+		]
+	}
+	// EX Attack
+	{
+		Name = "ProjectileTorchWave"
+		InheritFrom = "1_BaseDamagingProjectile"
+		Type = "STRAIGHT"
+		Fuse = 0.25
+		Speed = 2000
+		IgnoreObstacleImpactDuration = 0.35
+		ImpactVelocity = 0
+		CheckUnitImpact = true
+		CheckObstacleImpact = true
+		MultipleObstacleCollisions = true
+		UnlimitedUnitPenetration = true
+		Damage = @weapon_damage_scale|75@
+		GroupName = "FX_Standing_Add"
+		UseVulnerability = true
+		Thing =
+		{
+			Graphic = "ProjectileTorchWave"
+			GeometryScaleY = 0.6
+			RotateGeometry = true
+			AttachedAnim = "TorchBallGroundGlowWave"
+			Grip = 999999
+			Points =
+			[
+				{
+					X = 100
+					Y = 320
+				}
+				{
+					X = 100
+					Y = -320
+				}
+				{
+					X = -100
+					Y = 0
+				}
+			]
+		}
+		Effects =
+		[
+			{
+				Name = "OnHitStun"
+				Duration = 0.7
+				DisableMove = true
+				DisableRotate = true
+				DisableAttack = true
+				Active = true
+				CanAffectInvulnerable = false
+				FrontFx = "null"
+				IgnoreName = "_PlayerUnit"
+			}
+		]
+	}
+	
+	// Special
+	{
+		Name = "ProjectileTorchOrbit"
+		InheritFrom = "1_BaseDamagingProjectile"
+		DetonateFx = "null"
+		Type = "ARC"
+		AffectsEnemies = true
+		AffectsFriends = false
+		AffectsSelf = false
+		UnlimitedUnitPenetration = true
+		UnlimitedObstaclePenetration = true
+		ResetCollisionOutsideImpact = true
+		SilentImpactOnInvulnerable = true
+		Fuse = 0.5
+		Range = 260
+		ArcStart = 0
+		ArcEnd = 10800
+		ArcScaleY = 0.5
+		Speed = 1200
+		UseStartLocation = true
+		UseArmor = true
+		UseVulnerability = true
+		AttachToMarker = "null"
+		InvulnerableImpactOwnerVelocity = 0
+		StartFx = "null"
+		Damage = @weapon_damage_scale|20@
+		StartDelay = 0
+		DrawDuringPause = false
+		UnpauseResetLocation = true
+		GroupName = "Standing"
+		DissipateFx = "TorchOrbitBaseOut"
+		CollisionLayer = "Lyre"
+		DetonatesProjectilesOnLayer = true
+		MultipleUnitCollisions = true
+		DetonateOnImpact = false
+		Thing =
+		{
+			Graphic = "TorchOrbitBaseIn"
+			AttachedAnim = "TorchOrbitShadowBase"
+			AmbientSound = "/SFX/Player Sounds/MelTorchSpecialLoop"
+			OffsetZ = 112
+			RotateGeometry = true
+			Scale = 1.0
+			SortBoundsScale = 0.2
+			UseBoundsForSortDrawArea = true
+			Tallness = 50
+			Points =
+			[
+				{
+					X = 70
+					Y = 70
+				}
+				{
+					X = 70
+					Y = -70
+				}
+				{
+					X = -70
+					Y = -70
+				}
+				{
+					X = -70
+					Y = 70
+				}
+			]
+		}
+		Effects =
+		[
+			{
+				Name = "OnHitStun"
+				Duration = 0.3
+				DisableMove = true
+				DisableRotate = true
+				DisableAttack = true
+				Active = true
+				CanAffectInvulnerable = false
+				FrontFx = "null"
+			}
+		]
+	}
+	// EX Special
+	{
+		Name = "ProjectileTorchOrbitEx"
+		InheritFrom = "ProjectileTorchOrbit"
+		Speed = 260
+		Range = 540
+		Fuse = 5
+		Damage = @weapon_damage_scale|40@
+		Thing =
+		{
+			Graphic = "TorchOrbitBaseInEX"
+			Points =
+			[
+				{
+					X = 70
+					Y = 70
+				}
+				{
+					X = 70
+					Y = -70
+				}
+				{
+					X = -70
+					Y = -70
+				}
+				{
+					X = -70
+					Y = 70
+				}
+			]
+		}
+		Effects =
+		[
+			{
+				Name = "OnHitStun"
+				Duration = 0.3
+				DisableMove = true
+				DisableRotate = true
+				DisableAttack = true
+				Active = false
+				CanAffectInvulnerable = false
+				FrontFx = "null"
+			}
+		]
+
+		
+	}
+
+	// Eos
+	// EX Attack
+	{
+		Name = "ProjectileTorchBallEos"
+		InheritFrom = "1_BaseDamagingProjectile"
+		Type = "HOMING"
+		Damage = @weapon_damage_scale|75@
+		MaxAdjustRate = 0
+		Range = 2000
+		Speed = 1000.0
+		SpeedVariance = 0
+		Acceleration = -450
+		AutoAdjustForTarget = false
+		TotalFuse = 0.95
+		ActiveBlinkSpeedMultiplier = 1.03
+		ActiveBlinkRangeMultiplier = 1.0
+		InheritOwnerVelocityMultiplier = 0
+		SpinFromOwnerVelocityMultiplier = 0.25
+		ProjectileImpactSound = "/SFX/MelTorchBounce"
+		SimpleImpactSound = "/SFX/MelTorchBounce"
+		ImpactVelocity = 0
+		TargetOwnerWithoutTarget = true
+		AffectsFriends = false
+		AffectsSelf = false
+		CheckUnitImpact = true
+		CheckObstacleImpact = true
+		CheckProjectileImpact = false
+		ArcScaleY = 0.5
+		DetonateOnImpact = false
+		CollisionLayer = "Lyre"
+		UseVulnerability = true
+		UnlimitedUnitPenetration = true
+		NumJumps = 99999
+		JumpType = "OBSTACLE_ONLY"
+		JumpSpeedMultiplier = 0.8
+		AllowRepeatedJumpHit = false
+		ExcludeLastHitThing = true
+		NoJumpTargetRandomSpread = 30
+		MultipleUnitCollisions = false
+		MultipleObstacleCollisions = true
+		StartFx = "null"
+		DissipateFx = "TorchProjectileDissipate"
+		Thing =
+		{
+			Graphic = "EosProjectile_Base_In"
+			OffsetZ = 112
+			AttachedAnim = "TorchProjectileShadowLarge"
+			Grip = 999999
+			AmbientSound = "/SFX/Player Sounds/MelTorchesOmegaAttackLoop"
+			RotateGeometry = true
+			Tallness = 20
+			Points =
+			[
+				{
+					X = 50
+					Y = 50
+				}
+				{
+					X = 50
+					Y = -50
+				}
+				{
+					X = -50
+					Y = -50
+				}
+				{
+					X = -50
+					Y = 50
+				}
+			]
+		}
+		Effects =
+		[
+			{
+				Name = "OnHitStun"
+				Duration = 0.7
+				DisableMove = true
+				DisableRotate = true
+				DisableAttack = true
+				Active = true
+				CanAffectInvulnerable = false
+				FrontFx = "null"
+				IgnoreName = "_PlayerUnit"
+			}
+		]
+	}
+
+	// Moros
+	// Attack
+	{
+		Name = "ProjectileTorchGhost"
+		InheritFrom = "1_BaseDamagingProjectile"
+		Type = "HOMING"
+		Damage = @weapon_damage_scale|30@
+		MaxAdjustRate = 0
+		Range = 2000
+		Speed = 800
+		SpeedVariance = 0
+		Acceleration = -350
+		AutoAdjustForTarget = false
+		TotalFuse = 2
+		ActiveBlinkSpeedMultiplier = 1.0
+		ActiveBlinkRangeMultiplier = 1.0
+		InheritOwnerVelocityMultiplier = 0
+		SpinFromOwnerVelocityMultiplier = 0
+		SimpleImpactSound = "/SFX/MelTorchBounce"
+		ImpactVelocity = 0
+		AffectsFriends = false
+		AffectsSelf = false
+		CheckUnitImpact = true
+		CheckObstacleImpact = true
+		CheckProjectileImpact = true
+		ArcScaleY = 0.5
+		DetonateOnImpact = false
+		CollisionLayer = "Lyre"
+		UseVulnerability = true
+		UnlimitedUnitPenetration = true
+		NumJumps = 0
+		JumpType = "OBSTACLE_ONLY"
+		JumpSpeedMultiplier = 0.8
+		AllowRepeatedJumpHit = false
+		ExcludeLastHitThing = true
+		NoJumpTargetRandomSpread = 30
+		MultipleUnitCollisions = false
+		MultipleObstacleCollisions = true
+		StartFx = "null"
+		IgnoreObstacleImpactDuration = 0.15
+		DissipateFx = "TorchSpecialProjectileDissipate"
+		Thing =
+		{
+			Graphic = "TorchProjectileGhostIn"
+			OffsetZ = 112
+			AttachedAnim = "TorchSpecialProjectileGroundGlow"
+			AmbientSound = "/SFX/Player Sounds/MelTorchBallAmbience"
+			Grip = 999999
+			RotateGeometry = true
+			Tallness = 20
+			Points =
+			[
+				{
+					X = 25
+					Y = 50
+				}
+				{
+					X = 25
+					Y = -50
+				}
+				{
+					X = -75
+					Y = 0
+				}
+			]
+		}
+		Effects =
+		[
+			{
+				Name = "OnHitStun"
+				Duration = 0.3
+				DisableMove = true
+				DisableRotate = true
+				DisableAttack = true
+				Active = true
+				CanAffectInvulnerable = false
+				FrontFx = "null"
+				IgnoreName = "_PlayerUnit"
+			}
+		]
+	}
+	// Attack Explosion
+	{
+		Name = "ProjectileTorchGhostExplosion"
+		InheritFrom = "1_BaseProjectile"
+		DetonateFx = "TorchOrbExplosion"
+		DetonateSound = "/SFX/PlayerHammerExplosions"
+		Type = "INSTANT"
+		AffectsEnemies = true
+		AffectsFriends = false
+		AffectsSelf = false
+		CheckUnitImpact = false
+		CheckObstacleImpact = false
+		Fuse = 0.01
+		Range = 50
+		DamageRadius = 385
+		BlastSpeed = 2000
+		DamageRadiusScaleX = 1.1
+		DamageRadiusScaleY = 0.6
+		Damage = @weapon_damage_scale|30@
+		ImpactVelocity = 0
+		ImpactVelocityFalloff = 0.1
+		ClearOnAttackEffects = false
+
+		Thing =
+		{
+			Graphic = "null"
+		}
+		Effects =
+		[
+			{
+				Name = "OnHitStun"
+				Duration = 0.7
+				DisableMove = true
+				DisableRotate = true
+				DisableAttack = true
+				Active = true
+				CanAffectInvulnerable = false
+				FrontFx = "null"
+			}
+		]
+	}
+
+	// EX Attack
+	{
+		Name = "ProjectileTorchGhostLarge"
+		InheritFrom = "1_BaseDamagingProjectile"
+		Type = "HOMING"
+		Damage = @weapon_damage_scale|75@
+		MaxAdjustRate = 0
+		Range = 2000
+		Speed = 800
+		SpeedVariance = 0
+		Acceleration = -350
+		AutoAdjustForTarget = false
+		TotalFuse = 2
+		ActiveBlinkSpeedMultiplier = 1.03
+		ActiveBlinkRangeMultiplier = 1.0
+		InheritOwnerVelocityMultiplier = 0
+		SpinFromOwnerVelocityMultiplier = 0.25
+		SimpleImpactSound = "/SFX/MelTorchBounce"
+		ImpactVelocity = 0
+		AffectsFriends = false
+		AffectsSelf = false
+		CheckUnitImpact = true
+		CheckObstacleImpact = true
+		CheckProjectileImpact = true
+		ArcScaleY = 0.5
+		DetonateOnImpact = false
+		CollisionLayer = "Lyre"
+		UseVulnerability = true
+		UnlimitedUnitPenetration = true
+		NumJumps = 99999
+		JumpType = "OBSTACLE_ONLY"
+		JumpSpeedMultiplier = 0.8
+		AllowRepeatedJumpHit = false
+		ExcludeLastHitThing = true
+		NoJumpTargetRandomSpread = 30
+		MultipleUnitCollisions = false
+		MultipleObstacleCollisions = true
+		StartFx = "null"
+		DissipateFx = "TorchProjectileDissipate"
+		IgnoreObstacleImpactDuration = 0.15
+		Thing =
+		{
+			Graphic = "TorchProjectileGhostLargeIn"
+			OffsetZ = 112
+			AttachedAnim = "TorchProjectileShadowLarge"
+			Grip = 999999
+			AmbientSound = "/SFX/Player Sounds/MelTorchesOmegaAttackLoop"
+			RotateGeometry = true
+			Tallness = 20
+			Points =
+			[
+				{
+					X = 50
+					Y = 50
+				}
+				{
+					X = 50
+					Y = -50
+				}
+				{
+					X = -50
+					Y = -50
+				}
+				{
+					X = -50
+					Y = 50
+				}
+			]
+		}
+		Effects =
+		[
+			{
+				Name = "OnHitStun"
+				Duration = 0.7
+				DisableMove = true
+				DisableRotate = true
+				DisableAttack = true
+				Active = true
+				CanAffectInvulnerable = false
+				FrontFx = "null"
+				IgnoreName = "_PlayerUnit"
+			}
+		]
+	}
+	// EX Attack Explosion
+	{
+		Name = "ProjectileTorchGhostLargeExplosion"
+		InheritFrom = "ProjectileTorchGhostExplosion"
+		DetonateFx = "TorchOrbExplosion"
+		DetonateSound = "/SFX/PlayerHammerExplosions"
+		Type = "INSTANT"
+		AffectsEnemies = true
+		AffectsFriends = false
+		AffectsSelf = false
+		CheckUnitImpact = false
+		CheckObstacleImpact = false
+		Fuse = 0.01
+		Range = 50
+		DamageRadius = 475
+		BlastSpeed = 2000
+		DamageRadiusScaleX = 1.1
+		DamageRadiusScaleY = 0.6
+		Damage = @weapon_damage_scale|150@
+		ImpactVelocity = 0
+		ImpactVelocityFalloff = 0.1
+		ClearOnAttackEffects = false
+
+		Thing =
+		{
+			Graphic = "null"
+		}
+		Effects =
+		[
+			{
+				Name = "OnHitStun"
+				Duration = 0.7
+				DisableMove = true
+				DisableRotate = true
+				DisableAttack = true
+				Active = true
+				CanAffectInvulnerable = false
+				FrontFx = "null"
+			}
+		]
+	}
+
+	// Supay
+	{
+		Name = "ProjectileTorchSupayBallEx"
+		InheritFrom = "1_BaseDamagingProjectile"
+		Type = "HOMING"
+		Damage = @weapon_damage_scale|25@
+		MaxAdjustRate = 90
+		Range = 2000
+		Speed = 2500
+		SpeedVariance = 0
+		AutoAdjustForTarget = false
+		TotalFuse = 0.25
+		ActiveBlinkSpeedMultiplier = 1
+		ActiveBlinkRangeMultiplier = 1
+		InheritOwnerVelocityMultiplier = 0
+		SpinFromOwnerVelocityMultiplier = 0
+		ImpactVelocity = 0
+		AffectsFriends = false
+		AffectsSelf = false
+		CheckUnitImpact = true
+		CheckObstacleImpact = true
+		CheckProjectileImpact = false
+		ArcScaleY = 0.5
+		DetonateOnImpact = false
+		UseVulnerability = true
+		UnlimitedUnitPenetration = true
+		ExcludeLastHitThing = true
+		MultipleUnitCollisions = false
+		MultipleObstacleCollisions = true
+		StartFx = "null"
+		IgnoreObstacleImpactDuration = 0.1
+		ObstacleCollisionCheck = "PolygonContainsPoint"
+		Thing =
+		{
+			Graphic = "ProjectileTorchWave_Supay"
+			OffsetZ = 112
+			AttachedAnim = "TorchBallGroundGlowWave_Supay"
+			GeometryScaleY = 0.6
+			Grip = 999999
+			RotateGeometry = true
+			Points =
+			[
+				{
+					X = 100
+					Y = 320
+				}
+				{
+					X = 100
+					Y = -320
+				}
+				{
+					X = -100
+					Y = 0
+				}
+			]
+		}
+	}
+
+	// Hammer/Misc
+	{
+		Name = "ProjectileTorchBallSplit"
+		InheritFrom = "ProjectileTorchBall"
+		ImpactVelocity = 0
+	}
+	{
+		Name = "ProjectileTorchWaveSplit"
+		InheritFrom = "ProjectileTorchWave"
+		ImpactVelocity = 0
+	}
+	{
+		Name = "ProjectileTorchGhostSplit"
+		InheritFrom = "ProjectileTorchGhost"
+		ImpactVelocity = 0
+	}
+	{
+		Name = "ProjectileTorchGhostLargeSplit"
+		InheritFrom = "ProjectileTorchGhostLarge"
+		ImpactVelocity = 0
+	}
+	{
+		Name = "ProjectileTorchSupayBallExSplit"
+		InheritFrom = "ProjectileTorchSupayBallEx"
+		ImpactVelocity = 0
+	}
+
+	/* Transform */
+	{
+		Name = "ProjectileTransformRing"
+		InheritFrom = "1_BaseDamagingProjectile"
+		Type = "STRAIGHT"
+		AffectsEnemies = true
+		AffectsFriends = false
+		AffectsSelf = false
+		CheckUnitImpact = true
+		CheckObstacleImpact = true
+		UnlimitedUnitPenetration = true
+		NumPenetrations = 99999
+		AttachToOwner = true
+		DamageRadius = 1600
+		Fuse = 0
+		Damage = 40
+		Range = 1.0
+		DamageRadiusScaleY = 0.6
+		DoesNotAffectName = "_PlayerUnit"
+		BlastSpeed = 400
+		UseRadialImpact = true
+		DamageRadiusScaleX = 1.175
+		ProjectileDefenseRadius = 0
+		UseArmor = true
+		UseVulnerability = false
+		ResetCollisionOutsideDetonation = true
+		HollowBlastRadiusBand = 20
+		ReturnToOwnerAfterInactiveSeconds = 1.95
+		IgnoreCancelAttachedProjectiles = true
+		InflictedDamageSound = "/SFX/BurnDamage"
+		Thing =
+		{
+			Graphic = "SorceryDarksideRing"
+			Grip = 999999
+		}
+		Effects =
+		[
+			{
+				Name = "OnHitStun"
+				Duration = 0.7
+				DisableMove = true
+				DisableRotate = true
+				DisableAttack = true
+				Active = true
+				CanAffectInvulnerable = false
+				FrontFx = "null"
+			}
+		]
+	}
+	{ 
+		Name = "ProjectileTransformSwing"
+		InheritFrom = "1_BaseDamagingProjectile"
+		DetonateFx = "null"
+		Type = "STRAIGHT"
+		AffectsEnemies = true
+		AffectsFriends = false
+		AffectsSelf = false
+		CheckUnitImpact = true
+		CheckObstacleImpact = true
+		UnlimitedUnitPenetration = true
+		UnlimitedObstaclePenetration = true
+		Range = 1200
+		Speed = 1000
+		NumPenetrations = 99999
+		Acceleration = -300
+		UseArmor = true
+		UseVulnerability = true
+		AttachToMarker = "null"
+		InvulnerableImpactOwnerVelocity = 0
+		StartFx = "StaffProjectileFireFx3"
+		UseRadialImpact = false
+		ImpactLineOfSightFromOwner = false
+		Damage = 20
+		DissipateFx = "SorceryDarksideProjectileOut"
+		ImpactFx = null
+		GroupName = "FX_Standing_Add"
+		InflictedDamageSound = "/SFX/BurnDamage"
+		Thing =
+		{
+			Graphic = "SorceryDarksideProjectileIn"
+			AttachedAnim = "SorceryDarksideProjectileGroundGlow"
+			AmbientSound = "/SFX/Player Sounds/TransformAttackProjectileLoop"
+			GeometryScaleY = 0.5
+			OffsetZ = 70
+			RotateGeometry = true
+			Scale = 1.8
+			Points =
+			[
+				{
+					X = 100
+					Y = 90
+				}
+				{
+					X = 100
+					Y = -90
+				}
+				{
+					X = 0
+					Y = -140
+				}
+				{
+					X = -50
+					Y = -120
+				}
+				{
+					X = 20
+					Y = 120
+				}
+			]
+		}
+		Effects =
+		[
+			{
+				Name = "OnHitStun"
+				Duration = 0.7
+				DisableMove = true
+				DisableRotate = true
+				DisableAttack = true
+				Active = true
+				CanAffectInvulnerable = false
+				FrontFx = "null"
+			}
+		]
+	}
+	{
+		Name = "ProjectileMorphedAttack"
+		InheritFrom = "1_BaseDamagingProjectile"
+		DetonateFx = "null"
+		Type = "STRAIGHT"
+		AffectsEnemies = true
+		AffectsFriends = false
+		AffectsSelf = false
+		CheckUnitImpact = true
+		CheckObstacleImpact = true
+		UnlimitedUnitPenetration = true
+		UnlimitedObstaclePenetration = false
+		Range = 100
+		Speed = 500
+		NumPenetrations = 99999
+		UseArmor = true
+		UseVulnerability = true
+		AttachToMarker = "null"
+		InvulnerableImpactOwnerVelocity = 0
+		StartFx = "null"
+		UseRadialImpact = false
+		ImpactLineOfSightFromOwner = false
+		Damage = 5
+		GroupName = "FX_Standing_Add"
+		Thing =
+		{
+			Graphic = "null"
+			RotateGeometry = true
+			OffsetZ = 0
+			Points =
+			[
+				{
+					X = 0
+					Y = 0
+				}
+				{
+					X = 60
+					Y = 80
+				}
+				{
+					X = 60
+					Y = -80
+				}
+			]
+		}
+	}
+	{
+		Name = "ProjectileTransformBlink"
+		DetonateSound = "/SFX/Enemy Sounds/Charon/CharonRadialBlast"
+		DetonateFx = "RadialNovaSwordParry"
+		Type = "STRAIGHT"
+		Fuse = 0.0
+		Range = 250
+		Damage = 10
+		DamageRadius = 230.0
+		DamageRadiusScaleY = 0.6
+		DamageRadiusScaleX = 1.1
+		BlastSpeed = 2000
+		ImpactVelocity = 0.0
+		AutoAdjustForTarget = false
+		UseVulnerability = false
+		NumPenetrations = 999
+		SilentImpactOnInvulnerable = true
+		BlastDuration = 0.02
+		AttachToOwner = false
+		AffectsEnemies = true
+		AffectsFriends = false
+		AffectsSelf = false
+		CheckObstacleImpact = true
+		UnlimitedUnitPenetration = true
+		ClearOnAttackEffects = false
+		Thing =
+		{
+			Graphic = "null"
+			OffsetZ = 70
+			AttachedAnim = "null"
+			RotateGeometry = true
+			Grip = 999999
+			Points =
+			[
+				{
+					X = 48
+					Y = 48
+				}
+				{
+					X = 48
+					Y = -48
+				}
+				{
+					X = -48
+					Y = -48
+				}
+				{
+					X = -48
+					Y = 48
+				}
+			]
+		}
+	}
+
+	/* Lob */ 
+	{
+		Name = "ProjectileLob" 
+		InheritFrom = "1_BaseDamagingProjectile"
+		DetonateFx = "LobExplosionBase"
+		DetonateSound = "/SFX/Player Sounds/MelSkullsAttackExplode"
+		BounceFx = "LobProjectileBounceFx"
+		Type = "HOMING"
+		MaxAdjustRate = 30
+		AdjustRateAcceleration = -5
+		Damage = @weapon_damage_scale|40@
+		DamageRadius = 235.0
+		DamageRadiusScaleY = 0.6
+		AutoAdjustForTarget = false
+		Speed = 400
+		Acceleration = 1600
+		MaxSpeed = 1800
+		LaunchAngle = 18
+		MinRange = 0.0
+		Range = 790
+		BlastSpeed = 3000
+		ImpactVelocity = 0.0
+		AffectsFriends = false
+		AffectsSelf = false
+		CheckUnitImpact = true
+		CheckObstacleImpact = true
+		SelfImpactVelocityMultiplier = 0
+		ReflectFx = "GrenadeBounceSpark"
+		StartFx = "StaffProjectileFireFx2Close"
+		UseVulnerability = true
+		RequireHitCenter = false
+		IgnoreObstacleImpactDuration = 0.05,
+		ObstacleCollisionCheck = "PolygonContainsPoint"
+		Effects =
+		[
+			{
+				Name = "OnHitStun"
+				Duration = 0.7
+				DisableMove = true
+				DisableRotate = true
+				DisableAttack = true
+				Active = true
+				CanAffectInvulnerable = false
+				FrontFx = "null"
+			}
+		]
+		Thing =
+		{
+			Graphic = "LobProjectile"
+			Scale = 1
+			OffsetZ = 70
+			AttachedAnim = "GrenadierShadow"
+			TouchdownSound = "/SFX/Player Sounds/MelSkullsHopBounce"
+			RotateGeometry = true
+			Points =
+			[
+				{
+					X = 32
+					Y = 24
+				}
+				{
+					X = 32
+					Y = -24
+				}
+				{
+					X = -32
+					Y = -24
+				}
+				{
+					X = -32
+					Y = 24
+				}
+			]
+		}
+	}
+	
+	{
+		Name = "ProjectileLobBullet"
+		InheritFrom = "1_BaseDamagingProjectile"
+		Type = "HOMING"
+		HomingAllegiance = "ENEMIES"
+		AdjustRateAcceleration = 0
+		MaxAdjustRate = 20
+		CheckObstacleImpact = true
+		CheckUnitImpact = true
+		UnlimitedUnitPenetration = true
+		DetonateAtVictimLocation = true
+		DamageRadius = 0
+		DamageRadiusScaleY = 0.6
+		Damage = @weapon_damage_scale|20@
+		Acceleration = 0
+		SpinRate = 0
+		Range = 555.0
+		Speed = 5000.0
+		StartDelay = 0.08
+		StartFx = "StaffProjectileFireFx2"
+		DeathFx = "LobProjectileBulletFade"
+		DetonateFx = "RadialNovaPentagramCharged"
+		DetonateSound = "/SFX/Player Sounds/StaffRangedDetonate"
+		GroupName = "Standing"
+		UseVulnerability = true
+		IgnoreObstacleImpactDuration = 0.1
+		Thing =
+		{
+			Graphic = "LobProjectileBullet"
+			OffsetZ = 100
+			AttachedAnim = "SlingShotShadow"
+			Grip = 999999
+			RotateGeometry = true
+			Tallness = 20
+			Points =
+			[
+				{
+					X = 25
+					Y = 45
+				}
+				{
+					X = 25
+					Y = -45
+				}
+				{
+					X = -50
+					Y = 0
+				}
+			]
+		}
+		Effects =
+		[
+			{
+				Name = "OnHitStun"
+				Duration = 0.5
+				DisableMove = true
+				DisableRotate = true
+				DisableAttack = true
+				Active = true
+				CanAffectInvulnerable = false
+				FrontFx = "null"
+			}
+
+			{
+				Name = "KnockbackGrip"
+				Type = "GRIP"
+				Duration = 0.10
+				Modifier = 1.0
+				HaltOnEnd = true
+				Active = true
+				CanAffectInvulnerable = true
+			}
+		]
+	}
+	{
+		Name = "ProjectileLobOverheat"	
+		InheritFrom = "1_BaseDamagingProjectile"
+		DetonateFx = "null"
+		Type = "STRAIGHT"
+		UnlimitedObstaclePenetration = true
+		NumPenetrations = 99999
+		UseArmor = true
+		InvulnerableImpactOwnerVelocity = 0
+		UseRadialImpact = true
+		ImpactLineOfSightFromOwner = false
+		ProjectileDefenseRadius = 150
+		ProjectileDefenseAngle = 110
+		AffectsEnemies = true
+		AffectsFriends = false
+		AffectsSelf = false
+		AttachToOwner = false
+		Speed = 2500
+		IgnoreCancelAttachedProjectiles = true
+		CheckUnitImpact = true
+		CheckObstacleImpact = true
+		UnlimitedUnitPenetration = true
+		Damage = @weapon_damage_scale|200@
+		ImpactVelocity = 700
+		Fuse = 0.25
+		UseVulnerability = true
+		RepeatStartFx = true
+		GroupName = "FX_Standing_Add"
+		IgnoreObstacleImpactDuration = 0.35
+		Thing =
+		{
+			RotateGeometry = true
+			OffsetZ = 50
+			Graphic = "LobSpecialFx_Hel"
+			GeometryScaleY = 0.6
+			Points =
+			[
+				{
+					X = -10
+					Y = -275
+				}
+				{
+					X = -10
+					Y = 275
+				}
+				{
+					X = 170
+					Y = 160
+				}
+				{
+					X = 170
+					Y = -160
+				}
+			]
+		}
+		Effects =
+		[
+			{
+				Name = "OnHitStun"
+				Duration = 0.5
+				DisableMove = true
+				DisableRotate = true
+				DisableAttack = true
+				Active = true
+				CanAffectInvulnerable = false
+				FrontFx = "null"
+			}
+		]
+	}
+	{
+		Name = "ProjectileLobCharged"
+		InheritFrom = "1_BaseDamagingProjectile"
+		DetonateFx = "LobExplosionCharged"
+		Type = "LOB"
+		Damage = @weapon_damage_scale|150@
+		BlastSpeed = 2500
+		DamageRadius = 530.0
+		DamageRadiusScaleY = 0.6
+		AutoAdjustForTarget = true
+		SpinRate = -360
+		Speed = 1000
+		Gravity = 1500
+		MinRange = 0.0
+		Range = 630
+		ImpactVelocity = 0.0
+		AffectsFriends = false
+		AffectsSelf = false
+		CheckUnitImpact = false
+		CheckObstacleImpact = true
+		UseVulnerability = true
+		SelfImpactVelocityMultiplier = 0
+		ReflectFx = "GrenadeBounceSpark"
+		StartFx = "LobEXFireFx"
+		LaunchDistanceFraction = 0.2
+		DescentTime = 0.1
+		HangTime = 0.224
+		DescentStartFx = "LobEXDescentStart"
+		Effects =
+		[
+			{
+				Name = "OnHitStun"
+				Duration = 0.7
+				DisableMove = true
+				DisableRotate = true
+				DisableAttack = true
+				Active = true
+				CanAffectInvulnerable = false
+				FrontFx = "null"
+			}
+		]
+		Thing =
+		{
+			Graphic = "LobProjectileCharged"
+			Scale = 0.1
+			OffsetZ = 101
+			AttachedAnim = "LobProjectileChargedSecondaryEmitter"
+			RotateGeometry = true
+			Points =
+			[
+				{
+					X = 32
+					Y = 24
+				}
+				{
+					X = 32
+					Y = -24
+				}
+				{
+					X = -32
+					Y = -24
+				}
+				{
+					X = -32
+					Y = 24
+				}
+			]
+		}
+	}
+	{
+		Name = "ProjectileLobChargedPulse"
+		InheritFrom = "ProjectileLobCharged"
+		Type = "INSTANT"
+	}
+	{
+		Name = "ProjectileLobPulse"
+		InheritFrom = "1_BaseDamagingProjectile"
+		DetonateFx = "RadialNovaLobPulse"
+		Type = "STRAIGHT"
+		AffectsEnemies = true
+		AffectsFriends = false
+		AffectsSelf = false
+		CheckUnitImpact = false
+		CheckObstacleImpact = false
+		Fuse = 0.01
+		Range = 50
+		DamageRadius = 345
+		BlastSpeed = 2000
+		Damage = @weapon_damage_scale|20@
+		ImpactVelocity = 0
+		ClearOnAttackEffects = false
+		DamageRadiusScaleY = 0.6
+		DamageRadiusScaleX = 1.0
+		ProjectileImpactSound = "/SFX/BurnDamage"
+		Thing =
+		{
+			Graphic = "null"
+			OffsetZ = 70
+			Grip = 999999
+		}
+		Effects =
+		[
+			{
+				Name = "OnHitStun"
+				Duration = 0.7
+				DisableMove = true
+				DisableRotate = true
+				DisableAttack = true
+				Active = true
+				CanAffectInvulnerable = false
+				FrontFx = "null"
+			}
+		]
+	}
+	{
+		Name = "ProjectileThrowBlink"
+		DetonateSound = "null"
+		Type = "STRAIGHT"
+		Fuse = 0.01
+		Range = 250
+		Damage = @weapon_damage_scale|45@
+		DamageRadius = 150
+		DamageRadiusScaleY = 0.6
+		DamageRadiusScaleX = 1.1
+		BlastStartRadius = 140
+		BlastSpeed = 75
+		ImmunityDuration = 0.2
+		//DetonateFx = "StaffChargedAttackFxBall"
+		UseRadialImpact = true
+		AutoAdjustForTarget = false
+		NumPenetrations = 999
+		SilentImpactOnInvulnerable = true
+		ClearOnAttackEffects = false
+		AttachToOwner = true
+		UseVulnerability = true
+		Thing =
+		{
+			Graphic = "DashLobTrailEmitter"
+			OffsetZ = 70
+			AttachedAnim = "null"
+			RotateGeometry = true
+			Grip = 999999
+		}
+		Effects =
+		[
+			{
+				Name = "OnHitStun"
+				Duration = 0.3
+				DisableMove = true
+				DisableRotate = true
+				DisableAttack = true
+				Active = true
+				CanAffectInvulnerable = false
+			}
+		]
+	}		 
+	{
+		Name = "ProjectileThrowCharged"
+		DetonateFx = "EnemyConeAttackLoopEnd"
+		Type = "STRAIGHT"
+		DetonateSound = null
+		AttachToOwner = false
+		Speed = 1000
+		Acceleration = 1500
+		AffectsEnemies = true
+		AffectsFriends = false
+		ImpactVelocity = 0
+		MultiDetonate = false
+		MultipleUnitCollisions = false
+		RetainDetonationHitRecord = true
+		Fuse = 0.4
+		RepeatHitOnReturn = true
+		ImmunityDuration = 0.5
+		IgnoreObstacleImpactDuration = 0.15
+		AffectsSelf = false
+		CheckUnitImpact = true
+		CheckObstacleImpact = true
+		UnlimitedUnitPenetration = true
+		CanBeProjectileDefenseDestroyed = false
+		CanBeReflected = false
+		Damage = @weapon_damage_scale|130@
+		UseRadialImpact = false
+		GroupName = "FX_Terrain_Add"
+		SpawnOnDetonate = "null"
+
+		Thing =
+		{
+			Graphic = "LobSpecialFx"
+			RotateGeometry = true
+			AttachedAnim = "null"
+			Grip = 999999
+			Points =
+			[
+				{
+					X = 50
+					Y = 200
+				}
+				{
+					X = 50
+					Y = -200
+				}
+				{
+					X = -50
+					Y = -200
+				}
+				{
+					X = -50
+					Y = 200
+				}
+			]
+		}
+		Effect =
+		{
+			Name = "OnHitStun"
+			Duration = 0.5
+			DisableMove = true
+			DisableRotate = true
+			DisableAttack = false
+			Active = false
+			CanAffectInvulnerable = false
+			Cancelable = true
+		}
+	} 
+	{
+		Name = "ProjectileThrowChargedSmall"
+		InheritFrom = "ProjectileThrowCharged"
+		Speed = 1000
+		Damage = @weapon_damage_scale|20@
+		Fuse = 0.4
+		Thing =
+		{
+			Graphic = "LobSpecialFx"
+			RotateGeometry = true
+			AttachedAnim = "null"
+			Grip = 999999
+			Scale = 0.1
+			Points =
+			[
+				{
+					X = 50
+					Y = 200
+				}
+				{
+					X = 50
+					Y = -200
+				}
+				{
+					X = -50
+					Y = -200
+				}
+				{
+					X = -50
+					Y = 200
+				}
+			]
+		}
+		Effect =
+		{
+			Name = "OnHitStun"
+			Duration = 0.5
+			DisableMove = true
+			DisableRotate = true
+			DisableAttack = false
+			Active = true
+			CanAffectInvulnerable = false
+			Cancelable = true
+		}
+	}
+	{
+		Name = "ProjectileLobSpecialBounce"
+		InheritFrom = "1_BaseDamagingProjectile"
+		Type = "HOMING"
+		MaxAdjustRate = 160
+		Speed = 1000
+		Acceleration = 40
+		Damage = @weapon_damage_scale|40@
+		NumJumps = 10
+		JumpSpeedMultiplier = 1.0
+		FinalJumpToOwner = true
+		JumpRange = 900
+		Fuse = 5
+		Range = 9999
+		ReturnToOwnerAfterInactiveSeconds = 1.2
+		IgnoreObstacleImpactDuration = 0.15
+		NoJumpTargetRandomSpread = 10
+		UnlimitedObstaclePenetration = true
+		UseVulnerability = true
+		JumpType = "UNIT_PREFERENCE"
+		AddControlOnDeath = "WeaponLobSpecial"
+		Thing =
+		{
+			Graphic = "LobSpecialHel"
+			Scale = 1
+			OffsetZ = 70
+			AttachedAnim = "GrenadierShadow"
+			TouchdownSound = "/SFX/Player Sounds/MelSkullsHopBounce"
+			RotateGeometry = true
+			Points =
+			[
+				{
+					X = 32
+					Y = 24
+				}
+				{
+					X = 32
+					Y = -24
+				}
+				{
+					X = -32
+					Y = -24
+				}
+				{
+					X = -32
+					Y = 24
+				}
+			]
+		}
+	}
+	{
+		Name = "ProjectileLobGunRift" 
+		InheritFrom = "ProjectileLobSpecialBounce"
+		//DetonateFx = "LobExplosionBase"
+		DetonateSound = "/SFX/Player Sounds/MelSkullsAttackExplode"
+		BounceFx = "LobProjectileBounceFx"
+		Type = "HOMING"
+		NumJumps = 0
+		ReturnToOwnerAfterInactiveSeconds = 1.5
+		FinalJumpToOwner = false
+		ReverseAfterDuration = 2
+		MaxAdjustRate = 200
+		MultiDetonate = true
+		Fuse = 0.35
+		AllowRepeatedJumpHit = true
+		DetonateOnImpact = false
+		Damage = @weapon_damage_scale|40@
+		AutoAdjustForTarget = true
+		MinRange = 0.0
+		Acceleration = 40
+		Speed = 1200
+		Range = 9999
+		ImpactVelocity = 0.0
+		AffectsFriends = false
+		AffectsSelf = false
+		CheckUnitImpact = false
+		CheckObstacleImpact = false
+		UseVulnerability = false
+		SelfImpactVelocityMultiplier = 0
+		ReflectFx = "GrenadeBounceSpark"
+		StartFx = "StaffProjectileFireFx2Close"
+		SpawnOnDetonate = "ProjectileThrowCharged"
+		SpawnType = "PROJECTILE"
+		SpawnCount = 2
+		SpawnsEvenlySpaced = true
+		SpawnArc = 180
+		Effects =
+		[
+			{
+				Name = "OnHitStun"
+				Duration = 0.7
+				DisableMove = true
+				DisableRotate = true
+				DisableAttack = true
+				Active = true
+				CanAffectInvulnerable = false
+				FrontFx = "null"
+			}
+		]
+		Thing =
+		{
+			Graphic = "LobSpecialHel"
+			Scale = 1
+			OffsetZ = 70
+			AttachedAnim = "GrenadierShadow"
+			TouchdownSound = "/SFX/Player Sounds/MelSkullsHopBounce"
+			RotateGeometry = true
+			Points =
+			[
+				{
+					X = 32
+					Y = 24
+				}
+				{
+					X = 32
+					Y = -24
+				}
+				{
+					X = -32
+					Y = -24
+				}
+				{
+					X = -32
+					Y = 24
+				}
+			]
+		}
+	}
+	
+	{
+		Name = "ProjectileSkullImpulse"
+		InheritFrom = "ProjectileThrowBlink"
+	} 
+	{
+		Name = "ProjectileLobDelayRift"
+		InheritFrom = "1_BaseDamagingProjectile"
+		Type = "INSTANT"
+		Range = 200
+		DetonateFx = "ChronosRippleExplosion"
+		DetonateSound = "/SFX/Enemy Sounds/Chronos/ChronosBallFireLow"
+		DamageRadiusScaleY = 0.58
+		DamageRadius = 310
+		BlastSpeed = 1000
+		Damage = @weapon_damage_scale|25@
+		TotalFuse = 0.75
+		Fuse = 0.75
+		CheckUnitImpact = false
+		CheckObstacleImpact = false
+		UseStartLocation = true
+		UseOwnerAngle = true
+		AutoAdjustForTarget = false
+		Thing =
+		{
+			Graphic = "ChronosRiftStraightInteriorIn"
+			RotateGeometry = true
+		}
+		Effect =
+		{
+			Name = "OnHitStun"
+			Duration = 0.7
+			DisableMove = true
+			DisableRotate = true
+			DisableAttack = true
+			Active = true
+			CanAffectInvulnerable = false
+			FrontFx = "null"
+		}
+	}
+	{
+		Name = "ProjectileLobDelayRiftEx"
+		InheritFrom = "ProjectileLobDelayRift"
+		SpawnOnDetonate = "ProjectileThrowCharged"
+		SpawnType = "PROJECTILE"
+		SpawnCount = 2
+		SpawnsEvenlySpaced = true
+		SpawnArc = 180
+	}
+	{
+		Name = "ProjectileFireball"
+		DamageRadius = 320
+		MaxAdjustRate = 60
+		Range = 1100
+		Speed = 800
+		StartDelay = 0.2
+		FuseStart = 0
+		Fuse = -1
+		ObstacleCollisionCheck = "PolygonContainsPoint"
+		UseStartLocation = false
+		DetonateAtTarget = true
+		DetonateFx = "FireballExplosion"
+		CheckUnitImpact = true
+		CheckObstacleImpact = true
+		ImpactFx = "FireballExplosion"
+		Damage = @weapon_damage_scale|100@
+		DamageRadiusScaleY = 0.5
+		BlastSpeed = 2500
+		ImpactVelocity = 0
+		DeathFx = "null"
+		UseVulnerability = false
+		GroupName = "Standing"
+		SilentImpactOnInvulnerable = true
+		IgnoreCoverageAngles = true
+		Thing =
+		{
+			Graphic = "FireballProjectile"
+			OffsetZ = 112
+			Tallness = 50
+			AttachedAnim = "FireballProjectileShadow"
+			Grip = 999999
+			RotateGeometry = true
+			Points =
+			[
+				{
+					X = 32
+					Y = 16
+				}
+				{
+					X = 32
+					Y = -16
+				}
+				{
+					X = -32
+					Y = -16
+				}
+				{
+					X = -32
+					Y = 16
+				}
+			]
+		}
+		Effects =
+		[
+			{
+				Name = "OnHitStun"
+				Duration = 0.7
+				DisableMove = true
+				DisableRotate = true
+				DisableAttack = true
+				Active = true
+				CanAffectInvulnerable = false
+			}
+		]
+	}
+
+	/* Spells */ 
+		{
+			Name = "ProjectileSpellLeap"
+			InheritFrom = "1_BaseDamagingProjectile"
+			DetonateFx = "null"
+			Type = "STRAIGHT"
+			AffectsEnemies = true
+			AffectsFriends = false
+			AffectsSelf = false
+			CheckUnitImpact = true
+			CheckObstacleImpact = true
+			UnlimitedUnitPenetration = true
+			NumPenetrations = 9999
+			AttachToOwner = true
+			Fuse = 0.3
+		Damage = 4
+			ImpactVelocity = 2200
+			UseRadialImpact = false
+			UseArmor = true
+			UseVulnerability = true
+			ClearOnAttackEffects = true
+		ImpactFx = "PoseidonWaveCurlImpact"
+		GroupName = "FX_Standing_Add"
+
+			Thing = {
+				Graphic = "PoseidonSuperHead"
+				RotateGeometry = true
+				Grip = 999999
+				Points = [
+					{
+						X = 130
+						Y = 100
+					}
+					{
+						X = 130
+						Y = -100
+					}
+					{
+						X = -10
+						Y = -100
+					}
+					{
+						X = -10
+						Y = 100
+					}
+				]
+			}
+			Effect = {
+				Name = "OnHitStun"
+				Duration = 0.5
+				DisableMove = true
+				DisableRotate = true
+				DisableAttack = true
+				Active = true
+				CanAffectInvulnerable = false
+				FrontFx = "null"
+			}
+		}
+	{
+		Name = "ProjectileSpellLaser"
+		InheritFrom = "1_BaseDamagingProjectile"
+		DetonateFx = "null"
+		ImpactFx = "GunWeaponImpact"
+		Type = "BEAM"
+		AffectsEnemies = true
+		AffectsFriends = false
+		AffectsSelf = false
+		/* Applies to the regular projectile checks, not the beam checks */
+		CheckUnitImpact = false
+		CheckObstacleImpact = false
+		NumPenetrations = 0
+		MaxAdjustRate = 0
+		Range = 1210.0
+		TotalFuse = 100
+		Fuse = 0.1
+		DrawAsBeam = true
+		AutoAdjustForTarget = false
+		ConsecutiveHitWindow = 0
+		DamagePerConsecutiveHit = 0
+		Speed = 0
+		MultiDetonate = true
+		DamageRadius = 0
+		Damage = 1
+		ArcSize = 35
+		
+		UseArmor = true
+		UseVulnerability = true 
+		DissipateFx = "MoonLaserEnd"
+		GroupName = "Standing"
+		UseRadialImpact = false
+		SkipFireCancelIfFiring = true
+		AttachToOwner = true
+		BeamStartAnimSkipsImpact = false
+		TipFx = null
+		InflictedDamageSound ="/SFX/BurnDamage"
+		Thing =
+		{
+			Graphic = "MoonLaserLoop"
+			OffsetZ = 70
+			Grip = 999999
+			RotateGeometry = true
+			UseBoundsForSortDrawArea = true
+			SortBoundsScale = 0.33
+			Tallness = 50
+			Points =
+			[
+				{
+					X = 24
+					Y = 24
+				}
+				{
+					X = 24
+					Y = -24
+				}
+				{
+					X = -24
+					Y = -24
+				}
+				{
+					X = -24
+					Y = 24
+				}
+			]
+		}
+		Effects =
+		[
+			{
+				Name = "OnHitStun"
+				Duration = 0.5
+				DisableMove = true
+				DisableRotate = true
+				DisableAttack = true
+				Active = true
+				CanAffectInvulnerable = false
+			}
+		]
+	}
+	{
+		Name = "SpellLaserStartAoE"
+		InheritFrom = "1_BaseProjectile"
+		DetonateFx = "null"
+		Type = "INSTANT"
+		UnlimitedUnitPenetration = true
+		MultipleUnitCollisions = true
+		MultipleObstacleCollisions = true
+		RotateWithOwner = false
+		NumPenetrations = 9999
+		Range = 0
+		Speed = 0
+		DamageRadius = 450
+		DamageRadiusScaleY = 0.5
+		DamageRadiusScaleX = 1
+		Damage = 50
+		ImpactVelocity = 0
+		BlastSpeed = 3000
+		ExpandBlastDuringDetonation = true
+		AnimIgnoreBlastRadius = false
+		MultiDetonate = true
+		TotalFuse = 3.0
+		AttachToOwner = true
+		ImmunityDuration = 0.2
+		UseVulnerability = false
+		IgnoreCoverageAngles = true
+		SilentImpactOnInvulnerable = true
+		DissipateFx = "SorceryLaserAoERingOut"
+		Thing =
+		{
+			Graphic = "SorceryLaserAoERing"
+			AttachedAnim = "null"
+			RotateGeometry = true
+			Grip = 999999
+			Points =
+			[
+				{
+					X = 0
+					Y = 0
+				}
+			]
+		}
+	}
+	{
+		Name = "ProjectileSpellMeteor"
+		InheritFrom = "1_BaseDamagingProjectile"
+		Type = "INSTANT"
+		Range = 0.0
+		Fuse = 1
+		Damage = 600
+		DamageRadius = 530
+		DamageRadiusScaleY = 0.5
+		CheckUnitImpact = false
+		CheckObstacleImpact = false
+		ImpactVelocity = 0
+		ImpactFx = "null"
+		DeathFx = "null"
+		BlastSpeed = 2500
+		UseVulnerability = false
+		DetonateSound = "/SFX/Player Sounds/MeteorTraitImpact"
+		DetonateFx = "SpellMeteorDetonate"
+		GroupName = "FX_Terrain"
+		UseStartLocation = false
+		SpawnType = "PROJECTILE"
+		SilentImpactOnInvulnerable = true
+		IgnoreCoverageAngles = true
+		AnimIgnoreBlastRadius = true
+		CanBeProjectileDefenseDestroyed = false
+		
+		Thing =
+		{
+			Graphic = "SpellMeteorWarningDecal"
+			OffsetZ = 0
+			Tallness = 50
+			AttachedAnim = "null"
+			Grip = 999999
+			RotateGeometry = true
+			Points =
+			[
+				{
+					X = 32
+					Y = 16
+				}
+				{
+					X = 32
+					Y = -16
+				}
+				{
+					X = -32
+					Y = -16
+				}
+				{
+					X = -32
+					Y = 16
+				}
+			]
+		}
+		Effects =
+		[
+			{
+				Name = "OnHitStun"
+				Duration = 0.7
+				DisableMove = true
+				DisableRotate = true
+				DisableAttack = true
+				Active = true
+				CanAffectInvulnerable = false
+			}
+		]
+	}
+	{
+		Name = "ProjectileSpellMiniMeteor"
+		InheritFrom = "ProjectileSpellMeteor"
+		DetonateFx = "SpellMiniMeteorDetonate"
+		UseStartLocation = true
+		Fuse = 1
+		Damage = 100
+		DamageRadius = 230
+		Thing =
+		{
+			Graphic = "SpellMiniMeteorWarningDecal"
+		}
+	}
+	{
+		Name = "ProjectileSpellPolymorph"
+		InheritFrom = "1_BaseNonPhysicalProjectile"
+		Type = "HOMING"
+		CheckUnitImpact = true
+		CheckObstacleImpact = false
+		UnlimitedUnitPenetration = true
+		MultipleUnitCollisions = false
+		MultipleObstacleCollisions = false			
+		NumPenetrations = 9999
+		ObstacleCollisionCheck = "PolygonContainsPoint"
+		NumJumps = 4
+		JumpType = "UNIT_ONLY"
+		JumpRange = 1000
+		AllowRepeatedJumpHit = false
+		ExcludeLastHitThing = true
+		NoJumpTargetRandomSpread = 360		 
+		Range = 1100
+		Speed = 800
+		Damage = 0
+		Fuse = 5
+		IgnoreCoverageAngles = true
+		MaxAdjustRate = 300
+		CanHitWithoutDamage = true
+		UseArmor = true
+		UseVulnerability = false
+		SilentImpactOnInvulnerable = true
+		DetonateFx = "RadialNovaAphrodite"
+		DissipateFx = "null"
+		ImpactFx = "null"
+		Thing =
+		{
+			Graphic = "HecatePolymorphProjectile"
+			OffsetZ = 10
+			Tallness = 60
+			AmbientSound = "/SFX/Enemy Sounds/Hecate/HecatePolymorphCastAndLoop"
+			AttachedAnim = "HecatePolymorphShadow"
+			Grip = 999999
+			UseBoundsForSortDrawArea = true
+			RotateGeometry = true
+			Points =
+			[
+				{ X = 50, Y = 75 }
+				{ X = 50, Y = -75 }
+				{ X = -50, Y = 0 }
+			]
+		}
+		Effects =
+		[
+			{
+				Name = "PolymorphTag"
+				IgnoreName = "Familiar"
+				IgnoreExactName = "_PlayerUnit"
+				Duration = 10
+				Active = true
+				CanAffectInvulnerable = false
+			}
+			{
+				Name = "PolymorphDamageTaken"
+				Type = "DAMAGE_TAKEN"
+				Duration = 10
+				Modifier = 1.5
+				Active = true
+			}
+		]
+	}
+	{
+		Name = "PolymorphNova"
+		InheritFrom = "1_BaseProjectile"
+		DetonateFx = "RadialNovaAphrodite"
+		Type = "INSTANT"
+		AffectsEnemies = true
+		AffectsFriends = false
+		AffectsSelf = false
+		CheckUnitImpact = false
+		CheckObstacleImpact = false
+		Fuse = 0.01
+		Range = 50
+		BlastSpeed = 2000
+		DamageRadius = 550
+		Damage = 300
+		ImpactVelocity = 0
+		ImpactVelocityFalloff = 0.1
+		ClearOnAttackEffects = false
+		Thing =
+		{
+			Graphic = "null"
+		}
+	}
+	{
+		Name = "SelfBuffNova"
+		InheritFrom = "1_BaseProjectile"
+		Type = "STRAIGHT"
+		DetonateSound = "/Leftovers/SFX/BeaconTeleportSFX"
+		AttachToOwner = true
+		AffectsEnemies = true
+		AffectsFriends = false
+		NumPenetrations = 9999
+		AffectsSelf = false
+		CheckUnitImpact = true
+		CheckObstacleImpact = true
+		UnlimitedUnitPenetration = true
+		CanBeProjectileDefenseDestroyed = false
+		Damage = 200
+		Fuse = 0.02
+		DamageRadius = 450
+		MultiDetonate = false
+		ImpactLineOfSight = false
+		DieWithOwner = true
+		BlastDuration = 0.1
+		BlastSpeed = 2200
+		DamageRadiusScaleX = 1.175
+		DamageRadiusScaleY = 0.56
+		Thing =
+		{
+			Graphic = "RadialNova"
+			Points =
+			[
+				{
+					X = 4
+					Y = 0
+				}
+				{
+					X = 0
+					Y = -2
+				}
+				{
+					X = -4
+					Y = 0
+				}
+				{
+					X = 0
+					Y = 2
+				}
+			]
+		}
+	}
+	{
+		Name = "SpellSummonMelee"
+		InheritFrom = "1_BaseEnemyProjectile"
+		Type = "STRAIGHT"
+		DetonateSound = "/Leftovers/SFX/BeaconTeleportSFX"
+		StartDelay = 0.1
+		Fuse = 0.18
+		AttachToOwner = true
+		AffectsEnemies = true
+		AffectsFriends = false
+		NumPenetrations = 9999
+		AffectsSelf = false
+		CheckUnitImpact = true
+		CheckObstacleImpact = true
+		UnlimitedUnitPenetration = true
+		
+		Damage = 30
+		ImpactLineOfSight = true
+		Thing =
+		{
+			Graphic = "SpellSummonMeleeFx"
+			OffsetZ = 70
+			RotateGeometry = true
+			Grip = 999999
+			Points =
+			[
+				{
+					X = 260
+					Y = 100
+				}
+				{
+					X = 260
+					Y = -100
+				}
+				{
+					X = -10
+					Y = -40
+				}
+				{
+					X = -10
+					Y = 40
+				}
+			]
+		}
+		Effects =
+		[
+			{
+				Name = "MeleeAttackVictimGrip"
+				Type = "GRIP"
+				Duration = 0.3
+				Modifier = 0.05
+				HaltOnEnd = true
+				Active = true
+			}
+			{
+				Name = "HeroOnHitStun"
+				Duration = 0.2
+				DisableMove = true
+				DisableRotate = true
+				DisableAttack = false
+				Active = true
+				CanAffectInvulnerable = false
+				Cancelable = true
+			}
+		]
+	}
+
+	/* Boons */
+	{
+		Name = "BurnNova"
+		InheritFrom = "1_BaseProjectile"
+		DetonateFx = "FlashFryNova"
+		DetonateSound = "/SFX/Player Sounds/HestiaSwipeSFX"
+		Type = "INSTANT"
+		AffectsEnemies = true
+		AffectsFriends = false
+		AffectsSelf = false
+		CheckUnitImpact = false
+		CheckObstacleImpact = false
+		Fuse = 0.01
+		BlastSpeed = 2000
+		Range = 1
+		DamageRadius = 480
+		DamageRadiusScaleY = 0.58
+		Damage = 60
+		ImpactVelocity = 0
+		ImpactVelocityFalloff = 0.1
+		ClearOnAttackEffects = false
+		Thing =
+		{
+			Graphic = "null"
+		}
+	}
+	{
+		Name = "ManaRestoreBlast"
+		InheritFrom = "1_BaseProjectile"
+		DetonateFx = "RadialNovaPentagramCharged_Hera"
+		Range = 200
+		AutoAdjustForTarget = false
+		CheckObstacleImpact = true
+		UnlimitedUnitPenetration = true
+		Type = "INSTANT"
+		Damage = 1
+		DamageRadius = 10
+		ImpactVelocity = 0
+		AffectsFriends = false
+		AffectsSelf = false
+		AffectsEnemies = true
+		MaxVictimZ = 9999
+		UseVulnerability = false
+		IgnoreCoverageAngles = true
+		ClearOnAttackEffects = false
+	}
+	{
+		Name = "ProjectileSprintStrike"
+		InheritFrom = "1_BaseProjectile"
+		//DetonateFx = "LightningDashStrike"
+		//Range = 200
+		AutoAdjustForTarget = false
+		CheckObstacleImpact = true
+		UnlimitedUnitPenetration = true
+		Type = "INSTANT"
+		Damage = 0
+		DamageRadius = 10
+		DamageRadiusScaleX = 1.175
+		DamageRadiusScaleY = 0.56
+		ImpactVelocity = 0
+		AffectsFriends = false
+		AffectsSelf = false
+		AffectsEnemies = true
+		//DetonateSound = "/SFX/Player Sounds/ZeusLightningDashAttack"
+		MaxVictimZ = 9999
+		UseVulnerability = false
+		IgnoreCoverageAngles = true
+		ClearOnAttackEffects = false
+		Thing =
+		{
+			//Graphic = "LightningBoltDash"
+			Color =
+			{
+				Red = 1.0
+				Green = 1.0
+				Blue = 1.0
+				Opacity = 1.0
+			}
+		}
+			Effect = 
+			{
+				Name = "OnSprintHitStun"
+				Duration = 0.5
+				DisableMove = true
+				DisableRotate = true
+				DisableAttack = true
+				Active = true
+				CanAffectInvulnerable = false
+				FrontFx = "null"
+			}
+	}
+	{
+		Name = "ApolloPerfectDashStrike"
+		InheritFrom = "1_BaseProjectile"
+		DetonateFx = "LightningDashStrike"
+		Range = 200
+		AutoAdjustForTarget = false
+		CheckObstacleImpact = true
+		UnlimitedUnitPenetration = true
+		Type = "INSTANT"
+		Damage = 100
+		DamageRadius = 10
+		DamageRadiusScaleX = 1.175
+		DamageRadiusScaleY = 0.56
+		ImpactVelocity = 0
+		AffectsFriends = false
+		AffectsSelf = false
+		AffectsEnemies = true
+		DetonateSound = "/SFX/Player Sounds/ZeusLightningDashAttack"
+		MaxVictimZ = 9999
+		UseVulnerability = false
+		IgnoreCoverageAngles = true
+		ClearOnAttackEffects = false
+		Thing =
+		{
+			Graphic = "LightningBoltDash"
+			Color =
+			{
+				Red = 1.0
+				Green = 1.0
+				Blue = 1.0
+				Opacity = 1.0
+			}
+			Points =
+			[
+				{
+					X = 0
+					Y = 8
+				}
+				{
+					X = 32
+					Y = 0
+				}
+				{
+					X = 0
+					Y = -8
+				}
+				{
+					X = -32
+					Y = 0
+				}
+			]
+		}
+	}
+	{
+		Name = "SteamBlast"
+		InheritFrom = "1_BaseProjectile"
+		Type = "INSTANT"
+		AffectsEnemies = true
+		AffectsFriends = true
+		AffectsSelf = false
+		CheckUnitImpact = true
+		CheckObstacleImpact = false
+		UnlimitedUnitPenetration = true
+		NumPenetrations = 99999
+		DamageRadius = 250
+		Damage = 20
+		Range = 1.0
+		DamageRadiusScaleY = 0.6
+		BlastSpeed = 1500
+		ExpandBlastDuringDetonation = true
+		AnimIgnoreBlastRadius = true
+		MultiDetonate = true
+		TotalFuse = 2.0
+		Fuse = 0.25
+		FuseStart = 0.0
+		UseRadialImpact = true
+		DamageRadiusScaleX = 1.175
+		ProjectileDefenseRadius = 0
+		UseArmor = true
+		UseVulnerability = false
+		ResetCollisionOutsideDetonation = true
+		IgnoreCancelAttachedProjectiles = true
+		ImmunityDuration = 0.2
+		MultipleUnitCollisions = true
+		DissipateFx = null
+		GroupName = "FX_Standing_Top"
+		IgnoreCoverageAngles = true
+		CanBeReflected = false
+		CanBeProjectileDefenseDestroyedByName2 = "null"
+		CanBeProjectileDefenseDestroyedByLayer = "null"
+		Thing =
+		{
+			Graphic = "SteamBlastFxEmitter"
+			Grip = 999999
+			Color =
+			{
+				Red = 1.0
+				Green = 0.0
+				Blue = 0.5
+				Opacity = 1.0
+			}
+		}
+	}
+	{
+		Name = "HeraDamageShareProjectile"
+		InheritFrom = "1_BaseProjectile"
+		DetonateFx = "HeraRetaliateFx"
+		Range = 200
+		AutoAdjustForTarget = false
+		CheckObstacleImpact = true
+		UnlimitedUnitPenetration = true
+		Type = "INSTANT"
+		Damage = 1
+		DamageRadius = 10
+		DamageRadiusScaleX = 1.175
+		DamageRadiusScaleY = 0.56
+		ImpactVelocity = 0
+		AffectsFriends = false
+		AffectsSelf = false
+		AffectsEnemies = true
+		DetonateSound = "/SFX/Player Sounds/HeraKnotDamageSFX"
+		MaxVictimZ = 9999
+		UseVulnerability = false
+		IgnoreCoverageAngles = true
+		ClearOnAttackEffects = false
+		Thing =
+		{
+			Graphic = "null"
+			Color =
+			{
+				Red = 1.0
+				Green = 1.0
+				Blue = 1.0
+				Opacity = 1.0
+			}
+		}
+	}
+	{
+		Name = "MorphDamageProjectile"
+		InheritFrom = "1_BaseProjectile"
+		Range = 200
+		AutoAdjustForTarget = false
+		CheckObstacleImpact = true
+		UnlimitedUnitPenetration = true
+		Type = "INSTANT"
+		Damage = 80
+		DamageRadius = 10
+		ImpactVelocity = 0
+		AffectsFriends = false
+		AffectsSelf = false
+		AffectsEnemies = true
+		MaxVictimZ = 9999
+		UseVulnerability = false
+		IgnoreCoverageAngles = true
+		ClearOnAttackEffects = false
+	}
+	{
+		Name = "HeraCastDamageProjectile"
+		InheritFrom = "1_BaseDamagingProjectile"
+		Type = "INSTANT"
+		Range = 0.0
+		Damage = 20
+		DamageRadius = 500
+		DamageRadiusScaleY = 0.5
+		CheckUnitImpact = false
+		CheckObstacleImpact = false
+		ImpactVelocity = 0
+		DetonateFx = "HeraCastSpawnDamageFx"
+		DeathFx = "null"
+		UseVulnerability = false
+		AnimIgnoreBlastRadius = true
+		ExpandBlastDuringDetonation = true
+		BlastSpeed = 3000
+		UseStartLocation = true
+		SilentImpactOnInvulnerable = true
+		IgnoreCoverageAngles = true
+		Thing =
+		{
+			Graphic = "null"
+			Color =
+			{
+				Red = 1.0
+				Green = 1.0
+				Blue = 1.0
+				Opacity = 1.0
+			}
+		}
+	}
+	{
+		Name = "HeraCastSummonProjectile"
+		InheritFrom = "1_BaseProjectile"
+		DetonateFx = "HeraCastSpawnDamageFx"
+		Range = 200
+		AutoAdjustForTarget = false
+		CheckObstacleImpact = true
+		UnlimitedUnitPenetration = true
+		Type = "INSTANT"
+		Damage = 60
+		DamageRadius = 10
+		DamageRadiusScaleX = 1.175
+		DamageRadiusScaleY = 0.56
+		ImpactVelocity = 0
+		AffectsFriends = false
+		AffectsSelf = false
+		AffectsEnemies = true
+		DetonateSound = "/SFX/Player Sounds/ZeusLightningDashAttack"
+		MaxVictimZ = 9999
+		UseVulnerability = false
+		IgnoreCoverageAngles = true
+		ClearOnAttackEffects = false
+		Thing =
+		{
+			Graphic = "null"
+			Color =
+			{
+				Red = 1.0
+				Green = 1.0
+				Blue = 1.0
+				Opacity = 1.0
+			}
+		}
+	}
+	
+	{
+		Name = "ProjectileHeraOmega"
+		InheritFrom = "1_BaseProjectile"
+		Type = "STRAIGHT"
+		StartDelay = 0.85
+		Fuse = 0.05
+		Damage = 120
+		CheckUnitImpact = true
+		CheckObstacleImpact = true
+		UnlimitedUnitPenetration = true
+		UnlimitedObstaclePenetration = true
+		ImpactFx = "HeraUnitFx"
+		UseVulnerability = false
+		DetonateFx = "HeraCastDetonate"
+		DetonateSound = "/SFX/Player Sounds/MelStaffFissureCOMBINED"
+		GroupName = "FX_Terrain_Add"
+		UseStartLocation = true
+		DrawDuringPause = true
+		UnitCollisionCheck = "Polygon"
+		SilentImpactOnInvulnerable = true
+		IgnoreCoverageAngles = true
+		CanBeProjectileDefenseDestroyedByName2 = "null"
+		CanBeProjectileDefenseDestroyedByLayer = "null"
+		Thing =
+		{
+			Graphic = "HeraProjectileAnim"
+			OffsetZ = 0
+			Tallness = 50
+			AttachedAnim = "null"
+			Grip = 999999
+			RotateGeometry = true
+			Points =
+			[
+				{
+					X = -1000
+					Y = 90
+				}
+				{
+					X = -1000
+					Y = -90
+				}
+				{
+					X = 1000
+					Y = -90
+				}
+				{
+					X = 1000
+					Y = 90
+				}
+			]
+		}
+		Effect =
+		{
+			Name = "OnHitStun"
+			Duration = 0.2
+			DisableMove = true
+			DisableRotate = true
+			DisableAttack = true
+			Active = true
+			CanAffectInvulnerable = false
+			FrontFx = "null"
+			Cancelable = true
+		}
+	} 
+	{
+		Name = "HeraSprintProjectile"
+		InheritFrom = "1_BaseProjectile"
+		DetonateFx = "HeraCastSpawnDamageFx"
+		Range = 200
+		AutoAdjustForTarget = false
+		CheckObstacleImpact = true
+		UnlimitedUnitPenetration = true
+		Type = "INSTANT"
+		Damage = 60
+		DamageRadius = 10
+		DamageRadiusScaleX = 1.175
+		DamageRadiusScaleY = 0.56
+		ImpactVelocity = 0
+		AffectsFriends = false
+		AffectsSelf = false
+		AffectsEnemies = true
+		DetonateSound = "/SFX/Player Sounds/ZeusLightningDashAttack"
+		MaxVictimZ = 9999
+		UseVulnerability = false
+		IgnoreCoverageAngles = true
+		ClearOnAttackEffects = false
+		Thing =
+		{
+			Graphic = "null"
+			Color =
+			{
+				Red = 1.0
+				Green = 1.0
+				Blue = 1.0
+				Opacity = 1.0
+			}
+		}
+	}
+	{
+		Name = "ApolloRetaliateStrike"
+		InheritFrom = "1_BaseProjectile"
+		DetonateFx = "ApolloRetaliateStrike"
+		Range = 200
+		AutoAdjustForTarget = false
+		CheckObstacleImpact = true
+		UnlimitedUnitPenetration = true
+		Type = "INSTANT"
+		Damage = 50
+		DamageRadius = 10
+		DamageRadiusScaleX = 1.175
+		DamageRadiusScaleY = 0.56
+		ImpactVelocity = 0
+		AffectsFriends = false
+		AffectsSelf = false
+		AffectsEnemies = true
+		//DetonateSound = "/SFX/Player Sounds/ZeusLightningDashAttack"
+		MaxVictimZ = 9999
+		UseVulnerability = false
+		IgnoreCoverageAngles = true
+		ClearOnAttackEffects = false
+		Thing =
+		{
+			Graphic = "null"
+			Color =
+			{
+				Red = 1.0
+				Green = 1.0
+				Blue = 1.0
+				Opacity = 1.0
+			}
+			Points =
+			[
+				{
+					X = 0
+					Y = 8
+				}
+				{
+					X = 32
+					Y = 0
+				}
+				{
+					X = 0
+					Y = -8
+				}
+				{
+					X = -32
+					Y = 0
+				}
+			]
+		}
+	}
+	{
+		Name = "WomboStrike"
+		InheritFrom = "1_BaseProjectile"
+		DetonateFx = "MorriganComboFinisherFx"
+		Range = 200
+		AutoAdjustForTarget = false
+		CheckObstacleImpact = true
+		UnlimitedUnitPenetration = true
+		Type = "INSTANT"
+		Damage = 111
+		DamageRadius = 10
+		DamageRadiusScaleX = 1.175
+		DamageRadiusScaleY = 0.56
+		ImpactVelocity = 0
+		AffectsFriends = false
+		AffectsSelf = false
+		AffectsEnemies = true
+		MaxVictimZ = 9999
+		UseVulnerability = false
+		IgnoreCoverageAngles = true
+		ClearOnAttackEffects = false
+		Thing =
+		{
+			Graphic = "null"
+			Color =
+			{
+				Red = 1.0
+				Green = 1.0
+				Blue = 1.0
+				Opacity = 1.0
+			}
+			Points =
+			[
+				{
+					X = 0
+					Y = 8
+				}
+				{
+					X = 32
+					Y = 0
+				}
+				{
+					X = 0
+					Y = -8
+				}
+				{
+					X = -32
+					Y = 0
+				}
+			]
+		}
+	}
+	{
+		Name = "MedeaStatusStrike"
+		InheritFrom = "1_BaseProjectile"
+		DetonateFx = "ThanatosDeathsHead_Small"
+		Range = 200
+		AutoAdjustForTarget = false
+		CheckObstacleImpact = true
+		UnlimitedUnitPenetration = true
+		Type = "INSTANT"
+		Damage = 50
+		DamageRadius = 10
+		DamageRadiusScaleX = 1.175
+		DamageRadiusScaleY = 0.56
+		ImpactVelocity = 0
+		AffectsFriends = false
+		AffectsSelf = false
+		AffectsEnemies = true
+		//DetonateSound = "/SFX/Player Sounds/ZeusLightningDashAttack"
+		MaxVictimZ = 9999
+		UseVulnerability = false
+		IgnoreCoverageAngles = true
+		ClearOnAttackEffects = false
+		Thing =
+		{
+			Graphic = "null"
+			Color =
+			{
+				Red = 1.0
+				Green = 1.0
+				Blue = 1.0
+				Opacity = 1.0
+			}
+			Points =
+			[
+				{
+					X = 0
+					Y = 8
+				}
+				{
+					X = 32
+					Y = 0
+				}
+				{
+					X = 0
+					Y = -8
+				}
+				{
+					X = -32
+					Y = 0
+				}
+			]
+		}
+	}
+	{
+		Name = "ProjectileMoonBeam"
+		InheritFrom = "1_BaseProjectile"
+		DetonateFx = "MoonBeamFx"
+		DetonateSound = "/SFX/MelSkyFallSFX"
+		Range = 200
+		AutoAdjustForTarget = false
+		CheckObstacleImpact = true
+		UnlimitedUnitPenetration = true
+		Type = "INSTANT"
+		Damage = 50
+		DamageRadius = 10
+		DamageRadiusScaleX = 1.175
+		DamageRadiusScaleY = 0.56
+		ImpactVelocity = 0
+		AffectsFriends = false
+		AffectsSelf = false
+		AffectsEnemies = true
+		MaxVictimZ = 9999
+		UseVulnerability = false
+		IgnoreCoverageAngles = true
+		ClearOnAttackEffects = false
+		ImmunityDuration = 0.05
+		Thing =
+		{
+			Graphic = "null"
+			Color =
+			{
+				Red = 1.0
+				Green = 1.0
+				Blue = 1.0
+				Opacity = 1.0
+			}
+			Points =
+			[
+			]
+		}
+
+		Effects =
+		[
+			{
+				Name = "OnHitStun"
+				Duration = 0.5
+				DisableMove = true
+				DisableRotate = true
+				DisableAttack = true
+				Active = true
+				CanAffectInvulnerable = false
+			}
+		]
+	}
+	{
+		Name = "ProjectileBloodMoonBeam"
+		InheritFrom = "ProjectileMoonBeam"
+		DetonateFx = "BloodMoonBeamFx"
+	}
+	{
+		Name = "HestiaBurnConsumeStrike"
+		InheritFrom = "1_BaseProjectile"
+		DetonateFx = "LamiaLightning"
+		Range = 200
+		AutoAdjustForTarget = false
+		CheckObstacleImpact = true
+		UnlimitedUnitPenetration = true
+		Type = "INSTANT"
+		Damage = 1
+		DamageRadius = 10
+		DamageRadiusScaleX = 1.175
+		DamageRadiusScaleY = 0.56
+		ImpactVelocity = 0
+		AffectsFriends = false
+		AffectsSelf = false
+		AffectsEnemies = true
+		MaxVictimZ = 9999
+		UseVulnerability = false
+		IgnoreCoverageAngles = true
+		ClearOnAttackEffects = false
+		Thing =
+		{
+			Graphic = "null"
+			Color =
+			{
+				Red = 1.0
+				Green = 1.0
+				Blue = 1.0
+				Opacity = 1.0
+			}
+			Points =
+			[
+				{
+					X = 0
+					Y = 8
+				}
+				{
+					X = 32
+					Y = 0
+				}
+				{
+					X = 0
+					Y = -8
+				}
+				{
+					X = -32
+					Y = 0
+				}
+			]
+		}
+	}
+	
+	{
+		Name = "PlayerSprintDefense"
+		InheritFrom = "1_BaseProjectile"
+		Type = "HOMING"
+		AffectsEnemies = true
+		AffectsFriends = false
+		AffectsSelf = false
+		CheckUnitImpact = false
+		CheckObstacleImpact = false
+		AttachToOwner = true
+		RotateWithOwner = false
+		NumPenetrations = 9999
+		Range = 0
+		Speed = 0
+		Acceleration = -100
+		DamageRadius = 310
+		DamageRadiusScaleY = 0.7
+		DamageRadiusScaleX = 1.3
+		Damage = 0
+		SpeedMultiplierOfEnemyProjectilesInside = 0.40
+		ImpactVelocity = 0
+		BlastSpeed = 2000
+		ExpandBlastDuringDetonation = true
+		IgnoreCancelAttachedProjectiles = true
+		AnimIgnoreBlastRadius = true
+		MultiDetonate = false
+		TotalFuse = 3600.0
+		UseVulnerability = false
+		IgnoreCoverageAngles = true
+		SilentImpactOnInvulnerable = true
+		ManuallySetTarget = true
+		CanHitWithoutDamage = true
+	}
+	{
+		Name = "DemeterSprintDefense"
+		InheritFrom = "1_BaseProjectile"
+		Type = "HOMING"
+		AffectsEnemies = true
+		AffectsFriends = false
+		AffectsSelf = false
+		CheckUnitImpact = false
+		CheckObstacleImpact = false
+		AttachToOwner = true
+		RotateWithOwner = false
+		NumPenetrations = 9999
+		Range = 0
+		Speed = 0
+		Acceleration = -100
+		DamageRadius = 310
+		DamageRadiusScaleY = 0.7
+		DamageRadiusScaleX = 1.3
+		Damage = 0
+		SpeedMultiplierOfEnemyProjectilesInside = 0.40
+		ImpactVelocity = 0
+		BlastSpeed = 2000
+		ExpandBlastDuringDetonation = true
+		IgnoreCancelAttachedProjectiles = true
+		AnimIgnoreBlastRadius = true
+		MultiDetonate = false
+		TotalFuse = 3.0
+		UseVulnerability = false
+		IgnoreCoverageAngles = true
+		SilentImpactOnInvulnerable = true
+		ManuallySetTarget = true
+		CanHitWithoutDamage = true
+	}
+	{
+		Name = "DemeterSprintStorm"
+		InheritFrom = "1_BaseProjectile"
+		Type = "HOMING"
+		AffectsEnemies = true
+		AffectsFriends = false
+		AffectsSelf = false
+		UnlimitedUnitPenetration = true
+		MultipleUnitCollisions = false
+		MultipleObstacleCollisions = false
+		IgnoreCancelAttachedProjectiles = true
+		AttachToOwner = true
+		RotateWithOwner = false
+		NumPenetrations = 9999
+		Range = 0
+		Speed = 0
+		Acceleration = -100
+		DamageRadius = 310
+		DamageRadiusScaleY = 0.7
+		DamageRadiusScaleX = 1.3
+		Damage = 4
+		ImpactVelocity = 0
+		BlastSpeed = 2000
+		ExpandBlastDuringDetonation = true
+		AnimIgnoreBlastRadius = true
+		MultiDetonate = true
+		TotalFuse = 3.0
+		Fuse = 0.25
+		ImpactFx = "DemeterWhirlwindHitsparkRandomDelay"
+		SpeedMultiplierOfEnemyProjectilesInside = 0.40
+		UseVulnerability = false
+		IgnoreCoverageAngles = true
+		SilentImpactOnInvulnerable = true
+		ManuallySetTarget = true
+		Thing =
+		{
+			Graphic = "DemeterSprintStormFxIn"
+			OffsetZ = 0
+			Grip = 999999
+			UseBoundsForSortDrawArea = true
+			SortBoundsScale = 0.5
+			SortMode = "FromParent"
+			Tallness = 20
+			Points =
+			[
+				{
+					X = 90
+					Y = 0
+				}
+				{
+					X = 0
+					Y = -45
+				}
+				{
+					X = -90
+					Y = 0
+				}
+				{
+					X = 0
+					Y = 45
+				}
+			]
+		}
+	}
+	{
+		Name = "DemeterCastStorm"
+		InheritFrom = "DemeterSprintStorm"
+	}
+	{
+		Name = "DemeterMiniStorm"
+		InheritFrom = "1_BaseProjectile"
+		Type = "HOMING"
+		AffectsEnemies = true
+		AffectsFriends = false
+		AffectsSelf = false
+		UnlimitedUnitPenetration = true
+		MultipleUnitCollisions = false
+		MultipleObstacleCollisions = true
+		RotateWithOwner = false
+		NumPenetrations = 9999
+		Range = 0
+		Speed = 1100
+		Acceleration = 40
+		DamageRadius = 200
+		DamageRadiusScaleY = 0.7
+		DamageRadiusScaleX = 1.3
+		Damage = 70
+		ImpactVelocity = 0
+		BlastSpeed = 2000
+		ExpandBlastDuringDetonation = true
+		AnimIgnoreBlastRadius = true
+		Fuse = 0.5
+		ImmunityDuration = 0.5
+		NumJumps = 99999
+		JumpType = "OBSTACLE_ONLY"
+		ImpactFx = "DemeterWhirlwindHitspark"
+		UseVulnerability = false
+		IgnoreCoverageAngles = true
+		SilentImpactOnInvulnerable = true
+		Thing =
+		{
+			Graphic = "DemeterSprintStormFx"
+			AmbientSound = "/SFX/Player Sounds/TropicalCycloneWhoosh"
+			OffsetZ = 0
+			Grip = 999999
+			UseBoundsForSortDrawArea = true
+			SortBoundsScale = 0.5
+			Tallness = 20
+			Points =
+			[
+				{
+					X = 90
+					Y = 0
+				}
+				{
+					X = 0
+					Y = -45
+				}
+				{
+					X = -90
+					Y = 0
+				}
+				{
+					X = 0
+					Y = 45
+				}
+			]
+			Color =
+			{
+				Red = 1.0
+				Green = 0.75
+				Blue = 0.4
+				Opacity = 0.82
+			}
+		}
+	}
+	{
+		Name = "MelSprintFire"
+		Type = "INSTANT"
+		GroupName = "FX_Terrain"
+		Range = 0
+		CheckObstacleImpact = false
+		CheckObstacleImpactOnDetonation = false
+		UnlimitedUnitPenetration = true
+		CanBeReflected = false
+		AffectsFriends = false
+		AffectsEnemies = true
+		DamageRadius = 200
+		DamageRadiusScaleX = 1.0
+		DamageRadiusScaleY = 0.6
+		/*StartFx = "IrisExplosionA_Small",*/
+		TotalFuse = 5.0
+		Fuse = 0.2
+		InflictedDamageSound = "/SFX/BurnDamageSizzle"
+		InflictedDamageFx = "Immolation"
+		ImmunityKey = "LavaTileWeapon"
+		IgnoreDodge = true
+		ImmunityDuration = 0.18
+		Damage = 20
+		MoveInterval = 0.19
+		/*
+		DamagePerConsecutiveHit = 1
+		RoundDamageDown = true
+		ConsecutiveHitWindow = 0.8
+		*/
+		MaxVictimZ = 1
+		MultiDetonate = true
+		IgnoreCoverageAngles = true
+		DissipateFx = "GreekFireLargeFade"
+		CanBeProjectileDefenseDestroyedByName2 = "null"
+		CanBeProjectileDefenseDestroyedByLayer = "null"
+		Thing =
+		{
+			Graphic = "GreekFireLarge"
+			AmbientSound = "/Leftovers/Object Ambiences/FireAmbientLoop"
+			Points =
+			[
+				{
+					X = 4
+					Y = 0
+				}
+				{
+					X = 0
+					Y = -2
+				}
+				{
+					X = -4
+					Y = 0
+				}
+				{
+					X = 0
+					Y = 2
+				}
+			]
+		}
+	}
+	{
+		Name = "HestiaSprintDefense"
+		InheritFrom = "1_BaseProjectile"
+		Type = "HOMING"
+		AffectsEnemies = true
+		AffectsFriends = false
+		AffectsSelf = false
+		UnlimitedUnitPenetration = true
+		MultipleUnitCollisions = false
+		MultipleObstacleCollisions = true
+		AttachToOwner = true
+		RotateWithOwner = false
+		NumPenetrations = 9999
+		CollisionLayer = "BoonDefense"
+		ProjectileDefenseBlockSpawns = true
+		Range = 0
+		Speed = 0
+		DamageRadius = 430
+		DamageRadiusScaleY = 0.5
+		Damage = 0
+		ExpandBlastDuringDetonation = true
+		BlastSpeed = 3000
+		UseDetonationForProjectileDefense = true
+		MultiDetonate = true
+		TotalFuse = 3600.0
+		StartDelay = 0
+		UseVulnerability = false
+		IgnoreCoverageAngles = true
+		SilentImpactOnInvulnerable = true
+		Thing =
+		{
+			Graphic = "HestiaCastDefenseCircleSpawner"
+			OffsetZ = 0
+			Grip = 999999
+			UseBoundsForSortDrawArea = true
+			SortBoundsScale = 2
+			Tallness = 20
+			Points =
+			[
+				{
+					X = 90
+					Y = 0
+				}
+				{
+					X = 0
+					Y = -45
+				}
+				{
+					X = -90
+					Y = 0
+				}
+				{
+					X = 0
+					Y = 45
+				}
+			]
+		}
+	}
+	{
+		Name = "PoseidonSplashSplinter"
+		InheritFrom = "1_BaseProjectile"
+		StartFx = "PoseidonConeFxEmitterLarge"
+		Type = "STRAIGHT"
+		AffectsEnemies = true
+		AffectsFriends = false
+		AffectsSelf = false
+		CheckUnitImpact = true
+		CheckObstacleImpact = true
+		UnlimitedUnitPenetration = true
+		UnlimitedObstaclePenetration = true
+		NumPenetrations = 99999
+		UseArmor = true
+		UseVulnerability = true
+		AttachToMarker = "null"
+		InvulnerableImpactOwnerVelocity = 0
+		ImpactVelocitySpawnProximityExclusion = 50
+		UseRadialImpact = false
+		ImpactLineOfSightFromOwner = false
+		Damage = 20
+		Speed = 5200
+		Fuse = 0.14
+		GroupName = "FX_Standing_Add"
+		Thing =
+		{
+			Graphic = "null"
+			GeometryScaleY = 0.6
+			OffsetZ = 0
+			RotateGeometry = true
+			Grip = 999999
+			Scale = 2.2
+			Color =
+			{
+				Red = 1.0
+				Green = 0.0
+				Blue = 1.0
+				Opacity = 1.0
+			}
+			Points =
+			[
+				{
+					X = 20
+					Y = 160
+				}
+				{
+					X = 20
+					Y = -160
+				}
+				{
+					X = -96
+					Y = 0
+				}
+			]
+		}
+		Effects =
+		[
+			{
+				Name = "MeleeAttackVictimGrip"
+				Type = "GRIP"
+				Duration = 0.3
+				Modifier = 0.05
+				HaltOnEnd = true
+				Active = true
+			}
+			{
+				Name = "HeroOnHitStun"
+				Duration = 0.2
+				DisableMove = true
+				DisableRotate = true
+				DisableAttack = false
+				Active = true
+				CanAffectInvulnerable = false
+				Cancelable = true
+			}
+		]
+	}
+	{
+		Name = "PoseidonSplashBackSplinter"
+		InheritFrom = "PoseidonSplashSplinter"
+		ImpactVelocitySpawnProximityExclusion = 0
+		ImpactVelocity = 1200
+		Damage = 20
+			Thing =
+			{
+				Scale = 1.4
+			}
+	}
+	{
+		Name = "PoseidonSprintBlast"
+		InheritFrom = "1_BaseProjectile"
+		Type = "INSTANT"
+		DetonateFx = "PoseidonSprintFx"
+		AffectsEnemies = true
+		AffectsFriends = false
+		AffectsSelf = false
+		CheckUnitImpact = true
+		CheckObstacleImpact = false
+		UnlimitedUnitPenetration = true
+		Fuse = 0.0
+		DamageRadius = 280
+		DamageRadiusScaleX = 0.9
+		DamageRadiusScaleY = 0.65
+		ImmunityDuration = 0.7
+		Damage = 80
+		UseStartLocation = true
+		UseRadialImpact = true
+		ImpactVelocity = 2000
+		BlastSpeed = 2000
+		ImmunityKey = "PoseidonSprintBlast"
+		Speed = 600
+		Range = 900
+		Acceleration = 0
+		ImpactFx = "PoseidonWaveCurlImpact"
+		GroupName = "FX_Standing_Add"
+		Thing =
+		{
+			Graphic = "PoseidonSprintFx"
+			OffsetZ = 0
+			Grip = 999999
+			RotateGeometry = true
+			UseBoundsForSortDrawArea = true
+			SortBoundsScale = 0.25
+			Points =
+			[
+				{
+					X = 60
+					Y = 0
+				}
+				{
+					X = 0
+					Y = -60
+				}
+				{
+					X = -120
+					Y = 0
+				}
+				{
+					X = 0
+					Y = 60
+				}
+			]
+		}
+
+		Effects =
+		[
+			{
+				Name = "OnHitStun"
+				Duration = 0.7
+				IgnoreName = "_PlayerUnit"
+				DisableMove = true
+				DisableRotate = true
+				DisableAttack = true
+				Active = true
+				CanAffectInvulnerable = false
+				FrontFx = "null"
+			}
+		]
+	}
+	{
+		Name = "PoseidonSprintSecondaryBlast"
+		InheritFrom = "1_BaseProjectile"
+		Type = "INSTANT"
+		DetonateFx = "PoseidonCastBoonFx"
+		AffectsEnemies = true
+		AffectsFriends = false
+		AffectsSelf = false
+		CheckUnitImpact = true
+		CheckObstacleImpact = false
+		UnlimitedUnitPenetration = true
+		Fuse = 0.0
+		DamageRadius = 390
+		DamageRadiusScaleX = 1
+		DamageRadiusScaleY = 0.5
+		ImmunityDuration = 0.7
+		Damage = 80
+		UseStartLocation = true
+		UseRadialImpact = true
+		BlastSpeed = 2000
+		ImpactVelocity = 2000
+		
+		ImmunityKey = "PoseidonSprintBlast"
+		Speed = 600
+		Range = 900
+		Acceleration = 0
+	}
+	{
+		Name = "PoseidonCastSplashSplinter"
+		InheritFrom = "1_BaseProjectile"
+		Type = "INSTANT"
+		DetonateFx = "RadialNovaPentagram_Poseidon"
+		AffectsEnemies = true
+		AffectsFriends = false
+		AffectsSelf = false
+		CheckUnitImpact = true
+		CheckObstacleImpact = false
+		UnlimitedUnitPenetration = true
+		Fuse = 0.0
+		DamageRadius = 290
+		DamageRadiusScaleX = 1
+		DamageRadiusScaleY = 0.5
+		ImmunityDuration = 0.7
+		Damage = 60
+		UseStartLocation = true
+		UseRadialImpact = true
+		BlastSpeed = 2000
+
+		Speed = 600
+		Range = 900
+		Acceleration = 0
+	}
+	{
+		Name = "IcarusExplosion"
+		InheritFrom = "1_BaseProjectile"
+		Type = "INSTANT"
+		DetonateFx = "FireballExplosionIcarus"
+		AffectsEnemies = true
+		AffectsFriends = false
+		AffectsSelf = false
+		CheckUnitImpact = true
+		CheckObstacleImpact = false
+		UnlimitedUnitPenetration = true
+		Fuse = 0.0
+		DamageRadius = 390
+		DamageRadiusScaleX = 1
+		DamageRadiusScaleY = 0.5
+		ImmunityDuration = 0.7
+		Damage = 50
+		UseStartLocation = true
+		UseRadialImpact = true
+		BlastSpeed = 2000
+
+		Speed = 600
+		Range = 900
+		Acceleration = 0
+		GroupName = "FX_Standing_Add"
+	}
+	{
+		Name = "IcarusArmorExplosion"
+		InheritFrom = "IcarusExplosion"
+		BlastSpeed = 3000
+		DamageRadius = 630
+		Damage = 4000
+	}
+	{
+		Name = "IcarusHazardExplosion"
+		InheritFrom = "1_BaseProjectile"
+		Type = "INSTANT"
+		AffectsEnemies = true
+		AffectsFriends = false
+		AffectsSelf = true
+		CheckUnitImpact = true
+		CheckObstacleImpact = false
+		DetonateFx = "TorchOrbExplosion"
+		DetonateSound = "/Leftovers/SFX/MeteorStrikeShort"
+		UnlimitedUnitPenetration = true
+		Fuse = 4
+		DamageRadius = 650
+		IgnoreDodge = true
+		DamageRadiusScaleX = 1
+		DamageRadiusScaleY = 0.5
+		ImmunityDuration = 0.7
+		Damage = 500
+		UseStartLocation = true
+		UseRadialImpact = true
+		CanHitWithoutDamage = true
+		BlastSpeed = 3000
+		Speed = 600
+		Range = 900
+		Acceleration = 0
+		GroupName = "FX_Standing_Add"
+		Effects =
+		[
+			{
+				Name = "OnHitStun"
+				Duration = 0.7
+				IgnoreName = "_PlayerUnit"
+				DisableMove = true
+				DisableRotate = true
+				DisableAttack = true
+				Active = true
+				CanAffectInvulnerable = false
+				FrontFx = "null"
+			}
+		]
+	}
+	
+	{
+		Name = "AphroditeCastProjectile"
+		InheritFrom = "1_BaseProjectile"
+		Range = 200
+		AutoAdjustForTarget = false
+		CheckObstacleImpact = true
+		UnlimitedUnitPenetration = true
+		Type = "INSTANT"
+		Damage = 10
+		DamageRadius = 10
+		DamageRadiusScaleY = 0.5
+		BlastSpeed = 2000
+		ImpactVelocity = 0
+		AffectsFriends = false
+		AffectsSelf = false
+		AffectsEnemies = true
+		MaxVictimZ = 9999
+		UseVulnerability = false
+		IgnoreCoverageAngles = true
+		ClearOnAttackEffects = false
+		Thing =
+		{
+			Graphic = "null"
+			Color =
+			{
+				Red = 1.0
+				Green = 1.0
+				Blue = 1.0
+				Opacity = 1.0
+			}
+		}
+	}
+	{
+		Name = "AphroditeBurst"
+		InheritFrom = "1_BaseProjectile"
+		DetonateSound = "/SFX/Player Sounds/AphroditeLoveRadialNovaBlast"
+		DetonateFx = "AphroditeDashNova"
+		Type = "ARC"
+		Fuse = 6
+		Range = 100
+		ArcStart = 0
+		ArcEnd = 4320
+		ArcScaleY = 0.5
+		UseStartLocation = true
+		StartDelay = 0.03
+		DrawDuringPause = false
+		UnpauseResetLocation = true
+		CheckUnitImpact = true
+		UnlimitedUnitPenetration = false
+		DetonateAtVictimLocation = true
+		Speed = 220
+		Damage = 80
+		DamageRadius = 350.0
+		DamageRadiusScaleY = 0.6
+		DamageRadiusScaleX = 1.1
+		BlastSpeed = 2000
+		BlastDuration = 0.03
+		ImpactVelocity = 0.0
+		AutoAdjustForTarget = false
+		HideGraphicOnDetonate = true
+		UseVulnerability = false
+		SilentImpactOnInvulnerable = true
+		AffectsEnemies = true
+		AffectsFriends = false
+		AffectsSelf = false
+		CheckObstacleImpact = false
+		ClearOnAttackEffects = false
+		Thing =
+		{
+			Graphic = "AphroditeOrbitBallIn"
+			AttachedAnim = "SlingShotShadow"
+				AmbientSound = "/SFX/Player Sounds/AphroditeSprintLoop"
+			RotateGeometry = true
+			OffsetZ = 90
+			Grip = 999999
+			UseBoundsForSortDrawArea = true
+			SortBoundsScale = 0.25
+			Tallness = -25
+			Scale = 1
+			Points =
+			[
+				{
+					X = 48
+					Y = 48
+				}
+				{
+					X = 48
+					Y = -48
+				}
+				{
+					X = -48
+					Y = -48
+				}
+				{
+					X = -48
+					Y = 48
+				}
+			]
+		}
+	}
+	{
+		Name = "HephCastBlast"
+		InheritFrom = "1_BaseProjectile"
+		DetonateSound = "null"
+		DetonateFx = "null"
+		Type = "STRAIGHT"
+		Fuse = 0.0
+		Range = 0
+		Damage = 60
+		DamageRadius = 250.0
+		DamageRadiusScaleY = 0.5
+		BlastSpeed = 2000
+		ImpactVelocity = 0.0
+		AutoAdjustForTarget = false
+		UseVulnerability = false
+		NumPenetrations = 999
+		SilentImpactOnInvulnerable = true
+		BlastDuration = 0.02
+		AttachToOwner = false
+		AffectsEnemies = true
+		AffectsFriends = false
+		AffectsSelf = false
+		CheckObstacleImpact = true
+		UnlimitedUnitPenetration = true
+		ClearOnAttackEffects = false
+		RequireHitCenter = false
+		Thing =
+		{
+			Graphic = "null"
+			OffsetZ = 70
+			AttachedAnim = "null"
+			RotateGeometry = true
+			Grip = 999999
+			Points =
+			[
+				{
+					X = 48
+					Y = 48
+				}
+				{
+					X = 48
+					Y = -48
+				}
+				{
+					X = -48
+					Y = -48
+				}
+				{
+					X = -48
+					Y = 48
+				}
+			]
+		}
+	}
+	{
+		Name = "DemeterCastBlast"
+		InheritFrom = "HephCastBlast"
+		Damage = 10
+	}
+	{
+		Name = "HephLeapBlast"
+		InheritFrom = "1_BaseProjectile"
+		DetonateSound = "null"
+		DetonateFx = "HephMassiveHitSprint"
+		Type = "STRAIGHT"
+		Fuse = 0.0
+		Range = 0
+		Damage = 800
+		DamageRadius = 550.0
+		DamageRadiusScaleY = 0.6
+		DamageRadiusScaleX = 1.1
+		BlastSpeed = 2000
+		ImpactVelocity = 0.0
+		AutoAdjustForTarget = false
+		UseVulnerability = false
+		NumPenetrations = 999
+		SilentImpactOnInvulnerable = true
+		BlastDuration = 0.02
+		AttachToOwner = false
+		AffectsEnemies = true
+		AffectsFriends = false
+		AffectsSelf = false
+		CheckObstacleImpact = true
+		UnlimitedUnitPenetration = true
+		ClearOnAttackEffects = false
+		Thing =
+		{
+			Graphic = "null"
+			OffsetZ = 70
+			AttachedAnim = "null"
+			RotateGeometry = true
+			Grip = 999999
+			Points =
+			[
+				{
+					X = 48
+					Y = 48
+				}
+				{
+					X = 48
+					Y = -48
+				}
+				{
+					X = -48
+					Y = -48
+				}
+				{
+					X = -48
+					Y = 48
+				}
+			]
+		}
+	}
+	{
+		Name = "HephSprintBlast"
+		InheritFrom = "1_BaseProjectile"
+		DetonateSound = "null"
+		DetonateFx = "HephMassiveHitSprint"
+		Type = "STRAIGHT"
+		Fuse = 0.0
+		Range = 0
+		Damage = 100
+		DamageRadius = 250.0
+		DamageRadiusScaleY = 0.6
+		DamageRadiusScaleX = 1.1
+		BlastSpeed = 2000
+		ImpactVelocity = 0.0
+		AutoAdjustForTarget = false
+		UseVulnerability = false
+		NumPenetrations = 999
+		SilentImpactOnInvulnerable = true
+		BlastDuration = 0.02
+		AttachToOwner = false
+		AffectsEnemies = true
+		AffectsFriends = false
+		AffectsSelf = false
+		CheckObstacleImpact = true
+		UnlimitedUnitPenetration = true
+		ClearOnAttackEffects = false
+		Thing =
+		{
+			Graphic = "null"
+			OffsetZ = 70
+			AttachedAnim = "null"
+			RotateGeometry = true
+			Grip = 999999
+			Points =
+			[
+				{
+					X = 48
+					Y = 48
+				}
+				{
+					X = 48
+					Y = -48
+				}
+				{
+					X = -48
+					Y = -48
+				}
+				{
+					X = -48
+					Y = 48
+				}
+			]
+		}
+	}
+	{
+		Name = "NyxSprintBlast"
+		InheritFrom = "1_BaseProjectile"
+		DetonateSound = "/SFX/Player Sounds/MelSkullsAttackExplode"
+		DetonateFx = "NyxAspectImpactFx"
+		Type = "STRAIGHT"
+		Fuse = 0.0
+		Range = 0
+		Damage = 250
+		DamageRadius = 415.0
+		DamageRadiusScaleY = 0.6
+		DamageRadiusScaleX = 1.1
+		BlastSpeed = 3000
+		ImpactVelocity = 0.0
+		AutoAdjustForTarget = false
+		UseVulnerability = false
+		NumPenetrations = 999
+		SilentImpactOnInvulnerable = true
+		BlastDuration = 0.02
+		AttachToOwner = false
+		AffectsEnemies = true
+		AffectsFriends = false
+		AffectsSelf = false
+		CheckObstacleImpact = true
+		UnlimitedUnitPenetration = true
+		ClearOnAttackEffects = false
+		TimeModifierFraction = 0
+		Thing =
+		{
+			Graphic = "null"
+			OffsetZ = 70
+			AttachedAnim = "null"
+			RotateGeometry = true
+			Grip = 999999
+			Points =
+			[
+				{
+					X = 48
+					Y = 48
+				}
+				{
+					X = 48
+					Y = -48
+				}
+				{
+					X = -48
+					Y = -48
+				}
+				{
+					X = -48
+					Y = 48
+				}
+			]
+		}
+		Effects = [
+				{
+					Name = "OnHitStun"
+					Duration = 0.7
+					DisableMove = true
+					DisableRotate = true
+					DisableAttack = true
+					Active = true
+					CanAffectInvulnerable = false
+					FrontFx = "null"
+				}
+			]
+	}
+	{
+		Name = "MassiveSlamBlast"
+		InheritFrom = "1_BaseProjectile"
+		Type = "STRAIGHT"
+		AffectsEnemies = true
+		AffectsFriends = false
+		AffectsSelf = false
+		ImpactVelocity = 300
+		NumPenetrations = 9999
+		CheckUnitImpact = true
+		CheckObstacleImpact = false
+		UnlimitedUnitPenetration = true
+		MultipleUnitCollisions = false
+		MultipleObstacleCollisions = false
+		CanBeProjectileDefenseDestroyed = false
+		SilentImpactOnInvulnerable = true
+		SilentImpactOnProjectileAlwaysPenetrate = true
+		Damage = 200
+		Fuse = 0.0
+		Range = 0
+		DamageRadius = 330.0
+		DamageRadiusScaleY = 0.6
+		DamageRadiusScaleX = 1.1
+		BlastSpeed = 2000
+		BlastDuration = 0.02
+		ImpactLineOfSight = false
+		ImmunityDuration = 0.2
+		UseVulnerability = false
+		GroupName = "FX_Standing_Add"
+		ImpactFx = "HephMassiveHit"
+		Thing =
+		{
+			Graphic = "null"
+			OffsetZ = 0
+			RotateGeometry = true
+			Grip = 999999
+			Color =
+			{
+				Red = 1.0
+				Green = 0.0
+				Blue = 1.0
+				Opacity = 1.0
+			}
+			Points =
+			[
+				{
+					X = 48
+					Y = 48
+				}
+				{
+					X = 48
+					Y = -48
+				}
+				{
+					X = -48
+					Y = -48
+				}
+				{
+					X = -48
+					Y = 48
+				}
+			]
+		}
+	}
+	{
+		Name = "MassiveSlamBlastCast"
+		InheritFrom = "MassiveSlamBlast"
+		BlastSpeed = 3000
+	}
+	{
+		Name = "HestiaSprintPuddle"
+		InheritFrom = "1_BaseProjectile"
+		Type = "INSTANT"
+		DissipateFx = "HestiaFlamePoolOut"
+		GroupName = "FX_Terrain"
+		AffectsEnemies = true
+		AffectsFriends = false
+		AffectsSelf = false
+		UnlimitedUnitPenetration = true
+		MultipleObstacleCollisions = true
+		Range = 3000
+		Speed = 0
+		DamageRadius = 200
+		DamageRadiusScaleY = 0.7
+		DamageRadiusScaleX = 1.3
+		Damage = 10
+		ImpactVelocity = 0
+		MultiDetonate = true
+		TotalFuse = 0.75
+		Fuse = 0.25
+		UseVulnerability = false
+		IgnoreCoverageAngles = true
+		SilentImpactOnInvulnerable = true
+		InflictedDamageSound = "/SFX/BurnDamageSizzle"
+		InflictedDamageFx = "Immolation"
+		ImmunityKey = "LavaTileWeapon"
+		Thing =
+		{
+			Graphic = "HestiaFlamePoolRandom"
+			AttachedAnim = "HestiaFlamePoolGlow"
+			OffsetZ = 0
+			Grip = 999999
+			UseBoundsForSortDrawArea = true
+			SortBoundsScale = 4
+			Tallness = 20
+			Points =
+			[
+				{
+					X = 90
+					Y = 0
+				}
+				{
+					X = 0
+					Y = -45
+				}
+				{
+					X = -90
+					Y = 0
+				}
+				{
+					X = 0
+					Y = 45
+				}
+			]
+		}
+	}
+	{
+		Name = "ArtemisSupportingFire"
+		InheritFrom = "1_BaseNonPhysicalProjectile"
+		Type = "HOMING"
+		HomingAllegiance = "ENEMIES"
+		AdjustRateAcceleration = 900
+		MaxAdjustRate = 3600
+		Speed = 1200
+		Acceleration = 300
+		Range = 1000.0
+		Damage = 10
+		CheckObstacleImpact = false
+		CheckUnitImpact = true
+		UnlimitedUnitPenetration = false
+		DetonateAtVictimLocation = true
+		UseVulnerability = true
+		IgnoreCoverageAngles = true
+		Thing =
+		{
+			Graphic = "ArtemisRangedArrowheadLegendary"
+			OffsetZ = 112
+			AttachedAnim = "null"
+			Grip = 999999
+			RotateGeometry = true
+			UseBoundsForSortDrawArea = true
+			SortBoundsScale = 0.15
+			Tallness = 32
+			Points =
+			[
+				{
+					X = 76
+					Y = 16
+				}
+				{
+					X = 76
+					Y = -16
+				}
+				{
+					X = -32
+					Y = -16
+				}
+				{
+					X = -32
+					Y = 16
+				}
+			]
+		}
+	}
+	{
+		Name = "ArtemisCastVolley"
+		InheritFrom = "1_BaseEnemyProjectile"
+		DetonateFx = "RadialNovaTheseusWrath-Artemis"
+		DetonateSound = "null"
+		Type = "STRAIGHT"
+		Range = 99999
+		Speed = 12500
+		Damage = 50
+		Fuse = 1.0
+		AffectsFriends = true
+		AffectsSelf = false
+		AffectsEnemies = true
+		CheckUnitImpact = true
+		CheckObstacleImpact = false
+		MultipleObstacleCollisions = true
+		CanBeReflected = false
+		UnlimitedUnitPenetration = true,
+		NumPenetrations = 9999
+		MaxVictimZ = 9999
+		GroupName = "FX_Terrain"
+		Thing =
+		{
+			Graphic = "ArtemisArrow"
+			Scale = 0.75
+			OffsetZ = 50
+			Tallness = 60
+			UseBoundsForSortDrawArea = true
+			RotateGeometry = true
+			Color =
+			{
+				Red = 0.0
+				Green = 1.0
+				Blue = 0.1
+				Opacity = 1.0
+			}
+			Points =
+			[
+				{
+					X = -400
+					Y = 0
+				}
+				{
+					X = 48
+					Y = 48
+				}
+				{
+					X = 48
+					Y = -48
+				}
+			]
+		}
+	}
+	{
+		Name = "ProjectileZeusSpark"
+		InheritFrom = "1_BaseNonPhysicalProjectile"
+		Type = "HOMING"
+		MaxAdjustRate = 60
+		Range = 1100
+		Speed = 1600
+		CheckObstacleImpact = true
+		ObstacleCollisionCheck = "PolygonContainsPoint"
+		NumJumps = 3
+		JumpType = "UNIT_PREFERENCE"
+		JumpRange = 520
+		AllowRepeatedJumpHit = false
+		ExcludeLastHitThing = true
+		NoJumpTargetRandomSpread = 90
+		MultipleUnitCollisions = false
+		MultipleObstacleCollisions = true
+		Damage = 10
+		ImpactFx = "ProjectileLightningBallEnd"
+		UseVulnerability = false
+		Thing =
+		{
+			Graphic = "ProjectileLightningBall"
+			OffsetZ = 100
+			Tallness = 50
+			AttachedAnim = "null"
+			Grip = 999999
+			RotateGeometry = true
+			Points =
+			[
+				{
+					X = 32
+					Y = 16
+				}
+				{
+					X = 32
+					Y = -16
+				}
+				{
+					X = -32
+					Y = -16
+				}
+				{
+					X = -32
+					Y = 16
+				}
+			]
+		}
+	}
+	{
+		Name = "ZeusLightningStrikeBase"
+		InheritFrom = "1_BaseProjectile"
+		DetonateFx = "ZeusLightningIris"
+		Range = 200
+		AutoAdjustForTarget = false
+		CheckObstacleImpact = true
+		UnlimitedUnitPenetration = true
+		Type = "INSTANT"
+		Damage = 50
+		DamageRadius = 10
+		DamageRadiusScaleX = 1.175
+		DamageRadiusScaleY = 0.56
+		ImpactVelocity = 0
+		AffectsFriends = false
+		AffectsSelf = false
+		AffectsEnemies = true
+		DetonateSound = "/SFX/Player Sounds/ZeusLightningWrathImpact"
+		MaxVictimZ = 9999
+		UseVulnerability = false
+		IgnoreCoverageAngles = true
+		ClearOnAttackEffects = false
+		Thing =
+		{
+			Graphic = "ZeusLightningIris"
+			Color =
+			{
+				Red = 1.0
+				Green = 1.0
+				Blue = 1.0
+				Opacity = 1.0
+			}
+			Points =
+			[
+				{
+					X = 0
+					Y = 8
+				}
+				{
+					X = 32
+					Y = 0
+				}
+				{
+					X = 0
+					Y = -8
+				}
+				{
+					X = -32
+					Y = 0
+				}
+			]
+		}
+	}
+	{
+		Name = "ZeusSpecialStrike"
+		InheritFrom = "ZeusLightningStrikeBase"
+		Damage = 20
+	}
+	{
+		Name = "ZeusPolymorphStrike"
+		InheritFrom = "ZeusLightningStrikeBase"
+		Damage = 80
+	}
+	{
+		Name = "ZeusCastStrike"
+		InheritFrom = "ZeusLightningStrikeBase"
+		Damage = 25
+		DetonateFx = "ZeusLightningIrisRapid"
+		Thing = {
+			Graphic = null
+		}
+	}
+	{
+		Name = "ZeusRootStrike"
+		InheritFrom = "ZeusLightningStrikeBase"
+		Damage = 30
+	}
+	{
+		Name = "ZeusSprintStrike"
+		InheritFrom = "ZeusLightningStrikeBase"
+		Damage = 20
+		DetonateFx = "ZeusLightningIrisRapid"
+		Thing = {
+			Graphic = null
+		}
+	}
+	{
+		Name = "ZeusEchoStrike"
+		InheritFrom = "ZeusLightningStrikeBase"
+		DetonateFx = "ZeusEchoStrikeFx"
+		Thing =
+		{
+			Graphic = null
+		}
+		Damage = 100
+	}
+	{
+		Name = "ZeusZeroManaStrike"
+		InheritFrom = "ZeusLightningStrikeBase"
+		Damage = 30
+	}
+	{
+		Name = "ZeusRetaliateStrike"
+		InheritFrom = "ZeusLightningStrikeBase"
+		Damage = 100
+	}
+	{
+		Name = "ZeusApolloSynergyStrike"
+		InheritFrom = "ZeusLightningStrikeBase"
+		Damage = 20
+	}
+	
+	{
+		Name = "ZeusCastAnywhereBlast"
+		InheritFrom = "1_BaseProjectile"
+		Type = "INSTANT"
+		AffectsEnemies = true
+		AffectsFriends = false
+		AffectsSelf = false
+		ImpactVelocity = 300
+		NumPenetrations = 9999
+		CheckUnitImpact = true
+		CheckObstacleImpact = false
+		UnlimitedUnitPenetration = true
+		MultipleUnitCollisions = false
+		MultipleObstacleCollisions = false
+		CanBeProjectileDefenseDestroyed = false
+		SilentImpactOnInvulnerable = true
+		Damage = 60
+		Fuse = 0.0
+		Range = 0
+		DamageRadius = 430
+		DamageRadiusScaleY = 0.6
+		DamageRadiusScaleX = 1.1
+		UseRadialImpact = false
+		BlastSpeed = 3000
+		BlastDuration = 0.02
+		ImpactLineOfSight = false
+		ImmunityDuration = 0.2
+		GroupName = "FX_Standing_Add"
+		ImpactFx = "ZeusLightningIris"
+		Thing =
+		{
+			Graphic = "null"
+			OffsetZ = 0
+			RotateGeometry = true
+			Grip = 999999
+			Color =
+			{
+				Red = 1.0
+				Green = 0.0
+				Blue = 1.0
+				Opacity = 1.0
+			}
+			Points =
+			[
+				{
+					X = 48
+					Y = 48
+				}
+				{
+					X = 48
+					Y = -48
+				}
+				{
+					X = -48
+					Y = -48
+				}
+				{
+					X = -48
+					Y = 48
+				}
+			]
+		}
+	}
+	{
+		Name = "SpellLeapBlast"
+		InheritFrom = "1_BaseProjectile"
+		Type = "INSTANT"
+		AffectsEnemies = true
+		AffectsFriends = false
+		AffectsSelf = false
+		ImpactVelocity = 300
+		NumPenetrations = 9999
+		CheckUnitImpact = true
+		CheckObstacleImpact = false
+		UnlimitedUnitPenetration = true
+		MultipleUnitCollisions = false
+		MultipleObstacleCollisions = false
+		CanBeProjectileDefenseDestroyed = false
+		DetonateFx = "SorceryLeapBlastDetonateFx",
+		Damage = 300
+		Fuse = 0.0
+		Range = 0
+		DamageRadius = 450.0
+		DamageRadiusScaleY = 0.6
+		DamageRadiusScaleX = 1.1
+		UseRadialImpact = false
+		BlastSpeed = 3000
+		BlastDuration = 0.02
+		ImpactLineOfSight = false
+		ImmunityDuration = 0.2
+		GroupName = "FX_Standing_Add"
+		Thing =
+		{
+			Graphic = "null"
+			OffsetZ = 0
+			RotateGeometry = true
+			Grip = 999999
+			Color =
+			{
+				Red = 1.0
+				Green = 0.0
+				Blue = 1.0
+				Opacity = 1.0
+			}
+			Points =
+			[
+				{
+					X = 48
+					Y = 48
+				}
+				{
+					X = 48
+					Y = -48
+				}
+				{
+					X = -48
+					Y = -48
+				}
+				{
+					X = -48
+					Y = 48
+				}
+			]
+		}
+	}
+	{
+		Name = "ShovelPointBomb"
+		InheritFrom = "1_BaseProjectile"
+		DetonateFx = "RadialNovaAres"
+		DetonateSound = "/SFX/Explosion1"
+		Type = "STRAIGHT"
+		AffectsEnemies = true
+		AffectsFriends = true
+		AffectsSelf = true
+		CheckUnitImpact = false
+		CheckObstacleImpact = false
+		Fuse = 1.0
+		Speed = 0
+		Range = 50
+		DamageRadius = 200
+		Damage = 5
+		ImpactVelocity = 1000
+		ClearOnAttackEffects = false
+		Thing =
+		{
+			Graphic = "BloodMineDeployed"
+		}
+	}
+	{
+		Name = "AphroditeRushProjectile"
+		InheritFrom = "1_BaseProjectile"
+		DetonateSound = "null"
+		DetonateFx = "AphroditeHeartDash"
+		Type = "INSTANT"
+		Fuse = 0.0
+		Range = 250
+		Damage = 20
+		DamageRadius = 230.0
+		DamageRadiusScaleY = 0.6
+		DamageRadiusScaleX = 1.1
+		BlastSpeed = 2000
+		ImpactVelocity = 0.0
+		AutoAdjustForTarget = false
+		UseVulnerability = false
+		NumPenetrations = 999
+		SilentImpactOnInvulnerable = true
+		BlastDuration = 0.02
+		AttachToOwner = false
+		AffectsEnemies = true
+		AffectsFriends = false
+		AffectsSelf = false
+		CheckObstacleImpact = true
+		UnlimitedUnitPenetration = true
+		ClearOnAttackEffects = false
+		Thing =
+		{
+			Graphic = "null"
+			OffsetZ = 70
+			AttachedAnim = "null"
+			RotateGeometry = true
+			Grip = 999999
+			Points =
+			[
+				{
+					X = 48
+					Y = 48
+				}
+				{
+					X = 48
+					Y = -48
+				}
+				{
+					X = -48
+					Y = -48
+				}
+				{
+					X = -48
+					Y = 48
+				}
+			]
+		}
+	}
+	{
+		Name = "HadesUrnDeath"
+		InheritFrom = "1_BaseProjectile"
+		DetonateSound = "/Leftovers/Menu Sounds/TextReveal2LOUD"
+		DetonateFx = "RadialNova"
+		Type = "INSTANT"
+		Fuse = 0.3
+		Damage = 200
+		DamageRadius = 440.0
+		DamageRadiusScaleY = 0.55
+		BlastSpeed = 800
+		ImpactVelocity = 0.0
+		AutoAdjustForTarget = false
+		UseVulnerability = false
+		NumPenetrations = 999
+		SilentImpactOnInvulnerable = true
+		BlastDuration = 1
+		AttachToOwner = false
+		AffectsEnemies = true
+		AffectsFriends = false
+		AffectsSelf = false
+		CheckObstacleImpact = true
+		UnlimitedUnitPenetration = true
+		ClearOnAttackEffects = false
+		UseStartLocation = true
+		Thing =
+		{
+			Graphic = "HadesGraspingHandsFx"
+			RotateGeometry = false
+			Scale = 1.0
+			Color = 
+			{
+				Opacity = 1.0
+			}
+			Points =
+			[
+				{
+					X = 48
+					Y = 48
+				}
+				{
+					X = 48
+					Y = -48
+				}
+				{
+					X = -48
+					Y = -48
+				}
+				{
+					X = -48
+					Y = 48
+				}
+			]
+		}
+	}
+
+		{
+			Name = "DionysusField"
+			AutoAdjustForTarget = false
+			AffectsEnemies = true
+			AffectsFriends = false
+			AffectsSelf = true
+			CheckObstacleImpact = false
+			UnlimitedUnitPenetration = true
+			Type = "STRAIGHT"
+		Speed = 60
+			DamageRadius = 400
+		BlastSpeed = 2000
+		Damage = 0
+			DissipateFx = "DionysusCloudBEnd"
+			ImpactVelocity = 0
+			MultiDetonate = true
+		ExpandBlastDuringDetonation = true
+			TotalFuse = 5
+			Fuse = 0.25
+			Range = 0
+			UseVulnerability = false
+			ImmunityDuration = 0.25
+			SilentImpactOnInvulnerable = true
+			GroupName = "FX_Standing_Top"
+			DamageRadiusScaleY = 0.6
+			DamageRadiusScaleX = 1.0
+		AnimIgnoreBlastRadius = true
+			Effects = [
+				{
+					Name = "WineEmpower"
+					OnlyAffectName = "_PlayerUnit"
+					Duration = 0.75
+					Modifier = 1
+					Active = true
+				}
+				{
+					Name = "OnHitStun"
+					IgnoreName = "_PlayerUnit"
+					Duration = 0.5
+					DisableMove = true
+					DisableRotate = true
+					DisableAttack = true
+					Active = true
+					CanAffectInvulnerable = true
+					FrontFx = "DionysusStunnedFx"
+					TimeModifierFraction = 0
+				}
+				{
+					Name = "WinePuddleSlow"
+					IgnoreName = "_PlayerUnit"
+					Type = "SPEED"
+					Duration = 0.75
+					Modifier = 0.5
+					Active = true
+					CanAffectInvulnerable = true
+					TimeModifierFraction = 0
+				}
+			]
+			Thing = {
+				Graphic = "DionysusCloudB"
+				OffsetZ = 0
+				Grip = 999999
+		Points = []
+			}
+		}
+	{
+		Name = "AthenaRushProjectile"
+		InheritFrom = "1_BaseProjectile"
+		Type = "STRAIGHT"
+		Fuse = 0.0
+		Range = 250
+		Damage = 5
+		DamageRadius = 230.0
+		DamageRadiusScaleY = 0.6
+		DamageRadiusScaleX = 1.1
+		ImmunityDuration = 0.2
+		ImpactVelocity = 0.0
+		AutoAdjustForTarget = false
+		UseVulnerability = false
+		NumPenetrations = 999
+		SilentImpactOnInvulnerable = true
+		AttachToOwner = false
+		AffectsEnemies = true
+		AffectsFriends = false
+		AffectsSelf = false
+		CheckObstacleImpact = true
+		UnlimitedUnitPenetration = true
+		ClearOnAttackEffects = false
+		Thing =
+		{
+			Graphic = "null"
+			OffsetZ = 70
+			AttachedAnim = "null"
+			RotateGeometry = true
+			Grip = 999999
+			Points =
+			[
+				{
+					X = 48
+					Y = 48
+				}
+				{
+					X = 48
+					Y = -48
+				}
+				{
+					X = -48
+					Y = -48
+				}
+				{
+					X = -48
+					Y = 48
+				}
+			]
+		}
+	}
+	{
+		Name = "AthenaCastProjectile"
+		InheritFrom = "1_BaseProjectile"
+		DetonateSound = "/SFX/AthenaWrathHolyShield"
+		DetonateFx = "RadialNovaSwordParry"
+		Type = "STRAIGHT"
+		Fuse = 0.0
+		Range = 250
+		Damage = 40
+		DamageRadius = 430.0
+		DamageRadiusScaleY = 0.6
+		DamageRadiusScaleX = 1.1
+				DeflectProjectiles = true
+		BlastSpeed = 2000
+		ImpactVelocity = 0.0
+		AutoAdjustForTarget = false
+		UseVulnerability = false
+		NumPenetrations = 999
+		SilentImpactOnInvulnerable = true
+		BlastDuration = 0.02
+		AttachToOwner = false
+		AffectsEnemies = true
+		AffectsFriends = false
+		AffectsSelf = false
+		CheckObstacleImpact = true
+		UseDetonationForProjectileDefense = true
+		UnlimitedUnitPenetration = true
+		ClearOnAttackEffects = false
+		Thing =
+		{
+			Graphic = "null"
+			OffsetZ = 70
+			AttachedAnim = "null"
+			RotateGeometry = true
+			Grip = 999999
+			Points =
+			[
+				{
+					X = 48
+					Y = 48
+				}
+				{
+					X = 48
+					Y = -48
+				}
+				{
+					X = -48
+					Y = -48
+				}
+				{
+					X = -48
+					Y = 48
+				}
+			]
+		}
+	}
+	{
+		Name = "DemeterAmmoWind"
+		InheritFrom = "1_BaseProjectile"
+		DetonateFx = "RadialNovaDemeter"
+		Type = "INSTANT"
+		Fuse = 0.1
+		BlastSpeed = 3000
+		Range = 0
+		Damage = 30
+		DamageRadius = 520.0
+		DamageRadiusScaleY = 0.6
+		DamageRadiusScaleX = 1.1
+		AutoAdjustForTarget = false
+		UseVulnerability = false
+		NumPenetrations = 999
+		IgnoreDodge = true
+		SpawnRadius = 0
+		Speed = -100
+		UseStartLocation = true
+		DetonateLineOfSight = true
+		CanHitWithoutDamage = true
+		SilentImpactOnInvulnerable = true
+		Thing =
+		{
+			Graphic = "DemeterSpinIn"
+			OffsetZ = 70
+			AttachedAnim = "null"
+			RotateGeometry = true
+			Grip = 999999
+			Points =
+			[
+				{
+					X = 48
+					Y = 48
+				}
+				{
+					X = 48
+					Y = -48
+				}
+				{
+					X = -48
+					Y = -48
+				}
+				{
+					X = -48
+					Y = 48
+				}
+			]
+		}
+	}
+	{
+		Name = "AthenaDeflectingProjectile"
+		InheritFrom = "1_BaseProjectile"
+		DetonateSound = "/SFX/Player Sounds/AthenaShieldImpactDetonate"
+		Type = "HOMING"
+		MaxAdjustRate = 60
+		AffectsEnemies = true
+		AffectsFriends = false
+		BlastSpeed = 2000
+		AffectsSelf = false
+		CheckObstacleImpact = true
+		CheckUnitImpact = true
+		ObstacleCollisionCheck = "PolygonContainsPoint"
+		UnlimitedUnitPenetration = true
+		DetonateAtTarget = false
+		Fuse = 2.0
+		Range = 1500
+		Speed = 10
+		MaxSpeed = 800
+		Acceleration = 400
+		DamageRadius = 250
+		DamageRadiusScaleX = 0.9
+		DamageRadiusScaleY = 0.8
+		Damage = 10
+		ImpactFx = "AthenaProjectileImpact"
+		UseVulnerability = false
+		SilentImpactOnInvulnerable = true
+		ProjectileDefenseRadius = 100
+		DeflectProjectiles = true
+		DetonateFx = "RadialNovaSwordParry"
+		DetonateLineOfSight = true
+		Thing =
+		{
+			Graphic = "AthenaProjectile"
+			OffsetZ = 90
+			Grip = 999999
+			Scale = 1
+			UseBoundsForSortDrawArea = true
+			SortBoundsScale = 0.65
+			AttachedAnim = "AthenaProjectileShadow"
+			Points =
+			[
+				{
+					X = 110
+					Y = 0
+				}
+				{
+					X = 0
+					Y = -55
+				}
+				{
+					X = -110
+					Y = 0
+				}
+				{
+					X = 0
+					Y = 55
+				}
+			]
+		}
+		Effects =
+		[
+			{
+				Name = "OnHitStun"
+				Duration = 0.7
+				DisableMove = true
+				DisableRotate = true
+				DisableAttack = true
+				Active = true
+				CanAffectInvulnerable = false
+				FrontFx = "null"
+			}
+		]
+	}
+	{
+		Name = "ProjectileAthenaManaSpear"
+		InheritFrom = "1_BaseProjectile"
+		Type = "INSTANT"
+		StartFx = "AthenaManaSpearFx"
+		Range = 200
+		AutoAdjustForTarget = false
+		CheckObstacleImpact = true
+		UnlimitedUnitPenetration = true
+		Fuse = 0.1
+		Damage = 150
+		DamageRadius = 10
+		DamageRadiusScaleX = 1.175
+		DamageRadiusScaleY = 0.56
+		ImpactVelocity = 0
+		AffectsFriends = false
+		AffectsSelf = false
+		AffectsEnemies = true
+		DetonateSound = "/SFX/Player Sounds/ZagreusSpearSwipe"
+		MaxVictimZ = 9999
+		UseVulnerability = false
+		IgnoreCoverageAngles = true
+		ClearOnAttackEffects = false
+		Thing =
+		{
+			Graphic = "null"
+			Color =
+			{
+				Red = 1.0
+				Green = 1.0
+				Blue = 1.0
+				Opacity = 1.0
+			}
+			Points =
+			[
+				{
+					X = 0
+					Y = 8
+				}
+				{
+					X = 32
+					Y = 0
+				}
+				{
+					X = 0
+					Y = -8
+				}
+				{
+					X = -32
+					Y = 0
+				}
+			]
+		}
+	}
+	{
+		Name = "DemeterChillKill"
+		InheritFrom = "1_BaseProjectile"
+		DetonateFx = "RadialNovaDemeter"
+		Type = "INSTANT"
+		Fuse = 0.1
+		Range = 0
+		Damage = 100
+		DamageRadius = 220.0
+		DamageRadiusScaleY = 0.6
+		DamageRadiusScaleX = 1.1
+		AutoAdjustForTarget = false
+		UseVulnerability = false
+		NumPenetrations = 999
+		IgnoreDodge = true
+		SpawnRadius = 0
+		Speed = -100
+		UseStartLocation = true
+		DetonateLineOfSight = true
+		CanHitWithoutDamage = true
+		SilentImpactOnInvulnerable = true
+		Thing =
+		{
+			Graphic = "DemeterSpinIn"
+			OffsetZ = 70
+			AttachedAnim = "null"
+			RotateGeometry = true
+			Grip = 999999
+			Points =
+			[
+				{
+					X = 48
+					Y = 48
+				}
+				{
+					X = 48
+					Y = -48
+				}
+				{
+					X = -48
+					Y = -48
+				}
+				{
+					X = -48
+					Y = 48
+				}
+			]
+		}
+	}
+	{
+		Name = "HammerAxeNova"
+		InheritFrom = "1_BaseProjectile"
+		DetonateFx = "AxeNova_Simple"
+		Type = "INSTANT"
+		Fuse = 0.0
+		Range = 0
+		Damage = 60
+		DamageRadius = 505.0
+		BlastSpeed = 3000
+		DamageRadiusScaleY = 0.6
+		DamageRadiusScaleX = 1.1
+		AutoAdjustForTarget = false
+		UseVulnerability = false
+		NumPenetrations = 999
+		IgnoreDodge = true
+		SpawnRadius = 0
+		Speed = -100
+		UseStartLocation = true
+		DetonateLineOfSight = true
+		CanHitWithoutDamage = true
+		SilentImpactOnInvulnerable = true
+		Thing =
+		{
+		}
+	}
+	{
+		Name = "FamiliarLinkLaser"
+		InheritFrom = "1_BaseProjectile"
+		Type = "BEAM"
+				AutoAdjustForTarget = true
+		EndBeamAtTarget = true
+		MaxAdjustRate = 1080
+		SpinRate = 0
+		AffectsFriends = false
+		CheckUnitImpact = true
+		CheckObstacleImpact = false
+		MultipleObstacleCollisions = false
+		MultipleUnitCollisions = true
+		UnlimitedUnitPenetration = true
+		NumPenetrations = 9999
+		Range = 1200
+		BeamDieOnTargetLost = true
+		Damage = 10
+		Fuse = 5
+		ImmunityDuration = 0.2
+		DrawAsBeam = true
+		GroupName = "FX_Standing_Add"
+		TipFx = "FamiliarLinkLaserOriginFlare"
+		AttachToOwner = true
+		DieWithOwner = true
+		DissipateFx = "EnemyLaserEnd"
+		InflictedDamageSound = "/SFX/BurnDamage"
+		IgnoreCancelAttachedProjectiles = true
+		Thing =
+		{
+			Graphic = "FamiliarLinkLaser"
+			AttachedAnim = "FamiliarLinkLaserOriginFlareLarge"
+			OffsetZ = 70
+			Grip = 999999
+			Tallness = 10
+			UseBoundsForSortDrawArea = true
+		}
+	}
+	{
+		Name = "PoseidonEffectFont"
+		InheritFrom = "1_BaseProjectile"
+		DetonateFx = "PoseidonElementalKnockupFxAlt"
+		Range = 200
+		AutoAdjustForTarget = false
+		CheckObstacleImpact = true
+		UnlimitedUnitPenetration = true
+		Type = "INSTANT"
+		Damage = 50
+		Fuse = 0.2
+		DamageRadius = 10
+		DamageRadiusScaleX = 1.175
+		DamageRadiusScaleY = 0.56
+		ImpactVelocity = 0
+		AffectsFriends = false
+		AffectsSelf = false
+		AffectsEnemies = true
+		MaxVictimZ = 9999
+		UseVulnerability = false
+		IgnoreCoverageAngles = true
+		ClearOnAttackEffects = false
+		Thing =
+		{
+			Graphic = "null"
+			Color =
+			{
+				Red = 1.0
+				Green = 1.0
+				Blue = 1.0
+				Opacity = 1.0
+			}
+			Points =
+			[
+				{
+					X = 0
+					Y = 8
+				}
+				{
+					X = 32
+					Y = 0
+				}
+				{
+					X = 0
+					Y = -8
+				}
+				{
+					X = -32
+					Y = 0
+				}
+			]
+		}
+	}
+]}
