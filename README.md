@@ -45,12 +45,13 @@ the game:
   two fake dunks.  The catch window has been extended slightly too, though
   it was already much easier in Hades II than it was in the original.
 - Doubles the amount of boss/guardian drops (cinder, tears, etc), including
-  the gem drops from Grave Thirst.
+  the gem drops from Grave Thirst, and Nightmare drops.
 - Halves the processing time for a few things in the game:
   - Keepsake advancement
   - Growing plants in the garden
   - Brewing alchemy in the cauldron
-- Improves the delivery time for items from Charon's Stash *(still untested!)*
+- Improves the delivery time for items from Charon's Stash *(may need to
+  order one item for the changes to take effect)*
 
 And then some stuff that's very much just outright cheating:
 
@@ -140,6 +141,7 @@ applied.  Here's the default set:
     charon_stash_delivery_scale: Scale by 0.4
              boss_drop_quantity: Hardcoded to: 2
                  gem_drop_scale: Scale by 2
+           nightmare_drop_scale: Scale by 2
                  fishing_chance: Resource-gathering chance of 0.6 (room distance: 1, limit per biome: 3)
                fishing_distance: Resource-gathering chance of 0.6 (room distance: 1, limit per biome: 3)
              fishing_other_lock: Resource-gathering chance of 0.6 (room distance: 1, limit per biome: 3)
@@ -280,6 +282,9 @@ redistribution -- perhaps it's covered by Fair Use?
 
 Changelog
 ---------
+
+**2025-11-03**:
+ - Doubled Nightmare drops from guardians
 
 **2025-11-02**:
  - Added speedups to the following:

@@ -614,10 +614,14 @@ def main():
             # `Mixer*Boss` are the usual level guardian drops (the letter matches the map)
             # `Mixer5Common` is Star Dust from Chaos Trials
             # `Mixer6Common` is Flux, though we don't actually change that here
+            # `WeaponPointsRare` is Nightmare, though we don't actually change that here
             'boss_drop_quantity': ActionHardcode(2),
 
             # Gem pickup scaling - defaults to 10, plus 10 for each biome cleared
             'gem_drop_scale': ActionScaleInt(2),
+
+            # Nightmare scaling (the default quantities differ by target)
+            'nightmare_drop_scale': ActionScaleInt(2),
 
             # Health - default: 10
             #'health_qty': ActionHardcode(40),
