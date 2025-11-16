@@ -64,7 +64,7 @@ Game Compatibility
 
 The files in the `templates` dir are up to date as of game version
 v1.133066, which is [v1.0 Hotfix 3](https://steamcommunity.com/games/1145350/announcements/detail/607549730650589101),
-released on October 31, 2025.  If the game's been updated since then, it's
+released on November 12, 2025.  If the game's been updated since then, it's
 entirely possible that some of those files may have been updated.  In that
 case, the changes would need to be merged back in to the templates for the
 script to remain compatible.
