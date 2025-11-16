@@ -2566,6 +2566,9 @@
 					GameStateRequirements =
 					{
 						{
+							PathTrue = { "GameState", "ReachedTrueEnding" },
+						},
+						{
 							SumPrevRuns = 8,
 							Path = { "SpeechRecord", "/VO/MelinoeField_4584" },
 							CountPathTrue = true,

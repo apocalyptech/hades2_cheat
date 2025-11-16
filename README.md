@@ -63,7 +63,7 @@ Game Compatibility
 ------------------
 
 The files in the `templates` dir are up to date as of game version
-v1.132940, which is [Post-Launch Patch 1](https://store.steampowered.com/news/app/1145350/view/499462068471074277),
+v1.133066, which is [v1.0 Hotfix 3](https://steamcommunity.com/games/1145350/announcements/detail/607549730650589101),
 released on October 31, 2025.  If the game's been updated since then, it's
 entirely possible that some of those files may have been updated.  In that
 case, the changes would need to be merged back in to the templates for the
@@ -290,6 +290,9 @@ redistribution -- perhaps it's covered by Fair Use?
 
 Changelog
 ---------
+
+**2025-11-16**:
+ - Updated to Hades II v1.133066 data ([v1.0 Hotfix 3](https://steamcommunity.com/games/1145350/announcements/detail/607549730650589101))
 
 **2025-11-03**:
  - Doubled Nightmare drops from guardians
