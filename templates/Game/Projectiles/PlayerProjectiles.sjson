@@ -226,7 +226,7 @@
 		CheckUnitImpact = false
 		CheckObstacleImpact = true
 		ImpactFx = "RadialNovaDionysus"
-		Damage = 50
+		Damage = @weapon_damage_scale|50@
 		DamageRadiusScaleY = 0.5
 		BlastSpeed = 3000
 		ImpactVelocity = 0
@@ -710,7 +710,7 @@
 		InheritFrom = "1_BaseDamagingProjectile"
 		Type = "INSTANT"
 		Range = 0.0
-		Damage = 75
+		Damage = @weapon_damage_scale|75@
 		DamageRadius = 450
 		DamageRadiusScaleY = 0.5
 		CheckUnitImpact = false
@@ -8654,7 +8654,7 @@
 		Type = "INSTANT"
 		Fuse = 0.0
 		Range = 0
-		Damage = 60
+		Damage = @weapon_damage_scale|60@
 		DamageRadius = 505.0
 		BlastSpeed = 3000
 		DamageRadiusScaleY = 0.6

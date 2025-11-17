@@ -293,6 +293,8 @@ Changelog
 
 **2025-11-16**:
  - Updated to Hades II v1.133066 data ([v1.0 Hotfix 3](https://steamcommunity.com/games/1145350/announcements/detail/607549730650589101))
+ - Added weapon damage scaling to a few places where it was missed,
+   notably including some various Hidden Aspect damage sources
 
 **2025-11-03**:
  - Doubled Nightmare drops from guardians
