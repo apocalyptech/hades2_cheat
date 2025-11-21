@@ -379,6 +379,9 @@ class ActionGodMode(Action):
         self.end_pct = end_pct
         self.steps = steps
         self.step = (self.end_pct-self.start_pct)/self.steps
+        if end_pct < 0.2:
+            print('WARNING: The game engine is hardcoded to not allow God Mode')
+            print('damage reduction of more than 80%')
 
     def _desc(self):
         return 'God Mode from {}% -> {}%, with {} steps'.format(
@@ -605,7 +608,7 @@ def main():
 
     # Defaults are effectively: 0.8, 0.2 (though the "0.2" isn't
     # actually stored that way in the actual game data)
-    godmode = ActionGodMode(0.7, 0.1, steps=20)
+    godmode = ActionGodMode(0.6, 0.2, steps=20)
 
     # The defaults vary wildly
     fishing = ActionGathering(0.6)

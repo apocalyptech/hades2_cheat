@@ -177,12 +177,18 @@ applied.  Here's the default set:
          fishing_gift_max_fakes: Hardcoded to: 2
        fishing_success_interval: Hardcoded to: 1
           fishing_late_interval: Hardcoded to: 2
-              godmode_start_pct: God Mode from 70% -> 10%, with 20 steps
-              godmode_per_death: God Mode from 70% -> 10%, with 20 steps
-              godmode_death_cap: God Mode from 70% -> 10%, with 20 steps
+              godmode_start_pct: God Mode from 60% -> 20%, with 20 steps
+              godmode_per_death: God Mode from 60% -> 20%, with 20 steps
+              godmode_death_cap: God Mode from 60% -> 20%, with 20 steps
           keepsake_evolve_scale: Scale by 0.5
               garden_grow_scale: Scale by 0.5
             cauldron_cook_scale: Scale by 0.5
+          npc_min_room_distance: Minimum of either default or 1
+       becoming_closer_min_runs: Minimum of either default or 0
+       nemesis_encounter_weight: Multiply encounter weight by 2
+      nemesis_min_room_distance: Minimum of either default or 5
+        icarus_encounter_weight: Multiply encounter weight by 40
+               medea_room_force: Force to always spawn
 
 The `--defaults` option can be used to revert the scripts back to their
 original, default configuration, in case you'd like a quick way to disable
@@ -302,6 +308,9 @@ Changelog
    - Icarus Encounters *(these are now very nearly guaranteed)*
  - Medea doorway in Ephyra will always spawn if not specifically
    blocked by some other game condition
+ - Nerfed the "maximum" God Mode damage scaling from 10% to 20% --
+   the game is actually hardcoded to not allow it to go past
+   20%, so setting it to 10% on the high end was pointless.
 
 **2025-11-16**:
  - Updated to Hades II v1.133066 data ([v1.0 Hotfix 3](https://steamcommunity.com/games/1145350/announcements/detail/607549730650589101))
