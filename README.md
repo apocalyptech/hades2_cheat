@@ -58,8 +58,8 @@ the game:
 
 And then some stuff that's very much just outright cheating:
 
-- Buffed God Mode.  Starts at 30% damage reduction and goes to 10%,
-  over the course of 20 deaths instead of 30.
+- Buffed God Mode.  Starts at 40% damage scaling and goes to 20% (defaults
+  of the game being 80% and 20%) over the course of 20 deaths instead of 30.
 - Increased weapon damage by 50%
 
 Game Compatibility
