@@ -3437,7 +3437,7 @@ RoomSetData.N =
 		MaxCreationsThisRun = 1,
 		ForceIfUnseenForRuns = 3,
 		ReverbValue = 0.5,
-
+@medea_room_force|@
 		FishingPointChance = @fishing_chance|0.40@,
 
 		HarvestPointRequirements =

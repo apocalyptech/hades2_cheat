@@ -206,6 +206,51 @@ class ActionMinimum(Action):
         return min(float(default), self.val)
 
 
+class ActionWeightEncounter(Action):
+    """
+    Like in Hades I, encounters in locations are randomized via a big list
+    of possible encounters.  The weighting between the various encounter
+    types can be tweaked by just putting in more entries of the encounter
+    you want.  (For instance, in Erebus there are twelve `GeneratedF`
+    entries but only two `ArachneCombatF` entries.)
+
+    This action can be used to multiply a specific entry by any arbitrary
+    amount, to make those encounters more likely.
+    """
+
+    def __init__(self, multiplier=1, use_default=False):
+        """
+        """
+        super().__init__(use_default)
+        self.multiplier = multiplier
+
+    def _desc(self):
+        return f'Multiply encounter weight by {self.multiplier}'
+
+    def _process(self, name, default):
+        return '", "'.join([default]*self.multiplier)
+
+
+class ActionAddAlwaysForce(Action):
+    """
+    Adds in a new line to room definitions to make the room forced.
+    This action is intended to be added to an otherwise blank line
+    in the room definition.
+    """
+
+    def __init__(self, indent=2, use_default=False):
+        """
+        """
+        super().__init__(use_default)
+        self.indent = indent
+
+    def _desc(self):
+        return f'Force to always spawn'
+
+    def _process(self, name, default):
+        return "\t"*self.indent + "AlwaysForce = true,\r\n"
+
+
 class ActionGathering(Action):
     """
     Action to control how often we see "gathering" opportunities in locations.
@@ -736,6 +781,47 @@ def main():
 
             # Default: 0.22
             #'charon_shoplift_chance': ActionHardcode(1),
+
+            ###
+            ### NPC Encounter Room Distance
+            ### (ie: how many rooms before you can get another NPC encounter)
+            ###
+
+            'npc_min_room_distance': ActionMinimum(1),
+
+            ###
+            ### Minimum "Becoming Closer" runs distance
+            ### (ie, I think, how many runs must there be inbetween relationship-
+            ### deepening events)
+            ###
+
+            'becoming_closer_min_runs': ActionMinimum(0),
+
+            ###
+            ### Nemesis Random Encounter Chance
+            ###
+
+            # Both the Random Event and Combat ones are necessary for progression.
+            # Nemesis also has a separate check for room distance between other
+            # relationship progressions, so fudging that as well.
+            'nemesis_encounter_weight': ActionWeightEncounter(2),
+            'nemesis_min_room_distance': ActionMinimum(5),
+
+            ###
+            ### Icarus Random Encounter Chance
+            ###
+
+            # There's actually two events which seem likely for him: IcarusCombatO
+            # and IcarusCombatO2.  Not sure exactly what the difference is; I'm just
+            # buffing both.  I assume that one is a single-time encounter, though
+            # I didn't quite grok the encounter requirements.
+            'icarus_encounter_weight': ActionWeightEncounter(40),
+
+            ###
+            ### Force Medea Room in Ephyra
+            ###
+
+            'medea_room_force': ActionAddAlwaysForce(),
 
             ###
             ### Erebus / Infernal Gate

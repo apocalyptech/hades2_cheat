@@ -52,6 +52,9 @@ the game:
   - Brewing alchemy in the cauldron
 - Improves the delivery time for items from Charon's Stash *(may need to
   order one item for the changes to take effect)*
+- Allow generic NPC Encounter and "Becoming Closer" events to happen more
+  frequently, make mid-run Nemesis and Icarus encounters more likely, and
+  guarantee a Medea doorway in Ephyra
 
 And then some stuff that's very much just outright cheating:
 
@@ -290,6 +293,15 @@ redistribution -- perhaps it's covered by Fair Use?
 
 Changelog
 ---------
+
+**2025-11-21**:
+ - Allow NPC Encounters to happen closer to each other
+ - Allow "Becoming Closer" Encounters to happen closer to each other
+ - Increased the weight of:
+   - Nemesis Encounters
+   - Icarus Encounters *(these are now very nearly guaranteed)*
+ - Medea doorway in Ephyra will always spawn if not specifically
+   blocked by some other game condition
 
 **2025-11-16**:
  - Updated to Hades II v1.133066 data ([v1.0 Hotfix 3](https://steamcommunity.com/games/1145350/announcements/detail/607549730650589101))
